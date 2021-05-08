@@ -96,7 +96,7 @@ async function createWindow() {
         update = await fetch("https://ping.ytgeek.gq/versions.json").then(async (res) => await res.json())
         console.log(package.version)
         console.log(update.threema)
-        if (!satisfies(package.version = update.threema)) {
+        if (package.version !== update.threema) {
             let upgrade = dialog.showMessageBox(mainWindow, {
                 buttons: ["Yes", "No"],
                 message: "An update is avaliable. Please download it to continue using Threema For Desktop. Else, you won't be able to use Threema For Desktop."
@@ -110,6 +110,8 @@ async function createWindow() {
                     if (process.platform == "linux") shell.openExternal(`https://github.com/GeekCornerGH/Threema-For-Desktop/releases/download/v${update.threema}/Threema-For-Desktop-linux-${update.threema}.AppImage`)
                     app.quit();
                 }
+                else app.quit()
+                
             })
             
            
