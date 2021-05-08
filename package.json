@@ -1,0 +1,32 @@
+{
+  "name": "threema-desktop",
+  "version": "1.0.0",
+  "description": "Threema for Desktop",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "cross-env ELECTRON_BUILDER_ALLOW_UNRESOLVED_DEPENDENCIES=true node build.js",
+    "build:windows": "yarn build -- WINDOWS",
+    "build:mac": "yarn build -- MAC",
+    "build:linux": "yarn build -- LINUX",
+    "cilinux": "node build.js LINUX && node build.js WINDOWS",
+    "cidarwin": "node build.js MAC"
+  },
+  "author": "GeekCorner",
+  "license": "MIT",
+  "dependencies": {
+    "discord-rpc": "^3.2.0",
+    "node-fetch": "^2.6.1",
+    "path": "^0.12.7",
+    "semver": "^7.3.5"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "electron": "^12.0.5",
+    "electron-builder": "^22.10.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/geekcornergh/threema-for-desktop"
+  }
+}

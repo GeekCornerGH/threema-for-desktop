@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Threema Desktop</title>
+</head>
+
+<body>
+    <div id="wrapper">
+        <div class="loading-container">
+            <div class="bubble1 bubble"></div>
+            <div class="bubble2 bubble"></div>
+            <div class="bubble3 bubble"></div>
+        </div>
+    </div>
+</body>
+<style>
+    :root {
+        --dark: #323232;
+        --light: #05a63f;
+    }
+
+    body {
+        background-color: var(--dark);
+        margin: 0;
+        padding: 0;
+    }
+
+    #wrapper {
+        text-align: center;
+        margin: 0 auto;
+        width: auto;
+        height: 90vh;
+        padding: 20px;
+        color: var(--light);
+    }
+
+    .loading-container {
+        user-select: none;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: -50px;
+        margin-left: -50px;
+        width: 100px;
+        height: 100px;
+    }
+
+    .bubble {
+        width: 25px;
+        height: 25px;
+        background-color: var(--light);
+        border-radius: 50%;
+        display: inline-block;
+        -webkit-animation: in-and-out-bubbles 1.20s infinite ease-in-out;
+        animation: in-and-out-bubbles 1.20s infinite ease-in-out;
+    }
+
+    .bubble1 {
+        -webkit-animation-delay: -0.35s;
+        animation-delay: -0.35s;
+    }
+
+    .bubble2 {
+        -webkit-animation-delay: -0.20s;
+        animation-delay: -0.20s;
+    }
+
+    @keyframes in-and-out-bubbles {
+
+        0%,
+        80%,
+        100% {
+            transform: scale(0)
+        }
+
+        20% {
+            transform: scale(1)
+        }
+    }
+
+    @-webkit-keyframes in-and-out-bubbles {
+
+        0%,
+        80%,
+        100% {
+            -webkit-transform: scale(0)
+        }
+
+        20% {
+            -webkit-transform: scale(1)
+        }
+    }
+</style>
+
+</html>
