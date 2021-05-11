@@ -66,7 +66,7 @@ builder.build({
         },
         compression: 'maximum',
         files: [
-            '!{dist,.gitignore,.vscode,.travis.yml,.nvmrc,build.js}'
+            '!{dist,.gitignore,.vscode,.travis.yml,.nvmrc,build.js,.github}'
         ],
         asar: true
     }
