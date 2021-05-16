@@ -30,7 +30,7 @@ builder.build({
             target: [
                 {
                     target: 'nsis',
-                    arch: ['x64', 'ia32']
+                    arch: ['x64', 'ia32', 'arm64']
                 }
             ]
         },
@@ -41,7 +41,6 @@ builder.build({
             allowToChangeInstallationDirectory: true,
             license: './assets/licence.txt',
             displayLanguageSelector: true,
-
         },
         mac: {
             target: [{
