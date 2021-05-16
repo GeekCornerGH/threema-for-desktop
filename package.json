@@ -17,8 +17,7 @@
   "dependencies": {
     "discord-rpc": "^3.2.0",
     "node-fetch": "^2.6.1",
-    "path": "^0.12.7",
-    "semver": "^7.3.5"
+    "path": "^0.12.7"
   },
   "devDependencies": {
     "cross-env": "^7.0.3",
