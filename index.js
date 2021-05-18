@@ -170,13 +170,13 @@ async function createWindow() {
         else match = null;
         if (match) {
             if (match) {
-                details = `${match} message${(match > 1) ? "s" : ""} non - lu${(match > 1) ? "s" : ""} `
+                details = `${match} unread message${(match > 1) ? "s" : ""}`
                 if (parseInt(match) < 10) app.setBadgeCount(parseInt(match))
                 else app.setBadgeCount()
             }
         }
         else {
-            details = "Aucun message non-lu"
+            details = "There is no unread message"
             app.setBadgeCount(0)
 
         }
