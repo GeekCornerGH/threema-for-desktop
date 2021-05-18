@@ -1,8 +1,8 @@
 // Modules to control application life and create native browser window
-const { app, BrowserWindow, Menu, dialog, shell, Notification, ipcMain } = require('electron');
+const { app, BrowserWindow, Menu, dialog, shell, Notification, ipcMain, Tray } = require('electron');
 const fetch = require("node-fetch");
-const { satisfies } = require("semver");
 const package = require("./package.json");
+let tray;
 app.setAppUserModelId("threema-for-desktop");
 
 ver = package.dependencies['discord-rpc'].replace("^", "");
@@ -23,7 +23,10 @@ client.login({ clientId: "829374669000933432" }).catch((e) => {
     console.log(e)
 });
 
+
+
 async function createWindow() {
+
     // Create the browser window.
     mainWindow = new BrowserWindow({
         width: 800,
@@ -36,7 +39,15 @@ async function createWindow() {
             contextIsolation: false
 
         },
-    })
+    });
+    mainWindow.on("close", e => {
+        if (!app.isQuiting) {
+            e.preventDefault();
+            mainWindow.hide();
+        };
+        return false;
+    });
+
     ipcMain.on('notification', (event, msg) => {
         if (!mainWindow.isFocused()) {
             if (process.platform == "win32") {
@@ -77,7 +88,11 @@ async function createWindow() {
                 new Notification(notification).show()
             }
             showNotification();
-            dialog.showErrorBox("Error", "No internet connexion avaliable.")
+            dialog.showMessageBox(mainWindow, {
+                type: "error",
+                message: "No internet connexion avaliable. Make sure you have access to internet",
+                buttons: ["Ok"],
+            }).then(() => app.quit());
             if (!mainWindow.isFocused()) {
                 if (process.platform == "win32") {
                     mainWindow.once('focus', () => mainWindow.flashFrame(false))
@@ -94,11 +109,10 @@ async function createWindow() {
     let update;
     (async () => {
         update = await fetch("https://ping.ytgeek.gq/versions.json").then(async (res) => await res.json())
-        console.log(package.version)
-        console.log(update.threema)
         if (package.version !== update.threema) {
             let upgrade = dialog.showMessageBox(mainWindow, {
-                buttons: ["Yes", "No"],
+                buttons: ["Yes", "No", "Show changelog"],
+                noLink: true,
                 message: "An update is avaliable. Please download it to continue using Threema For Desktop. Else, you won't be able to use Threema For Desktop."
             }).then(res => {
                 if (res.response == 0) {
@@ -108,20 +122,23 @@ async function createWindow() {
                         else shell.openExternal(`https://github.com/GeekCornerGH/Threema-For-Desktop/releases/download/v${update.threema}/Threema-For-Desktop-mac-${update.threema}.dmg`)
                     }
                     if (process.platform == "linux") shell.openExternal(`https://github.com/GeekCornerGH/Threema-For-Desktop/releases/download/v${update.threema}/Threema-For-Desktop-linux-${update.threema}.AppImage`)
+                    app.isQuiting = true;
                     app.quit();
                 }
-                else app.quit()
-                
+                else if(res.response == 1) {
+                    app.isQuiting = true;
+                    app.quit();
+                }
+                else {
+                    shell.openExternal(`https://github.com/GeekCornerGH/threema-for-desktop/releases/tag/v${update.threema}`);
+                    app.isQuiting = true;
+                    app.quit();
+                }
+
             })
-            
-           
-            if (process.platform == "win32") {
-                
-            }
         }
-    })();
-    
-        mainWindow.webContents.executeJavaScript(`
+        else {
+            mainWindow.webContents.executeJavaScript(`
     if (!window.location.href.includes("web.threema.ch")) {
         window.location.replace("https://web.threema.ch");
     }
@@ -136,6 +153,10 @@ async function createWindow() {
         });
 
     }`);
+        }
+    })();
+
+
     if (mainWindow.maximizable) mainWindow.maximize()
 
     // Open the DevTools.
@@ -178,6 +199,50 @@ async function createWindow() {
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
 app.whenReady().then(() => {
+    tray = new Tray(path.join(__dirname, 'assets/logo.png'));
+    tray.setToolTip("Threema For Desktop")
+    const trayMenu = [
+        {
+            label: "Threema For Desktop",
+            icon: path.join(__dirname, "assets/tray.png"),
+            enabled: false
+        },
+        {
+            type: "separator"
+        },
+        {
+            label: "Show source code",
+            click: function () {
+                shell.openExternal("https://github.com/GeekCornerGH/Threema-For-Desktop");
+            }
+        },
+        {
+            label: "Report an issue",
+            click: function() {
+                shell.openExternal("https://github.com/GeekCornerGH/Threema-For-Desktop/issues")
+            }
+        },
+        {
+            type: "separator"
+        },
+        {
+            label: "Toggle visibility",
+            click: function () {
+                mainWindow.isVisible() ? mainWindow.hide() : mainWindow.show();
+            }
+        },
+        {
+            label: "Quit",
+            click: function () {
+                app.isQuiting = true;
+                app.quit();
+            }
+        }
+    ]
+    tray.setContextMenu(Menu.buildFromTemplate(trayMenu));
+    tray.on("click", () => {
+        mainWindow.isVisible() ? mainWindow.hide() : mainWindow.show();
+    });
     createMenu();
     createWindow();
 
@@ -193,9 +258,12 @@ app.whenReady().then(() => {
 // for applications and their menu bar to stay active until the user quits
 // explicitly with Cmd + Q.
 app.on('window-all-closed', function () {
-    if (process.platform !== 'darwin') app.quit()
-})
-let notif;
+    if (process.platform !== 'darwin') {
+        app.isQuiting = true;
+        app.quit();
+    }
+});
+
 
 
 // In this file you can include the rest of your app's specific main process
@@ -226,10 +294,27 @@ function createMenu() {
         label: 'Threema For Desktop',
         submenu: [{
             type: 'separator'
-        }, {
+        }, 
+        {
+            label: "Show source code",
+            click: function () {
+                shell.openExternal("https://github.com/GeekCornerGH/Threema-For-Desktop");
+            }
+        },
+        {
+            label: "Report an issue",
+            click: function() {
+                shell.openExternal("https://github.com/GeekCornerGH/Threema-For-Desktop/issues")
+            }
+        },
+        {
+            type: "separator"
+        },
+        {
             label: 'Quit',
             accelerator: 'CmdOrCtrl+Q',
             click: () => {
+                app.isQuiting = true;
                 app.quit()
             }
         }]
