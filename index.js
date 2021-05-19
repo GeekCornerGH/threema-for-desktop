@@ -15,7 +15,7 @@ drpc.register("829374669000933432");
 const client = new drpc.Client({ transport: "ipc" });
 const date = Date.now();
 let details = "Threema Desktop";
-client.on("ready", async () => {
+client.on("ready", async() => {
     createRPC(details);
 });
 
@@ -36,7 +36,8 @@ async function createWindow() {
             preload: path.join(__dirname, 'preload.js'),
             nodeIntegration: false,
             enableRemoteModule: false,
-            contextIsolation: false
+            contextIsolation: false,
+            webviewTag: true
 
         },
     });
@@ -69,16 +70,18 @@ async function createWindow() {
 
     // and load the index.html of the app.
     await mainWindow.loadFile('./loader/loader.html');
-    (async () => {
+    mainWindow.webContents.executeJavaScript(`document.getElementById("state").innerHTML = "Checking internet connection...";`);
+    (async() => {
+
         try {
+
             let ok = 'ok'
             await fetch("https://ping.ytgeek.gq/ping.json").then(async res => {
                 status = await res.json();
                 ok == status.status
 
             });
-        }
-        catch {
+        } catch {
 
             function showNotification() {
                 notification = {
@@ -107,8 +110,9 @@ async function createWindow() {
         }
     })();
     let update;
-    (async () => {
-        update = await fetch("https://ping.ytgeek.gq/versions.json").then(async (res) => await res.json())
+    (async() => {
+        mainWindow.webContents.executeJavaScript(`document.getElementById("state").innerHTML = "Checking for updates...";`);
+        update = await fetch("https://ping.ytgeek.gq/versions.json").then(async(res) => await res.json())
         if (package.version !== update.threema) {
             let upgrade = dialog.showMessageBox(mainWindow, {
                 buttons: ["Yes", "No", "Show changelog"],
@@ -124,20 +128,18 @@ async function createWindow() {
                     if (process.platform == "linux") shell.openExternal(`https://github.com/GeekCornerGH/Threema-For-Desktop/releases/download/v${update.threema}/Threema-For-Desktop-linux-${update.threema}.AppImage`)
                     app.isQuiting = true;
                     app.quit();
-                }
-                else if(res.response == 1) {
+                } else if (res.response == 1) {
                     app.isQuiting = true;
                     app.quit();
-                }
-                else {
+                } else {
                     shell.openExternal(`https://github.com/GeekCornerGH/threema-for-desktop/releases/tag/v${update.threema}`);
                     app.isQuiting = true;
                     app.quit();
                 }
 
             })
-        }
-        else {
+        } else {
+            mainWindow.webContents.executeJavaScript(`document.getElementById("state").innerHTML = "Everything is ok, loading Threema...";`);
             mainWindow.webContents.executeJavaScript(`
     if (!window.location.href.includes("web.threema.ch")) {
         window.location.replace("https://web.threema.ch");
@@ -161,7 +163,7 @@ async function createWindow() {
 
     // Open the DevTools.
     // mainWindow.webContents.openDevTools()
-    setInterval(async function () {
+    setInterval(async function() {
         let regex = /\((\d+?)\) Threema Web/
         title = await mainWindow.webContents.executeJavaScript(`
     document.getElementsByTagName("title")[0].innerText`)
@@ -174,8 +176,7 @@ async function createWindow() {
                 if (parseInt(match) < 10) app.setBadgeCount(parseInt(match))
                 else app.setBadgeCount()
             }
-        }
-        else {
+        } else {
             details = "There is no unread message"
             app.setBadgeCount(0)
 
@@ -201,8 +202,7 @@ async function createWindow() {
 app.whenReady().then(() => {
     tray = new Tray(path.join(__dirname, 'assets/logo.png'));
     tray.setToolTip("Threema For Desktop")
-    const trayMenu = [
-        {
+    const trayMenu = [{
             label: "Threema For Desktop",
             icon: path.join(__dirname, "assets/tray.png"),
             enabled: false
@@ -212,7 +212,7 @@ app.whenReady().then(() => {
         },
         {
             label: "Show source code",
-            click: function () {
+            click: function() {
                 shell.openExternal("https://github.com/GeekCornerGH/Threema-For-Desktop");
             }
         },
@@ -227,13 +227,13 @@ app.whenReady().then(() => {
         },
         {
             label: "Toggle visibility",
-            click: function () {
+            click: function() {
                 mainWindow.isVisible() ? mainWindow.hide() : mainWindow.show();
             }
         },
         {
             label: "Quit",
-            click: function () {
+            click: function() {
                 app.isQuiting = true;
                 app.quit();
             }
@@ -247,7 +247,7 @@ app.whenReady().then(() => {
     createWindow();
 
 
-    app.on('activate', function () {
+    app.on('activate', function() {
         // On macOS it's common to re-create a window in the app when the
         // dock icon is clicked and there are no other windows open.
         if (BrowserWindow.getAllWindows().length === 0) createWindow()
@@ -257,7 +257,7 @@ app.whenReady().then(() => {
 // Quit when all windows are closed, except on macOS. There, it's common
 // for applications and their menu bar to stay active until the user quits
 // explicitly with Cmd + Q.
-app.on('window-all-closed', function () {
+app.on('window-all-closed', function() {
     if (process.platform !== 'darwin') {
         app.isQuiting = true;
         app.quit();
@@ -293,107 +293,106 @@ function createMenu() {
     let applicationSubMenu = {
         label: 'Threema For Desktop',
         submenu: [{
-            type: 'separator'
-        }, 
-        {
-            label: "Show source code",
-            click: function () {
-                shell.openExternal("https://github.com/GeekCornerGH/Threema-For-Desktop");
+                type: 'separator'
+            },
+            {
+                label: "Show source code",
+                click: function() {
+                    shell.openExternal("https://github.com/GeekCornerGH/Threema-For-Desktop");
+                }
+            },
+            {
+                label: "Report an issue",
+                click: function() {
+                    shell.openExternal("https://github.com/GeekCornerGH/Threema-For-Desktop/issues")
+                }
+            },
+            {
+                type: "separator"
+            },
+            {
+                label: 'Quit',
+                accelerator: 'CmdOrCtrl+Q',
+                click: () => {
+                    app.isQuiting = true;
+                    app.quit()
+                }
             }
-        },
-        {
-            label: "Report an issue",
-            click: function() {
-                shell.openExternal("https://github.com/GeekCornerGH/Threema-For-Desktop/issues")
-            }
-        },
-        {
-            type: "separator"
-        },
-        {
-            label: 'Quit',
-            accelerator: 'CmdOrCtrl+Q',
-            click: () => {
-                app.isQuiting = true;
-                app.quit()
-            }
-        }]
+        ]
     }
     let edit = {
         label: "Edit",
         submenu: [{
-            label: "Undo",
-            accelerator: "CmdOrCtrl+Z",
-            role: 'undo'
-        },
-        {
-            label: "Redo",
-            accelerator: "CmdOrCtrl+Y",
-            role: "redo"
-        },
-        {
-            type: 'separator'
-        },
-        {
-            label: "Copy",
-            accelerator: "CmdOrCtrl+C",
-            role: "copy"
-        },
-        {
-            label: "Cut",
-            accelerator: "CmdOrCtrl+X",
-            role: "cut"
-        },
-        {
-            label: "Paste",
-            accelerator: "CmdOrCtrl+V",
-            role: "paste"
-        },
-        {
-            label: "Select all",
-            accelerator: "CmdOrCtrl+A",
-            role: "selectall"
+                label: "Undo",
+                accelerator: "CmdOrCtrl+Z",
+                role: 'undo'
+            },
+            {
+                label: "Redo",
+                accelerator: "CmdOrCtrl+Y",
+                role: "redo"
+            },
+            {
+                type: 'separator'
+            },
+            {
+                label: "Copy",
+                accelerator: "CmdOrCtrl+C",
+                role: "copy"
+            },
+            {
+                label: "Cut",
+                accelerator: "CmdOrCtrl+X",
+                role: "cut"
+            },
+            {
+                label: "Paste",
+                accelerator: "CmdOrCtrl+V",
+                role: "paste"
+            },
+            {
+                label: "Select all",
+                accelerator: "CmdOrCtrl+A",
+                role: "selectall"
 
-        },
+            },
         ]
     }
     let view = {
         label: "View",
         submenu: [{
-            label: "Refresh",
-            accelerator: "CmdOrCtrl+R",
-            click: (item, focusedWindow) => {
-                if (focusedWindow) {
-                    if (focusedWindow.id === 1) {
-                        BrowserWindow.getAllWindows().forEach(win => {
-                            if (win.id > 1) win.close()
-                        })
+                label: "Refresh",
+                accelerator: "CmdOrCtrl+R",
+                click: (item, focusedWindow) => {
+                    if (focusedWindow) {
+                        if (focusedWindow.id === 1) {
+                            BrowserWindow.getAllWindows().forEach(win => {
+                                if (win.id > 1) win.close()
+                            })
+                        }
+                        focusedWindow.reload()
                     }
-                    focusedWindow.reload()
                 }
-            }
-        },
-        {
-            label: "Toggle Developer View",
-            accelerator: (() => {
-                if (process.platform === 'darwin') {
-                    return 'Alt+Command+I'
-                } else {
-                    return 'Ctrl+Shift+I'
+            },
+            {
+                label: "Toggle Developer View",
+                accelerator: (() => {
+                    if (process.platform === 'darwin') {
+                        return 'Alt+Command+I'
+                    } else {
+                        return 'Ctrl+Shift+I'
+                    }
+                })(),
+                click: (item, focusedWindow) => {
+                    if (focusedWindow) {
+                        focusedWindow.toggleDevTools()
+                    }
                 }
-            })(),
-            click: (item, focusedWindow) => {
-                if (focusedWindow) {
-                    focusedWindow.toggleDevTools()
-                }
-            }
 
-        }]
+            }
+        ]
     }
     let menuTemplate = [applicationSubMenu, edit, view]
     let menuObject = Menu.buildFromTemplate(menuTemplate)
     Menu.setApplicationMenu(menuObject)
 }
-
-
-
