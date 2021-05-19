@@ -391,8 +391,8 @@ function createMenu() {
 
             }
         ]
-    }
-    let menuTemplate = [applicationSubMenu, edit, view]
-    let menuObject = Menu.buildFromTemplate(menuTemplate)
-    Menu.setApplicationMenu(menuObject)
-}
+    };
+    let menuTemplate = [applicationSubMenu, edit, view];
+    let menuObject = Menu.buildFromTemplate(menuTemplate);
+    Menu.setApplicationMenu(menuObject);
+};
