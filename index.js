@@ -92,6 +92,7 @@ async function createWindow() {
             }
             showNotification();
             dialog.showMessageBox(mainWindow, {
+		title: "No internet connextion",
                 type: "error",
                 message: "No internet connexion avaliable. Make sure you have access to internet",
                 buttons: ["Ok"],
@@ -115,6 +116,7 @@ async function createWindow() {
         update = await fetch("https://ping.ytgeek.gq/versions.json").then(async(res) => await res.json())
         if (package.version !== update.threema) {
             let upgrade = dialog.showMessageBox(mainWindow, {
+		title: "Update avaliable",
                 buttons: ["Yes", "No", "Show changelog"],
                 noLink: true,
                 message: "An update is avaliable. Please download it to continue using Threema For Desktop. Else, you won't be able to use Threema For Desktop."
