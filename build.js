@@ -39,7 +39,7 @@ builder.build({
             perMachine: false,
             allowElevation: true,
             allowToChangeInstallationDirectory: true,
-            license: './build/licence.txt',
+            license: './build/license.txt',
             displayLanguageSelector: true,
         },
         mac: {
