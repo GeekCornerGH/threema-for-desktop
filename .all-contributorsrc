@@ -1,5 +1,24 @@
 {
   "contributorsSortAlphabetically": true,
   "skipCi": false,
-  "badgeTemplate": "[![All Contributors](https://img.shields.io/badge/all_contributors-<%= contributors.length %>-orange.svg?style=for-the-badge)](#contributors)"
+  "badgeTemplate": "[![All Contributors](https://img.shields.io/badge/all_contributors-<%= contributors.length %>-orange.svg?style=for-the-badge)](#contributors)",
+  "projectName": "threema-for-desktop",
+  "projectOwner": "GeekCornerGH",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "contributors": [
+    {
+      "login": "blue-keys",
+      "name": "BlueKeys",
+      "avatar_url": "https://avatars.githubusercontent.com/u/78284710?v=4",
+      "profile": "https://bkjoin.fr",
+      "contributions": [
+        "talk"
+      ]
+    }
+  ],
+  "files": [
+    "README.md"
+  ],
+  "contributorsPerLine": 7
 }
