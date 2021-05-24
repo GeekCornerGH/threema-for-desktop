@@ -34,7 +34,7 @@ builder.build({
                 },
                 {
                     target: 'portable',
-                    arch:['x64', 'ia32', 'arm64']
+                    arch:['x64', 'ia32', 'arm64'],
                 }
             ]
         },
