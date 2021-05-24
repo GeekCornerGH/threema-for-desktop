@@ -31,6 +31,10 @@ builder.build({
                 {
                     target: 'nsis',
                     arch: ['x64', 'ia32', 'arm64']
+                },
+                {
+                    target: 'portable',
+                    arch:['x64', 'ia32', 'arm64']
                 }
             ]
         },
@@ -41,6 +45,15 @@ builder.build({
             allowToChangeInstallationDirectory: true,
             license: './build/license.txt',
             displayLanguageSelector: true,
+            files: [
+                '!{dist,.gitignore,.vscode,.travis.yml,.nvmrc,build.js,.github,.all-contributorsrc,portable.json}'
+            ],
+        },
+        portable: {
+            artifactName:'Threema-For-Desktop-portable-${arch}-${version}.${ext}',
+            files: [
+                '!{dist,.gitignore,.vscode,.travis.yml,.nvmrc,build.js,.github,.all-contributorsrc}'
+            ],
         },
         mac: {
             target: [{
@@ -50,8 +63,12 @@ builder.build({
             category: 'public.app-category.social-networking'
         },
         dmg: {
-            artifactName: 'Threema-For-Desktop-mac-${arch}-${version}.${ext}'
+            artifactName: 'Threema-For-Desktop-mac-${arch}-${version}.${ext}',
+            files: [
+                '!{dist,.gitignore,.vscode,.travis.yml,.nvmrc,build.js,.github,.all-contributorsrc,portable.json}'
+            ],
         },
+        
         linux: {
             target: ['AppImage'],
             maintainer: 'GeekCorner',
@@ -61,12 +78,12 @@ builder.build({
             category: 'Office'
         },
         appImage: {
-            artifactName: 'Threema-For-Desktop-linux-${version}.${ext}'
+            artifactName: 'Threema-For-Desktop-linux-${version}.${ext}',
+            files: [
+                '!{dist,.gitignore,.vscode,.travis.yml,.nvmrc,build.js,.github,.all-contributorsrc,portable.json}'
+            ],
         },
         compression: 'maximum',
-        files: [
-            '!{dist,.gitignore,.vscode,.travis.yml,.nvmrc,build.js,.github}'
-        ],
         asar: true
     }
 }).then(() => {
