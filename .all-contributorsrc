@@ -27,7 +27,8 @@
     }
   ],
   "files": [
-    "README.md"
+    "README.md",
+    "CONTRIBUTORS.MD"
   ],
   "contributorsPerLine": 7
 }
