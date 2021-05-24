@@ -7,8 +7,8 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- markdownlint-disable -->
 <table>
   <tr>
-    <td align="center"><a href="https://ytgeek.gq"><img src="https://avatars.githubusercontent.com/u/45696571?v=4?s=100" width="100px;" alt=""/><br /><sub><b>GeekCornerGH</b></sub></a><br /><a href="https://github.com/GeekCornerGH/Threema-For-Desktop/commitsàuthor=GeekCornerGH" title="Code">💻</a> <a href="https://github.com/GeekCornerGH/Threema-For-Desktop/commitsàuthor=GeekCornerGH" title="Documentation">📖</a></td>
-    <td align="center"><a href="https://dependabot.com"><img src="https://avatars2.githubusercontent.com/u/36207117?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Dependabot</b></sub></a><br /><a href="#tool-dependabot-bot" title="Tools">🔧</a> <a href="#security-dependabot-bot" title="Security">🛡️</a></td>
+    <td align="center"><a href="https://ytgeek.gq"><img src="https://avatars.githubusercontent.com/u/45696571?v=4?s=100" width="100px;" alt=""/><br /><sub><b>GeekCornerGH</b></sub></a><br /><a href="https://github.com/GeekCornerGH/Threema-For-Desktop/commits?author=GeekCornerGH" title="Code">💻</a> <a href="https://github.com/GeekCornerGH/Threema-For-Desktop/commits?author=GeekCornerGH" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://dependabot.com"><img src="https://avatars2.githubusercontent.com/u/36207117?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Dependabot</b></sub></a><br /><a href="#" title="Tools">🔧</a> <a href="#" title="Security">🛡️</a></td>
   </tr>
 </table>
 
