@@ -92,5 +92,5 @@ This project follows the [all-contributors](https://github.com/all-contributors/
 <a href="https://github.com/geekcornergh/threema-for-desktop/releases/latest"><img src="https://img.shields.io/github/v/release/geekcornergh/threema-for-desktop?style=for-the-badge"></img></a>
 <a href="https://bit.ly/3uzMx5f"><img src="https://img.shields.io/badge/MADE%20IN-SWITZERLAND%F0%9F%87%A8%F0%9F%87%AD-critical?style=for-the-badge"></img></a>
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-<a href="https://github.com/geekcornergh/threema-for-desktop"><img src="https://img.shields.io/badge/all_contributors-3-orange.svg?style=for-the-badge"></img></a>
+[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=for-the-badge)](#contributors)
 <!-- ALL-CONTRIBUTORS-BADGE:END --> 
