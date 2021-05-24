@@ -45,15 +45,11 @@ builder.build({
             allowToChangeInstallationDirectory: true,
             license: './build/license.txt',
             displayLanguageSelector: true,
-            files: [
-                '!{dist,.gitignore,.vscode,.travis.yml,.nvmrc,build.js,.github,.all-contributorsrc,portable.json}'
-            ],
+           
         },
         portable: {
             artifactName:'Threema-For-Desktop-portable-${arch}-${version}.${ext}',
-            files: [
-                '!{dist,.gitignore,.vscode,.travis.yml,.nvmrc,build.js,.github,.all-contributorsrc}'
-            ],
+        
         },
         mac: {
             target: [{
@@ -64,9 +60,7 @@ builder.build({
         },
         dmg: {
             artifactName: 'Threema-For-Desktop-mac-${arch}-${version}.${ext}',
-            files: [
-                '!{dist,.gitignore,.vscode,.travis.yml,.nvmrc,build.js,.github,.all-contributorsrc,portable.json}'
-            ],
+            
         },
         
         linux: {
@@ -79,11 +73,11 @@ builder.build({
         },
         appImage: {
             artifactName: 'Threema-For-Desktop-linux-${version}.${ext}',
-            files: [
-                '!{dist,.gitignore,.vscode,.travis.yml,.nvmrc,build.js,.github,.all-contributorsrc,portable.json}'
-            ],
         },
         compression: 'maximum',
+        files: [
+            '!{dist,.gitignore,.vscode,.travis.yml,.nvmrc,build.js,.github,.all-contributorsrc,portable.json}'
+        ],
         asar: true
     }
 }).then(() => {
