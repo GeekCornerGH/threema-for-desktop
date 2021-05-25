@@ -9,3 +9,5 @@ updates:
     directory: "/" # Location of package manifests
     schedule:
       interval: "daily"
+      time: "07:00"
+      timezone: "Europe/Zurich"
