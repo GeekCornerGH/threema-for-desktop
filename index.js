@@ -2,6 +2,7 @@
 const { app, BrowserWindow, Menu, dialog, shell, Notification, ipcMain, Tray } = require('electron');
 const fetch = require("node-fetch");
 const package = require("./package.json");
+const { register } = require("electron-localshortcut");
 let tray;
 app.setAppUserModelId("threema-for-desktop");
 
@@ -277,6 +278,10 @@ app.whenReady().then(() => {
     });
     createMenu();
     createWindow();
+
+    register(mainWindow, ["CmdOrCtrl+Tab"], () => {
+        shell.openExternal("https://cutt.ly/1nezoij");
+    })
 
 
     app.on('activate', function() {
