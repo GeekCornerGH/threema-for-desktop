@@ -12,8 +12,6 @@ let mainWindow;
 
 
 const drpc = require("discord-rpc");
-const { timeEnd } = require('console');
-const { title } = require('process');
 drpc.register("829374669000933432");
 const client = new drpc.Client({ transport: "ipc" });
 const date = Date.now();
