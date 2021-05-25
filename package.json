@@ -1,32 +1,32 @@
 {
-  "name": "threema-desktop",
-  "version": "1.2.0",
-  "description": "Threema for Desktop",
-  "main": "index.js",
-  "scripts": {
-    "start": "electron .",
-    "build": "cross-env ELECTRON_BUILDER_ALLOW_UNRESOLVED_DEPENDENCIES=true node build.js",
-    "build:windows": "yarn build -- WINDOWS",
-    "build:mac": "yarn build -- MAC",
-    "build:linux": "yarn build -- LINUX",
-    "cilinux": "node build.js LINUX && node build.js WINDOWS",
-    "cidarwin": "node build.js MAC"
-  },
-  "author": "GeekCorner",
-  "license": "MIT",
-  "dependencies": {
-    "discord-rpc": "^3.2.0",
-    "electron-localshortcut": "^3.2.1",
-    "node-fetch": "^2.6.1",
-    "path": "^0.12.7"
-  },
-  "devDependencies": {
-    "cross-env": "^7.0.3",
-    "electron": "^13.0.0",
-    "electron-builder": "^22.11.5"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/geekcornergh/threema-for-desktop"
-  }
+    "name": "threema-desktop",
+    "version": "1.3.0",
+    "description": "Threema for Desktop",
+    "main": "index.js",
+    "scripts": {
+        "start": "electron .",
+        "build": "cross-env ELECTRON_BUILDER_ALLOW_UNRESOLVED_DEPENDENCIES=true node build.js",
+        "build:windows": "yarn build -- WINDOWS",
+        "build:mac": "yarn build -- MAC",
+        "build:linux": "yarn build -- LINUX",
+        "cilinux": "node build.js LINUX && node build.js WINDOWS",
+        "cidarwin": "node build.js MAC"
+    },
+    "author": "GeekCorner",
+    "license": "MIT",
+    "dependencies": {
+        "discord-rpc": "^3.2.0",
+        "electron-localshortcut": "^3.2.1",
+        "node-fetch": "^2.6.1",
+        "path": "^0.12.7"
+    },
+    "devDependencies": {
+        "cross-env": "^7.0.3",
+        "electron": "^13.0.0",
+        "electron-builder": "^22.11.5"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/geekcornergh/threema-for-desktop"
+    }
 }
