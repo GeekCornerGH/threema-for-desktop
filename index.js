@@ -87,17 +87,21 @@ async function createWindow() {
             function showNotification() {
                 notification = {
                     title: 'Error',
-                    body: 'No internet connexion avaliable.'
+                    body: 'No internet connection avaliable.'
                 }
                 new Notification(notification).show()
+                dialog.showMessageBox(mainWindow, {
+                    title: "No internet connection",
+                    type: "error",
+                    message: "No internet connection avaliable. Make sure you have access to internet",
+                    buttons: ["Ok"],
+                }).then(() => {
+                    app.isQuiting = true;
+                    app.quit();
+                });
             }
             showNotification();
-            dialog.showMessageBox(mainWindow, {
-                title: "No internet connextion",
-                type: "error",
-                message: "No internet connexion avaliable. Make sure you have access to internet",
-                buttons: ["Ok"],
-            }).then(() => app.quit());
+
             if (!mainWindow.isFocused()) {
                 if (process.platform == "win32") {
                     mainWindow.once('focus', () => mainWindow.flashFrame(false))
