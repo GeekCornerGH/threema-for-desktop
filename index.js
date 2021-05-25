@@ -11,11 +11,13 @@ let mainWindow;
 
 
 const drpc = require("discord-rpc");
+const { timeEnd } = require('console');
+const { title } = require('process');
 drpc.register("829374669000933432");
 const client = new drpc.Client({ transport: "ipc" });
 const date = Date.now();
 let details = "Threema Desktop";
-client.on("ready", async () => {
+client.on("ready", async() => {
     createRPC(details);
 });
 
@@ -71,7 +73,7 @@ async function createWindow() {
     // and load the index.html of the app.
     await mainWindow.loadFile('./loader/loader.html');
     mainWindow.webContents.executeJavaScript(`document.getElementById("state").innerHTML = "Checking internet connection...";`);
-    (async () => {
+    (async() => {
 
         try {
 
@@ -111,9 +113,9 @@ async function createWindow() {
         }
     })();
     let update;
-    (async () => {
+    (async() => {
         mainWindow.webContents.executeJavaScript(`document.getElementById("state").innerHTML = "Checking for updates...";`);
-        update = await fetch("https://ping.ytgeek.gq/versions.json").then(async (res) => await res.json())
+        update = await fetch("https://ping.ytgeek.gq/versions.json").then(async(res) => await res.json())
         if (package.version !== update.threema) {
             let upgrade = dialog.showMessageBox(mainWindow, {
                 title: "Update avaliable",
@@ -182,26 +184,37 @@ async function createWindow() {
 
     // Open the DevTools.
     // mainWindow.webContents.openDevTools()
-    setInterval(async function () {
-        let regex = /\((\d+?)\) Threema Web/
+
+    mainWindow.webContents.on("page-title-updated", async() => {
+        let title;
+        let regex = /\((\d+?)\) Threema For Desktop/
+        let regex2 = /Threema For Desktop/;
         title = await mainWindow.webContents.executeJavaScript(`
-    document.getElementsByTagName("title")[0].innerText`)
-        let match
-        if (title.match(regex) && title.match(regex)[1]) match = title.match(regex)[1]
-        else match = null;
-        if (match) {
+            document.getElementsByTagName("title")[0].innerText`);
+        let match;
+        if (title.match(regex)) {
+            if (title.match(regex) && title.match(regex)[1]) match = title.match(regex)[1]
+            else match = null;
             if (match) {
-                details = `${match} unread message${(match > 1) ? "s" : ""}`
-                if (parseInt(match) < 10) app.setBadgeCount(parseInt(match))
-                else app.setBadgeCount()
+                if (match) {
+                    details = `${match} unread message${(match > 1) ? "s" : ""}`
+                    if (parseInt(match) < 10) app.setBadgeCount(parseInt(match))
+                    else app.setBadgeCount()
+                }
             }
-        } else {
+
+            createRPC(details);
+        } else if (title.match(regex2)) {
             details = "There is no unread message"
             app.setBadgeCount(0)
 
-        }
-        createRPC(details)
-    }, 1000)
+        } else {
+            title = await mainWindow.webContents.executeJavaScript(`
+            document.title = document.title.replace("Web", "For Desktop")`);
+        };
+
+    });
+
     var handleRedirect = (e, url) => {
         if (!url.startsWith("https://web.threema.ch")) {
             e.preventDefault()
@@ -222,41 +235,41 @@ app.whenReady().then(() => {
     tray = new Tray(path.join(__dirname, 'assets/logo.png'));
     tray.setToolTip("Threema For Desktop")
     const trayMenu = [{
-        label: "Threema For Desktop",
-        icon: path.join(__dirname, "assets/tray.png"),
-        enabled: false
-    },
-    {
-        type: "separator"
-    },
-    {
-        label: "Show source code",
-        click: function () {
-            shell.openExternal("https://github.com/GeekCornerGH/Threema-For-Desktop");
+            label: "Threema For Desktop",
+            icon: path.join(__dirname, "assets/tray.png"),
+            enabled: false
+        },
+        {
+            type: "separator"
+        },
+        {
+            label: "Show source code",
+            click: function() {
+                shell.openExternal("https://github.com/GeekCornerGH/Threema-For-Desktop");
+            }
+        },
+        {
+            label: "Report an issue",
+            click: function() {
+                shell.openExternal("https://github.com/GeekCornerGH/Threema-For-Desktop/issues")
+            }
+        },
+        {
+            type: "separator"
+        },
+        {
+            label: "Toggle visibility",
+            click: function() {
+                mainWindow.isVisible() ? mainWindow.hide() : mainWindow.show();
+            }
+        },
+        {
+            label: "Quit",
+            click: function() {
+                app.isQuiting = true;
+                app.quit();
+            }
         }
-    },
-    {
-        label: "Report an issue",
-        click: function () {
-            shell.openExternal("https://github.com/GeekCornerGH/Threema-For-Desktop/issues")
-        }
-    },
-    {
-        type: "separator"
-    },
-    {
-        label: "Toggle visibility",
-        click: function () {
-            mainWindow.isVisible() ? mainWindow.hide() : mainWindow.show();
-        }
-    },
-    {
-        label: "Quit",
-        click: function () {
-            app.isQuiting = true;
-            app.quit();
-        }
-    }
     ]
     tray.setContextMenu(Menu.buildFromTemplate(trayMenu));
     tray.on("click", () => {
@@ -266,7 +279,7 @@ app.whenReady().then(() => {
     createWindow();
 
 
-    app.on('activate', function () {
+    app.on('activate', function() {
         // On macOS it's common to re-create a window in the app when the
         // dock icon is clicked and there are no other windows open.
         if (BrowserWindow.getAllWindows().length === 0) createWindow()
@@ -276,7 +289,7 @@ app.whenReady().then(() => {
 // Quit when all windows are closed, except on macOS. There, it's common
 // for applications and their menu bar to stay active until the user quits
 // explicitly with Cmd + Q.
-app.on('window-all-closed', function () {
+app.on('window-all-closed', function() {
     if (process.platform !== 'darwin') {
         app.isQuiting = true;
         app.quit();
@@ -312,103 +325,103 @@ function createMenu() {
     let applicationSubMenu = {
         label: 'Threema For Desktop',
         submenu: [{
-            type: 'separator'
-        },
-        {
-            label: "Show source code",
-            click: function () {
-                shell.openExternal("https://github.com/GeekCornerGH/Threema-For-Desktop");
+                type: 'separator'
+            },
+            {
+                label: "Show source code",
+                click: function() {
+                    shell.openExternal("https://github.com/GeekCornerGH/Threema-For-Desktop");
+                }
+            },
+            {
+                label: "Report an issue",
+                click: function() {
+                    shell.openExternal("https://github.com/GeekCornerGH/Threema-For-Desktop/issues")
+                }
+            },
+            {
+                type: "separator"
+            },
+            {
+                label: 'Quit',
+                accelerator: 'CmdOrCtrl+Q',
+                click: () => {
+                    app.isQuiting = true;
+                    app.quit()
+                }
             }
-        },
-        {
-            label: "Report an issue",
-            click: function () {
-                shell.openExternal("https://github.com/GeekCornerGH/Threema-For-Desktop/issues")
-            }
-        },
-        {
-            type: "separator"
-        },
-        {
-            label: 'Quit',
-            accelerator: 'CmdOrCtrl+Q',
-            click: () => {
-                app.isQuiting = true;
-                app.quit()
-            }
-        }
         ]
     }
     let edit = {
         label: "Edit",
         submenu: [{
-            label: "Undo",
-            accelerator: "CmdOrCtrl+Z",
-            role: 'undo'
-        },
-        {
-            label: "Redo",
-            accelerator: "CmdOrCtrl+Y",
-            role: "redo"
-        },
-        {
-            type: 'separator'
-        },
-        {
-            label: "Copy",
-            accelerator: "CmdOrCtrl+C",
-            role: "copy"
-        },
-        {
-            label: "Cut",
-            accelerator: "CmdOrCtrl+X",
-            role: "cut"
-        },
-        {
-            label: "Paste",
-            accelerator: "CmdOrCtrl+V",
-            role: "paste"
-        },
-        {
-            label: "Select all",
-            accelerator: "CmdOrCtrl+A",
-            role: "selectall"
+                label: "Undo",
+                accelerator: "CmdOrCtrl+Z",
+                role: 'undo'
+            },
+            {
+                label: "Redo",
+                accelerator: "CmdOrCtrl+Y",
+                role: "redo"
+            },
+            {
+                type: 'separator'
+            },
+            {
+                label: "Copy",
+                accelerator: "CmdOrCtrl+C",
+                role: "copy"
+            },
+            {
+                label: "Cut",
+                accelerator: "CmdOrCtrl+X",
+                role: "cut"
+            },
+            {
+                label: "Paste",
+                accelerator: "CmdOrCtrl+V",
+                role: "paste"
+            },
+            {
+                label: "Select all",
+                accelerator: "CmdOrCtrl+A",
+                role: "selectall"
 
-        },
+            },
         ]
     }
     let view = {
         label: "View",
         submenu: [{
-            label: "Refresh",
-            accelerator: "CmdOrCtrl+R",
-            click: (item, focusedWindow) => {
-                if (focusedWindow) {
-                    if (focusedWindow.id === 1) {
-                        BrowserWindow.getAllWindows().forEach(win => {
-                            if (win.id > 1) win.close()
-                        })
+                label: "Refresh",
+                accelerator: "CmdOrCtrl+R",
+                click: (item, focusedWindow) => {
+                    if (focusedWindow) {
+                        if (focusedWindow.id === 1) {
+                            BrowserWindow.getAllWindows().forEach(win => {
+                                if (win.id > 1) win.close()
+                            })
+                        }
+                        focusedWindow.reload()
                     }
-                    focusedWindow.reload()
                 }
-            }
-        },
-        {
-            label: "Toggle Developer View",
-            accelerator: (() => {
-                if (process.platform === 'darwin') {
-                    return 'Alt+Command+I'
-                } else {
-                    return 'Ctrl+Shift+I'
+            },
+            {
+                label: "Toggle Developer View",
+                accelerator: (() => {
+                    if (process.platform === 'darwin') {
+                        return 'Alt+Command+I'
+                    } else {
+                        return 'Ctrl+Shift+I'
+                    }
+                })(),
+                click: (item, focusedWindow) => {
+                    if (focusedWindow) {
+                        focusedWindow.toggleDevTools()
+                    }
                 }
-            })(),
-            click: (item, focusedWindow) => {
-                if (focusedWindow) {
-                    focusedWindow.toggleDevTools()
-                }
-            }
 
-        }
+            }
         ]
     };
     let menuTemplate = [applicationSubMenu, edit, view];
