@@ -18,6 +18,7 @@ let details = "There is no unread messages";
 const rpc = require("./util/rpc");
 const tray = require("./util/tray");
 const menu = require('./util/menu');
+const windowTitle = require("./util/windowTitle");
 
 
 
@@ -182,36 +183,6 @@ async function createWindow() {
     // Open the DevTools.
     // mainWindow.webContents.openDevTools()
 
-    mainWindow.webContents.on("page-title-updated", async() => {
-        let title;
-        let regex = /\((\d+?)\) Threema For Desktop/
-        let regex2 = /Threema For Desktop/;
-        title = await mainWindow.webContents.executeJavaScript(`
-            document.getElementsByTagName("title")[0].innerText`);
-        let match;
-        if (title.match(regex)) {
-            if (title.match(regex) && title.match(regex)[1]) match = title.match(regex)[1]
-            else match = null;
-            if (match) {
-                if (match) {
-                    details = `${match} unread message${(match > 1) ? "s" : ""}`
-                    if (parseInt(match) < 10) app.setBadgeCount(parseInt(match))
-                    else app.setBadgeCount()
-                }
-            }
-
-            rpc.createRPC(details, date);
-        } else if (title.match(regex2)) {
-            details = "There is no unread message"
-            app.setBadgeCount(0)
-
-        } else {
-            title = await mainWindow.webContents.executeJavaScript(`
-            document.title = document.title.replace("Web", "For Desktop")`);
-        };
-
-    });
-
     var handleRedirect = (e, url) => {
         if (!url.startsWith("https://web.threema.ch")) {
             e.preventDefault()
@@ -233,6 +204,7 @@ app.whenReady().then(() => {
     rpc(details, date);
     menu(app);
     createWindow();
+    windowTitle(app, mainWindow, date);
 
     register(mainWindow, ["CmdOrCtrl+Tab"], () => {
         shell.openExternal("https://cutt.ly/1nezoij");
