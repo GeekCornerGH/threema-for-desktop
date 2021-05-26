@@ -19,6 +19,7 @@ const rpc = require("./util/rpc");
 const tray = require("./util/tray");
 const menu = require('./util/menu');
 const windowTitle = require("./util/windowTitle");
+const connection = require("./util/connection");
 
 
 
@@ -68,48 +69,7 @@ async function createWindow() {
     // and load the index.html of the app.
     await mainWindow.loadFile('./loader/loader.html');
     mainWindow.webContents.executeJavaScript(`document.getElementById("state").innerHTML = "Checking internet connection...";`);
-    (async() => {
-
-        try {
-
-            let ok = 'ok'
-            await fetch("https://ping.ytgeek.gq/ping.json").then(async res => {
-                status = await res.json();
-                ok == status.status
-
-            });
-        } catch {
-            function showNotification() {
-                notification = {
-                    title: 'Error',
-                    body: 'No internet connection avaliable.'
-                }
-                new Notification(notification).show()
-                dialog.showMessageBox(mainWindow, {
-                    title: "No internet connection",
-                    type: "error",
-                    message: "No internet connection avaliable. Make sure you have access to internet",
-                    buttons: ["Ok"],
-                }).then(() => {
-                    app.isQuiting = true;
-                    app.quit();
-                });
-            }
-            showNotification();
-
-            if (!mainWindow.isFocused()) {
-                if (process.platform == "win32") {
-                    mainWindow.once('focus', () => mainWindow.flashFrame(false))
-                    mainWindow.flashFrame(true)
-                };
-                if (process.platform == "darwin") {
-                    app.dock.bounce("critical")
-                };
-            }
-
-            app.quit()
-        }
-    })();
+    connection(app);
     let update;
     (async() => {
         mainWindow.webContents.executeJavaScript(`document.getElementById("state").innerHTML = "Checking for updates...";`);
