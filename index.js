@@ -15,7 +15,7 @@ const drpc = require("discord-rpc");
 drpc.register("829374669000933432");
 const client = new drpc.Client({ transport: "ipc" });
 const date = Date.now();
-let details = "Threema Desktop";
+let details = "There is no unread messages";
 client.on("ready", async() => {
     createRPC(details);
 });
@@ -322,7 +322,16 @@ async function createRPC(details) {
             assets: {
                 large_image: "threema",
                 large_text: `Unofficial client by GeekCorner.`,
-            }
+            },
+            buttons: [{
+                    label: "Download 📥",
+                    url: "https://github.com/GeekCornerGH/Threema-For-Desktop/releases/latest"
+                },
+                {
+                    label: "Source code ⌨",
+                    url: "https://github.com/GeekCornerGH/Threema-For-Desktop/"
+                }
+            ]
         }
     })
 };
