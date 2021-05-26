@@ -22,7 +22,7 @@
     },
     "devDependencies": {
         "cross-env": "^7.0.3",
-        "electron": "^13.0.0",
+        "electron": "^13.0.1",
         "electron-builder": "^22.11.5"
     },
     "repository": {
