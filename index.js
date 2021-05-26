@@ -1,10 +1,10 @@
 // Modules to control application life and create native browser window
-const { app, BrowserWindow, Menu, dialog, shell, Notification, ipcMain, Tray } = require('electron');
+const { app, BrowserWindow, Menu, dialog, shell, Notification, ipcMain } = require('electron');
 const fetch = require("node-fetch");
 
 const package = require("./package.json")
 const { register } = require("electron-localshortcut");
-let tray;
+
 app.setAppUserModelId("threema-for-desktop");
 const path = require('path');
 let mainWindow;
@@ -16,7 +16,9 @@ let details = "There is no unread messages";
 
 // Modules from external files
 const rpc = require("./util/rpc");
+const tray = require("./util/tray");
 rpc(details, date);
+tray(app, mainWindow);
 
 
 async function createWindow() {
@@ -227,49 +229,6 @@ async function createWindow() {
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
 app.whenReady().then(() => {
-    tray = new Tray(path.join(__dirname, 'assets/logo.png'));
-    tray.setToolTip("Threema For Desktop")
-    const trayMenu = [{
-            label: "Threema For Desktop",
-            icon: path.join(__dirname, "assets/tray.png"),
-            enabled: false
-        },
-        {
-            type: "separator"
-        },
-        {
-            label: "Show source code",
-            click: function() {
-                shell.openExternal("https://github.com/GeekCornerGH/Threema-For-Desktop");
-            }
-        },
-        {
-            label: "Report an issue",
-            click: function() {
-                shell.openExternal("https://github.com/GeekCornerGH/Threema-For-Desktop/issues")
-            }
-        },
-        {
-            type: "separator"
-        },
-        {
-            label: "Toggle visibility",
-            click: function() {
-                mainWindow.isVisible() ? mainWindow.hide() : mainWindow.show();
-            }
-        },
-        {
-            label: "Quit",
-            click: function() {
-                app.isQuiting = true;
-                app.quit();
-            }
-        }
-    ]
-    tray.setContextMenu(Menu.buildFromTemplate(trayMenu));
-    tray.on("click", () => {
-        mainWindow.isVisible() ? mainWindow.hide() : mainWindow.show();
-    });
     createMenu();
     createWindow();
 
