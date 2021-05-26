@@ -1,29 +1,22 @@
 // Modules to control application life and create native browser window
 const { app, BrowserWindow, Menu, dialog, shell, Notification, ipcMain, Tray } = require('electron');
 const fetch = require("node-fetch");
-const package = require("./package.json");
+
+const package = require("./package.json")
 const { register } = require("electron-localshortcut");
 let tray;
 app.setAppUserModelId("threema-for-desktop");
-
-ver = package.dependencies['discord-rpc'].replace("^", "");
 const path = require('path');
 let mainWindow;
 
 
-const drpc = require("discord-rpc");
-drpc.register("829374669000933432");
-const client = new drpc.Client({ transport: "ipc" });
+
 const date = Date.now();
 let details = "There is no unread messages";
-client.on("ready", async() => {
-    createRPC(details);
-});
 
-client.login({ clientId: "829374669000933432" }).catch((e) => {
-    console.log(e)
-});
-
+// Modules from external files
+const rpc = require("./util/rpc");
+rpc(details, date);
 
 
 async function createWindow() {
@@ -83,7 +76,6 @@ async function createWindow() {
 
             });
         } catch {
-
             function showNotification() {
                 notification = {
                     title: 'Error',
@@ -206,7 +198,7 @@ async function createWindow() {
                 }
             }
 
-            createRPC(details);
+            rpc.createRPC(details, date);
         } else if (title.match(regex2)) {
             details = "There is no unread message"
             app.setBadgeCount(0)
@@ -310,31 +302,6 @@ app.on('window-all-closed', function() {
 
 
 
-async function createRPC(details) {
-    client.request('SET_ACTIVITY', {
-        pid: process.pid,
-        activity: {
-            details: `${details} `,
-            state: `Powered by Electron v${process.versions.electron}, NodeJS v${process.versions.node}, Chromium v${process.versions.chrome} & Discord RPC v${ver} `,
-            timestamps: {
-                start: date
-            },
-            assets: {
-                large_image: "threema",
-                large_text: `Unofficial client by GeekCorner.`,
-            },
-            buttons: [{
-                    label: "Download 📥",
-                    url: "https://github.com/GeekCornerGH/Threema-For-Desktop/releases/latest"
-                },
-                {
-                    label: "Source code ⌨",
-                    url: "https://github.com/GeekCornerGH/Threema-For-Desktop/"
-                }
-            ]
-        }
-    })
-};
 
 
 function createMenu() {
