@@ -27,15 +27,14 @@ builder.build({
 			output: "dist"
 		},
 		win: {
-			target: [
-				{
-					target: "nsis",
-					arch: ["x64", "ia32", "arm64"]
-				},
-				{
-					target: "portable",
-					arch:["x64", "ia32", "arm64"],
-				}
+			target: [{
+				target: "nsis",
+				arch: ["x64", "ia32", "arm64"]
+			},
+			{
+				target: "portable",
+				arch: ["x64", "ia32", "arm64"],
+			}
 			]
 		},
 		nsis: {
@@ -45,11 +44,11 @@ builder.build({
 			allowToChangeInstallationDirectory: true,
 			license: "./build/license.txt",
 			displayLanguageSelector: true,
-           
+
 		},
 		portable: {
-			artifactName:"Threema-For-Desktop-portable-${arch}-${version}.${ext}",
-        
+			artifactName: "Threema-For-Desktop-portable-${arch}-${version}.${ext}",
+
 		},
 		mac: {
 			target: [{
@@ -60,9 +59,9 @@ builder.build({
 		},
 		dmg: {
 			artifactName: "Threema-For-Desktop-mac-${arch}-${version}.${ext}",
-            
+
 		},
-        
+
 		linux: {
 			target: ["AppImage"],
 			maintainer: "GeekCorner",
@@ -76,7 +75,7 @@ builder.build({
 		},
 		compression: "maximum",
 		files: [
-			"!{dist,.gitignore,.vscode,.travis.yml,.nvmrc,build.js,.github,.all-contributorsrc,portable.json}"
+			"!{dist,.gitignore,.vscode,.travis.yml,.nvmrc,build.js,.github,.all-contributorsrc,portable.json,.eslintrc.json}"
 		],
 		asar: true
 	}
