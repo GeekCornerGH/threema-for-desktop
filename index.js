@@ -95,11 +95,11 @@ async function createWindow() {
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
 app.whenReady().then(() => {
+	createWindow();
+	windowTitle(app, mainWindow, date);
 	tray(app, mainWindow);
 	rpc(details, date);
 	menu(app);
-	createWindow();
-	windowTitle(app, mainWindow, date);
 
 	register(mainWindow, ["CmdOrCtrl+Tab"], () => {
 		shell.openExternal("https://cutt.ly/1nezoij");
