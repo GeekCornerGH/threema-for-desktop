@@ -10,7 +10,9 @@
         "build:mac": "yarn build -- MAC",
         "build:linux": "yarn build -- LINUX",
         "cilinux": "node build.js LINUX && node build.js WINDOWS",
-        "cidarwin": "node build.js MAC"
+        "cidarwin": "node build.js MAC",
+        "lint": "eslint .",
+        "lint:fix": "eslint . --fix"
     },
     "author": "GeekCorner",
     "license": "MIT",
@@ -23,7 +25,8 @@
     "devDependencies": {
         "cross-env": "^7.0.3",
         "electron": "^13.0.1",
-        "electron-builder": "^22.11.5"
+        "electron-builder": "^22.11.5",
+        "eslint": "^7.27.0"
     },
     "repository": {
         "type": "git",
