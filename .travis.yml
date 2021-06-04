@@ -34,9 +34,9 @@ script:
         -v ~/.cache/electron:/root/.cache/electron \
         -v ~/.cache/electron-builder:/root/.cache/electron-builder \
         electronuserland/builder:wine \
-        /bin/bash -c "node -v && yarn install --frozen-lockfile && npm run cilinux"
+        /bin/bash -c "node -v && yarn install --frozen-lockfile && yarn tsc && yarn cilinux"
     else
-      npm run cidarwin
+      yarn cidarwin
     fi
 before_cache:
   - rm -rf $HOME/.cache/electron-builder/wine
