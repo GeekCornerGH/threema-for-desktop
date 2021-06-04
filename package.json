@@ -4,7 +4,7 @@
     "description": "Threema for Desktop",
     "main": "index.js",
     "scripts": {
-        "tsc": "tsc",
+        "tsc": "tsc && copyfiles -u 1 src/assets/*.* src/loader/*.* build-ts/",
         "start": "electron .",
         "build": "cross-env ELECTRON_BUILDER_ALLOW_UNRESOLVED_DEPENDENCIES=true node build.js",
         "build:windows": "yarn build -- WINDOWS",
@@ -26,6 +26,7 @@
     "devDependencies": {
         "@typescript-eslint/eslint-plugin": "^4.25.0",
         "@typescript-eslint/parser": "^4.25.0",
+        "copyfiles": "^2.4.1",
         "cross-env": "^7.0.3",
         "electron": "^13.1.0",
         "electron-builder": "^22.11.5",
