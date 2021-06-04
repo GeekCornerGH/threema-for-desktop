@@ -23,8 +23,8 @@ builder.build({
 		artifactName: "Threema-For-Desktop-setup-${version}.${ext}",
 		copyright: "Copyright © 2018-2021 GeekCorner",
 		directories: {
-			buildResources: "build",
-			output: "dist"
+			buildResources: "build-assets",
+			output: "build-binaries"
 		},
 		win: {
 			target: [{
