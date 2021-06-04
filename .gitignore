@@ -1,6 +1,7 @@
 ### Node ###
 node_modules/
-dist/
+build-binaries/
+build-ts/
 .vscode/
 # Logs
 logs
