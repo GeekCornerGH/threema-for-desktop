@@ -1,6 +1,7 @@
-const { BrowserWindow, Menu, shell } = require("electron");
-module.exports = async(app) => {
-	let applicationSubMenu = {
+import { BrowserWindow, Menu, shell } from "electron";
+export = async(app, isQuiting) => {
+	let template = [];
+	template.push({
 		label: "Threema For Desktop",
 		submenu: [{
 			type: "separator"
@@ -24,13 +25,13 @@ module.exports = async(app) => {
 			label: "Quit",
 			accelerator: "CmdOrCtrl+Q",
 			click: () => {
-				app.isQuiting = true;
+				isQuiting = true;
 				app.quit();
 			}
 		}
 		]
-	};
-	let edit = {
+	});
+	template.push({
 		label: "Edit",
 		submenu: [{
 			label: "Undo",
@@ -67,8 +68,8 @@ module.exports = async(app) => {
 
 		},
 		]
-	};
-	let view = {
+	});
+	template.push({
 		label: "View",
 		submenu: [{
 			label: "Refresh",
@@ -101,8 +102,7 @@ module.exports = async(app) => {
 
 		}
 		]
-	};
-	let menuTemplate = [applicationSubMenu, edit, view];
-	let menuObject = Menu.buildFromTemplate(menuTemplate);
+	});
+	let menuObject = Menu.buildFromTemplate(template);
 	Menu.setApplicationMenu(menuObject);
 };

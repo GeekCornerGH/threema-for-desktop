@@ -1,6 +1,7 @@
 const fetch = require("node-fetch");
 const { dialog, Notification } = require("electron");
-module.exports = async(app, mainWindow) => {
+export = async(app, mainWindow) => {
+	let isQuiting
 	(async() => {
 		try {
 			let ok = "ok";
@@ -37,7 +38,7 @@ module.exports = async(app, mainWindow) => {
 			message: "No internet connection avaliable. Make sure you have access to internet",
 			buttons: ["Ok"],
 		}).then(() => {
-			app.isQuiting = true;
+			isQuiting = true;
 			app.quit();
 		});
 	}

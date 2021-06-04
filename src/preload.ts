@@ -1,6 +1,6 @@
 // All of the Node.js APIs are available in the preload process.
 // It has the same sandbox as a Chrome extension.
-const { ipcRenderer } = require("electron");
+import { ipcRenderer } from "electron";
 ipcRenderer.on("console", () => {
 	console.log("%cHey, stop.", "color: white; -webkit-text-stroke: 4px #a02d2a; font-size: 60px; font-weight: bold");
 	console.log("%cBefore you do anything, make sure you know what you are doing.", "font-size: 16px");

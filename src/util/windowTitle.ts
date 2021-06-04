@@ -1,5 +1,5 @@
 const rpc = require("./rpc");
-module.exports = async(app, mainWindow, date) => {
+export = async(app, mainWindow, date) => {
 	mainWindow.webContents.on("page-title-updated", async() => {
 		let title;
 		let details;

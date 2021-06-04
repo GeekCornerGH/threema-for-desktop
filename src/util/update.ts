@@ -1,12 +1,12 @@
 const fetch = require("node-fetch");
 const { dialog, shell } = require("electron");
-const package = require("../package.json");
-module.exports = async(app, mainWindow) => {
+export = async(app, mainWindow) => {
+	let isQuiting;
 	let update;
 	(async() => {
 		mainWindow.webContents.executeJavaScript("document.getElementById(\"state\").innerHTML = \"Checking for updates...\";");
 		update = await fetch("https://ping.ytgeek.gq/versions.json").then(async(res) => await res.json());
-		if (package.version !== update.threema) {
+		if (process.version !== update.threema) {
 			dialog.showMessageBox(mainWindow, {
 				title: "Update avaliable",
 				buttons: ["Yes", "No", "Show changelog"],
@@ -23,28 +23,28 @@ module.exports = async(app, mainWindow) => {
 						}).then(res2 => {
 							if (res2.response == 0) shell.openExternal(`https://github.com/GeekCornerGH/Threema-For-Desktop/releases/download/v${update.threema}/Threema-For-Desktop-setup-${update.threema}.exe`);
 							else if (res2.response == 1) shell.openExternal(`https://github.com/GeekCornerGH/Threema-For-Desktop/releases/download/v${update.threema}/Threema-For-Desktop-portable-${update.threema}.exe`);
-							app.isQuiting = true;
+							isQuiting = true;
 							app.quit();
 						});
 					}
 					if (process.platform == "darwin") {
 						if (process.arch == "arm64") shell.openExternal(`https://github.com/GeekCornerGH/Threema-For-Desktop/releases/download/v${update.threema}/Threema-For-Desktop-mac-arm64-${update.threema}.dmg`);
 						else shell.openExternal(`https://github.com/GeekCornerGH/Threema-For-Desktop/releases/download/v${update.threema}/Threema-For-Desktop-mac-x64-${update.threema}.dmg`);
-						app.isQuiting = true;
+						isQuiting = true;
 						app.quit();
 					}
 					if (process.platform == "linux") {
 						shell.openExternal(`https://github.com/GeekCornerGH/Threema-For-Desktop/releases/download/v${update.threema}/Threema-For-Desktop-linux-${update.threema}.AppImage`);
-						app.isQuiting = true;
+						isQuiting = true;
 						app.quit();
 					}
 
 				} else if (res.response == 1) {
-					app.isQuiting = true;
+					isQuiting = true;
 					app.quit();
 				} else {
 					shell.openExternal(`https://github.com/GeekCornerGH/threema-for-desktop/releases/tag/v${update.threema}`);
-					app.isQuiting = true;
+					isQuiting = true;
 					app.quit();
 				}
 

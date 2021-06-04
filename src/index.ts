@@ -1,10 +1,10 @@
 // Modules to control application life and create native browser window
-const { app, BrowserWindow, shell, ipcMain } = require("electron");
+import { app, BrowserWindow, shell, ipcMain } from "electron";
 
-const { register } = require("electron-localshortcut");
+import { register } from "electron-localshortcut";
 
 app.setAppUserModelId("threema-for-desktop");
-const path = require("path");
+import {join} from "path";
 let mainWindow;
 
 
@@ -20,7 +20,7 @@ const windowTitle = require("./util/windowTitle");
 const connection = require("./util/connection");
 const update = require("./util/update");
 
-
+let isQuiting;
 
 async function createWindow() {
 
@@ -30,7 +30,7 @@ async function createWindow() {
 		height: 600,
 		icon: "./assets/logo.ico",
 		webPreferences: {
-			preload: path.join(__dirname, "preload.js"),
+			preload: join(__dirname, "preload.js"),
 			nodeIntegration: false,
 			enableRemoteModule: false,
 			contextIsolation: false,
@@ -39,7 +39,7 @@ async function createWindow() {
 		},
 	});
 	mainWindow.on("close", e => {
-		if (!app.isQuiting) {
+		if (!isQuiting) {
 			e.preventDefault();
 			mainWindow.hide();
 		}
@@ -118,7 +118,7 @@ app.whenReady().then(() => {
 // explicitly with Cmd + Q.
 app.on("window-all-closed", function() {
 	if (process.platform !== "darwin") {
-		app.isQuiting = true;
+		isQuiting = true;
 		app.quit();
 	}
 });

@@ -1,9 +1,7 @@
-const package = require("../package.json");
-const ver = package.dependencies["discord-rpc"].replace("^", "");
 const drpc = require("discord-rpc");
 drpc.register("829374669000933432");
 const client = new drpc.Client({ transport: "ipc" });
-module.exports = async(details, date) => {
+exports = async(details, date) => {
 	client.on("ready", async() => {
 		createRPC(details);
 	});
@@ -17,7 +15,7 @@ module.exports = async(details, date) => {
 			pid: process.pid,
 			activity: {
 				details: `${details} `,
-				state: `Powered by Electron v${process.versions.electron}, NodeJS v${process.versions.node}, Chromium v${process.versions.chrome} & Discord RPC v${ver} `,
+				state: `Powered by Electron v${process.versions.electron}, NodeJS v${process.versions.node}, Chromium v${process.versions.chrome} & v8 v${process.versions.v8} `,
 				timestamps: {
 					start: date
 				},
@@ -44,7 +42,7 @@ module.exports.createRPC = async(details, date) => {
 		pid: process.pid,
 		activity: {
 			details: `${details} `,
-			state: `Powered by Electron v${process.versions.electron}, NodeJS v${process.versions.node}, Chromium v${process.versions.chrome} & Discord RPC v${ver} `,
+			state: `Powered by Electron v${process.versions.electron}, NodeJS v${process.versions.node}, Chromium v${process.versions.chrome} & v8 v${process.versions.v8} `,
 			timestamps: {
 				start: date
 			},

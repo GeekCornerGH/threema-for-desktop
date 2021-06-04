@@ -1,12 +1,14 @@
 let tray;
-const { Menu, shell, Tray } = require("electron");
-const path = require("path");
+import { Menu, shell, Tray } from "electron";
+import {join} from "path";
 module.exports = async(app, mainWindow) => {
-	tray = new Tray(path.join(__dirname, "../assets/logo.png"));
+	let isQuiting;
+	tray = new Tray(join(__dirname, "../assets/logo.png"));
 	tray.setToolTip("Threema For Desktop");
-	const trayMenu = [{
+	const trayMenu = []
+	trayMenu.push({
 		label: "Threema For Desktop",
-		icon: path.join(__dirname, "../assets/tray.png"),
+		icon: join(__dirname, "../assets/tray.png"),
 		enabled: false
 	},
 	{
@@ -36,11 +38,10 @@ module.exports = async(app, mainWindow) => {
 	{
 		label: "Quit",
 		click: function() {
-			app.isQuiting = true;
+			isQuiting = true;
 			app.quit();
 		}
-	}
-	];
+	});
 	tray.setContextMenu(Menu.buildFromTemplate(trayMenu));
 	tray.on("click", () => {
 		mainWindow.isVisible() ? mainWindow.hide() : mainWindow.show();
