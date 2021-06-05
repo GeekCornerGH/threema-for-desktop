@@ -1,10 +1,10 @@
-const fetch = require("node-fetch");
+import * as fetch from "node-fetch";
 const { dialog, Notification } = require("electron");
-export = async(app, mainWindow) => {
-	let isQuiting
+export  async function connection (app, mainWindow) {
+	let isQuiting;
 	(async() => {
 		try {
-			let ok = "ok";
+			const ok = "ok";
 			await fetch("https://ping.ytgeek.gq/ping.json").then(async res => {
 				const status = await res.json();
 				ok == status.status;

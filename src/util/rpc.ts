@@ -1,16 +1,8 @@
-const drpc = require("discord-rpc");
+import * as drpc from "discord-rpc";
 drpc.register("829374669000933432");
 const client = new drpc.Client({ transport: "ipc" });
-exports = async(details, date) => {
+export  async function rpc (details, date) {
 	client.on("ready", async() => {
-		createRPC(details);
-	});
-
-	client.login({ clientId: "829374669000933432" }).catch((e) => {
-		console.log(e);
-	});
-
-	function createRPC(details) {
 		client.request("SET_ACTIVITY", {
 			pid: process.pid,
 			activity: {
@@ -34,10 +26,14 @@ exports = async(details, date) => {
 				],
 			},
 		});
-	}
+	});
+
+	client.login({ clientId: "829374669000933432" }).catch((e) => {
+		console.log(e);
+	});
 };
 
-module.exports.createRPC = async(details, date) => {
+export async function createRPC(details, date) {
 	client.request("SET_ACTIVITY", {
 		pid: process.pid,
 		activity: {
@@ -62,3 +58,4 @@ module.exports.createRPC = async(details, date) => {
 		},
 	});
 };
+

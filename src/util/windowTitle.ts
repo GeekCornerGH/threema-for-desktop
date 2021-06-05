@@ -1,10 +1,10 @@
-const rpc = require("./rpc");
-export = async(app, mainWindow, date) => {
+import * as rpc from "./rpc";
+export async function windowTitle(app, mainWindow, date) {
 	mainWindow.webContents.on("page-title-updated", async() => {
 		let title;
 		let details;
-		let regex = /\((\d+?)\) Threema For Desktop/;
-		let regex2 = /Threema For Desktop/;
+		const regex = /\((\d+?)\) Threema For Desktop/;
+		const regex2 = /Threema For Desktop/;
 		title = await mainWindow.webContents.executeJavaScript(`
             document.getElementsByTagName("title")[0].innerText`);
 		let match;

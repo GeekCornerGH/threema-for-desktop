@@ -1,7 +1,6 @@
-const fetch = require("node-fetch");
-const { dialog, shell } = require("electron");
-export = async(app, mainWindow) => {
-	let isQuiting;
+import * as fetch from "node-fetch";
+import { dialog, shell } from "electron";
+export async function update(app, mainWindow, isQuiting) {
 	let update;
 	(async() => {
 		mainWindow.webContents.executeJavaScript("document.getElementById(\"state\").innerHTML = \"Checking for updates...\";");

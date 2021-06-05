@@ -1,6 +1,7 @@
 import { BrowserWindow, Menu, shell } from "electron";
-export = async(app, isQuiting) => {
-	let template = [];
+export  async function menu (app) {
+	let isQuiting;
+	const template = [];
 	template.push({
 		label: "Threema For Desktop",
 		submenu: [{
@@ -103,6 +104,6 @@ export = async(app, isQuiting) => {
 		}
 		]
 	});
-	let menuObject = Menu.buildFromTemplate(template);
+	const menuObject = Menu.buildFromTemplate(template);
 	Menu.setApplicationMenu(menuObject);
 };

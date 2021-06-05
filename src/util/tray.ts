@@ -1,11 +1,12 @@
-let tray;
+
 import { Menu, shell, Tray } from "electron";
-import {join} from "path";
-module.exports = async(app, mainWindow) => {
+import { join } from "path";
+export async function tray (app, mainWindow) {
+	let tray;
 	let isQuiting;
 	tray = new Tray(join(__dirname, "../assets/logo.png"));
 	tray.setToolTip("Threema For Desktop");
-	const trayMenu = []
+	const trayMenu = [];
 	trayMenu.push({
 		label: "Threema For Desktop",
 		icon: join(__dirname, "../assets/tray.png"),
@@ -16,13 +17,13 @@ module.exports = async(app, mainWindow) => {
 	},
 	{
 		label: "Show source code",
-		click: function() {
+		click: function () {
 			shell.openExternal("https://github.com/GeekCornerGH/Threema-For-Desktop");
 		}
 	},
 	{
 		label: "Report an issue",
-		click: function() {
+		click: function () {
 			shell.openExternal("https://github.com/GeekCornerGH/Threema-For-Desktop/issues");
 		}
 	},
@@ -31,13 +32,13 @@ module.exports = async(app, mainWindow) => {
 	},
 	{
 		label: "Toggle visibility",
-		click: function() {
+		click: function () {
 			mainWindow.isVisible() ? mainWindow.hide() : mainWindow.show();
 		}
 	},
 	{
 		label: "Quit",
-		click: function() {
+		click: function () {
 			isQuiting = true;
 			app.quit();
 		}

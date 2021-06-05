@@ -4,21 +4,21 @@ import { app, BrowserWindow, shell, ipcMain } from "electron";
 import { register } from "electron-localshortcut";
 
 app.setAppUserModelId("threema-for-desktop");
-import {join} from "path";
+import { join } from "path";
 let mainWindow;
 
 
 
 const date = Date.now();
-let details = "There is no unread messages";
+const details = "There is no unread messages";
 
 // Modules from external files
-const rpc = require("./util/rpc");
-const tray = require("./util/tray");
-const menu = require("./util/menu");
-const windowTitle = require("./util/windowTitle");
-const connection = require("./util/connection");
-const update = require("./util/update");
+import {rpc, createRPC} from "./util/rpc";
+import { tray } from "./util/tray";
+import {menu} from "./util/menu";
+import {windowTitle} from "./util/windowTitle";
+import { connection } from "./util/connection";
+import {update} from "./util/update";
 
 let isQuiting;
 
@@ -69,7 +69,7 @@ async function createWindow() {
 	await mainWindow.loadFile("./loader/loader.html");
 	mainWindow.webContents.executeJavaScript("document.getElementById(\"state\").innerHTML = \"Checking internet connection...\";");
 	connection(app, mainWindow);
-	update(app, mainWindow);
+	update(app, mainWindow, isQuiting);
 
 
 
@@ -78,7 +78,7 @@ async function createWindow() {
 	// Open the DevTools.
 	// mainWindow.webContents.openDevTools()
 
-	let handleRedirect = (e, url) => {
+	const handleRedirect = (e, url) => {
 		if (!url.startsWith("https://web.threema.ch")) {
 			e.preventDefault();
 			shell.openExternal(url);
@@ -98,7 +98,7 @@ app.whenReady().then(() => {
 	createWindow();
 	windowTitle(app, mainWindow, date);
 	tray(app, mainWindow);
-	rpc(details, date);
+	createRPC(details, date);
 	menu(app);
 
 	register(mainWindow, ["CmdOrCtrl+Tab"], () => {
@@ -106,7 +106,7 @@ app.whenReady().then(() => {
 	});
 
 
-	app.on("activate", function() {
+	app.on("activate", function () {
 		// On macOS it's common to re-create a window in the app when the
 		// dock icon is clicked and there are no other windows open.
 		if (BrowserWindow.getAllWindows().length === 0) createWindow();
@@ -116,7 +116,7 @@ app.whenReady().then(() => {
 // Quit when all windows are closed, except on macOS. There, it's common
 // for applications and their menu bar to stay active until the user quits
 // explicitly with Cmd + Q.
-app.on("window-all-closed", function() {
+app.on("window-all-closed", function () {
 	if (process.platform !== "darwin") {
 		isQuiting = true;
 		app.quit();
