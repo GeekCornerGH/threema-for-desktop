@@ -30,4 +30,4 @@ export async function windowTitle(app, mainWindow, date) {
 		}
 
 	});
-};
+}

@@ -106,4 +106,4 @@ export  async function menu (app) {
 	});
 	const menuObject = Menu.buildFromTemplate(template);
 	Menu.setApplicationMenu(menuObject);
-};
+}

@@ -1,11 +1,11 @@
 
 import { Menu, shell, Tray } from "electron";
 import { join } from "path";
+let systray;
 export async function tray (app, mainWindow) {
-	let tray;
 	let isQuiting;
-	tray = new Tray(join(__dirname, "../assets/logo.png"));
-	tray.setToolTip("Threema For Desktop");
+	systray = new Tray(join(__dirname, "../assets/tray.png"));
+	systray.setToolTip("Threema For Desktop");
 	const trayMenu = [];
 	trayMenu.push({
 		label: "Threema For Desktop",
@@ -43,8 +43,8 @@ export async function tray (app, mainWindow) {
 			app.quit();
 		}
 	});
-	tray.setContextMenu(Menu.buildFromTemplate(trayMenu));
-	tray.on("click", () => {
+	systray.setContextMenu(Menu.buildFromTemplate(trayMenu));
+	systray.on("click", () => {
 		mainWindow.isVisible() ? mainWindow.hide() : mainWindow.show();
 	});
-};
+}

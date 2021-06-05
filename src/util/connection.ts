@@ -43,4 +43,4 @@ export  async function connection (app, mainWindow) {
 		});
 	}
 
-};
+}

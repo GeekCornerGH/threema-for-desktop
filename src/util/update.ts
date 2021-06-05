@@ -57,4 +57,4 @@ export async function update(app, mainWindow, isQuiting) {
     `);
 		}
 	})();
-};
+}
