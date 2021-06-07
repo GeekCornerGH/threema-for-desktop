@@ -6,9 +6,7 @@ export async function tray (app, mainWindow) {
 
     systray = new Tray(join(
         __dirname,
-        `../assets/logo${process.platform == "darwin"
-            ? "Template"
-            : ""}.png`
+        `../assets/logo${process.platform == "darwin"?"Template": ""}.png`
     ));
     systray.setToolTip("Threema For Desktop");
     const trayMenu = [];
