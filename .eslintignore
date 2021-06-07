@@ -1,0 +1,5 @@
+build-ts/
+node-modules/
+build.js
+src/index.ts
+src/preload.ts
