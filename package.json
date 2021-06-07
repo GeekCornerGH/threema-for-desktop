@@ -24,13 +24,16 @@
         "path": "^0.12.7"
     },
     "devDependencies": {
-        "@typescript-eslint/eslint-plugin": "^4.25.0",
-        "@typescript-eslint/parser": "^4.25.0",
+        "@types/discord-rpc": "^3.0.5",
+        "@types/electron-localshortcut": "^3.1.0",
+        "@types/node": "^15.12.1",
+        "@typescript-eslint/eslint-plugin": "^4.26.0",
+        "@typescript-eslint/parser": "^4.26.0",
         "copyfiles": "^2.4.1",
         "cross-env": "^7.0.3",
-        "electron": "^13.1.0",
+        "electron": "^13.1.1",
         "electron-builder": "^22.11.5",
-        "eslint": "^7.27.0",
+        "eslint": "^7.28.0",
         "typescript": "^4.3.2"
     },
     "repository": {

@@ -5,6 +5,11 @@
 		"target": "ES2020",
 		"removeComments": true,
 	},
-	"exclude": ["node_modules", "build-ts"],
-	"include": ["src"],
+	"exclude": [
+		"node_modules",
+		"build-ts"
+	],
+	"include": [
+		"src"
+	],
 }
