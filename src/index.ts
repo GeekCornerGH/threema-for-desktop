@@ -33,7 +33,7 @@ async function createWindow () {
         "webPreferences": {
             "preload": join(
                 __dirname,
-                "preload.js"
+                "preload"
             ),
             "nodeIntegration": false,
             "enableRemoteModule": false,
@@ -101,6 +101,7 @@ async function createWindow () {
     );
 
     // And load the index.html of the app.
+    await mainWindow.webc
     await mainWindow.loadFile("./loader/loader.html");
     mainWindow.webContents.executeJavaScript("document.getElementById(\"state\").innerHTML = \"Checking internet connection...\";");
     connection(
@@ -146,7 +147,6 @@ async function createWindow () {
         "new-window",
         handleRedirect
     );
-
 }
 
 

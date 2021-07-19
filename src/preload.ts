@@ -3,6 +3,7 @@
  * It has the same sandbox as a Chrome extension.
  */
 import { ipcRenderer } from "electron";
+
 ipcRenderer.on(
     "console",
     () => {

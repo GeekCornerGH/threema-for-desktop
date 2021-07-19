@@ -4,7 +4,7 @@
     "description": "Threema for Desktop",
     "main": "src/index.ts",
     "scripts": {
-        "tsc": "tsc && copyfiles -u 1 src/assets/*.* src/loader/*.* build-ts/",
+        "tsc": "tsc && copyfiles -u 1 src/assets/*.* src/offline/*.* src/loader/*.* build-ts/",
         "start": "electron build-ts/index.js",
         "build": "cross-env ELECTRON_BUILDER_ALLOW_UNRESOLVED_DEPENDENCIES=true node build.js",
         "build:windows": "yarn build -- WINDOWS",
@@ -18,23 +18,24 @@
     "author": "GeekCorner",
     "license": "MIT",
     "dependencies": {
-        "discord-rpc": "^3.2.0",
+        "discord-rpc": "^4.0.1",
         "electron-localshortcut": "^3.2.1",
+        "electron-online": "^1.0.0",
         "node-fetch": "^2.6.1",
         "path": "^0.12.7"
     },
     "devDependencies": {
-        "@types/discord-rpc": "^3.0.5",
-        "@types/electron-localshortcut": "^3.1.0",
-        "@types/node": "^15.12.1",
-        "@typescript-eslint/eslint-plugin": "^4.26.0",
-        "@typescript-eslint/parser": "^4.26.0",
+        "@types/discord-rpc": "^3.0.6",
+        "@types/node": "^16.3.3",
+        "@types/node-fetch": "^2.5.11",
+        "@typescript-eslint/eslint-plugin": "^4.28.3",
+        "@typescript-eslint/parser": "^4.28.3",
         "copyfiles": "^2.4.1",
         "cross-env": "^7.0.3",
-        "electron": "^13.1.1",
-        "electron-builder": "^22.11.5",
-        "eslint": "^7.28.0",
-        "typescript": "^4.3.2"
+        "electron": "^13.1.7",
+        "electron-builder": "^22.11.7",
+        "eslint": "^7.31.0",
+        "typescript": "^4.3.5"
     },
     "repository": {
         "type": "git",

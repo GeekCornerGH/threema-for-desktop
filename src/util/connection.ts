@@ -1,4 +1,4 @@
-import * as fetch from "node-fetch";
+import fetch from "node-fetch";
 import { dialog, Notification } from "electron";
 export async function connection(app, mainWindow) {
 
@@ -35,8 +35,8 @@ export async function connection(app, mainWindow) {
                 }
 
             }
-
-            app.quit();
+            app.isQuiting = true;
+            return app.quit();
 
         }
 
@@ -49,7 +49,7 @@ export async function connection(app, mainWindow) {
             "body": "No internet connection avaliable."
         };
         new Notification(notification).show();
-        dialog.showMessageBox(
+        return dialog.showMessageBox(
             mainWindow,
             {
                 "title": "No internet connection",
