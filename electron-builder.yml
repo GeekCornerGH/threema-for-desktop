@@ -2,9 +2,9 @@ appId: threema-for-desktop
 productName: 'Threema For Desktop'
 artifactName: 'Threema-For-Desktop-setup-${version}.${ext}'
 copyright: 'Copyright © 2018-2021 GeekCorner'
-directories: 
-  - buildResources: 'build-assets'
-  - output: 'build-binaries'
+directories:
+  buildResources: 'build-assets'
+  output: 'build-binaries'
 win:
   target: 
     - target: 'nsis'
