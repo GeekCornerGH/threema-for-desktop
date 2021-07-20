@@ -6,11 +6,11 @@
     "scripts": {
         "tsc": "tsc && copyfiles -u 1 src/assets/*.* src/loader/*.* build-js/",
         "start": "electron .",
-        "build": "cross-env ELECTRON_BUILDER_ALLOW_UNRESOLVED_DEPENDENCIES=true node build.js",
-        "build:windows": "yarn build -- WINDOWS",
-        "build:mac": "yarn build -- MAC",
-        "build:linux": "yarn build -- LINUX",
-        "ci": "electron-builder",
+        "dist": "cross-env ELECTRON_BUILDER_ALLOW_UNRESOLVED_DEPENDENCIES=true node build.js",
+        "dist:windows": "yarn build -- WINDOWS",
+        "dist:mac": "yarn build -- MAC",
+        "dist:linux": "yarn build -- LINUX",
+        "build": "electron-builder",
         "lint": "eslint .",
         "lint:fix": "eslint . --fix"
     },
