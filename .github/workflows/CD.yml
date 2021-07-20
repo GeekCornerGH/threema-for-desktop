@@ -26,4 +26,4 @@ jobs:
       - name: Run tsc, to check if there is error with code
         run: yarn tsc
       - name: Running build of app
-        run:  node build WINDOWS
+        run: node build
