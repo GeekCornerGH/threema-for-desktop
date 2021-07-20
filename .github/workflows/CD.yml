@@ -25,15 +25,5 @@ jobs:
         run: yarn --frozen-lockfile
       - name: Run tsc, to check if there is error with code
         run: yarn tsc
-      - name: Running build of app (Linux)
-        if: matrix.os == ubuntu-latest
-        run: |
-          yarn build LINUX
-      - name: Running build of app (macOS)
-        if: matrix.os == macos-latest
-        run: |
-          yarn build MAC
-      - name: Running build of app (Windows)
-        if: matrix.os == windows-latest
-        run: |
-          yarn build WINDOWS
+      - name: Running build of app
+        run:  node build WINDOWS
