@@ -36,6 +36,7 @@ export async function update (app, mainWindow) {
                                 "title": "What version do you want to download?",
                                 "buttons": [
                                     "Installable",
+                                    "Installable (MSI)"
                                     "Portable"
                                 ],
                                 "noLink": true,
@@ -48,6 +49,10 @@ export async function update (app, mainWindow) {
                                 shell.openExternal(`https://github.com/GeekCornerGH/Threema-For-Desktop/releases/download/v${update.threema}/Threema-For-Desktop-setup-${update.threema}.exe`);
 
                             } else if (res2.response == 1) {
+
+                                shell.openExternal(`https://github.com/GeekCornerGH/Threema-For-Desktop/releases/download/v${update.threema}/Threema-For-Desktop-setup-${update.threema}.exe`);
+
+                            } else if (res2.response == 2) {
 
                                 shell.openExternal(`https://github.com/GeekCornerGH/Threema-For-Desktop/releases/download/v${update.threema}/Threema-For-Desktop-portable-${update.threema}.exe`);
 

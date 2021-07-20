@@ -10,8 +10,6 @@
         "build:windows": "yarn build -- WINDOWS",
         "build:mac": "yarn build -- MAC",
         "build:linux": "yarn build -- LINUX",
-        "cilinux": "node build.js LINUX && node build.js WINDOWS",
-        "cidarwin": "node build.js MAC",
         "lint": "eslint .",
         "lint:fix": "eslint . --fix"
     },

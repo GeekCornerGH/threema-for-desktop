@@ -3,15 +3,15 @@ const Platform = builder.Platform;
 
 function getCurrentPlatform() {
 	switch (process.platform) {
-	case "win32":
-		return Platform.WINDOWS;
-	case "darwin":
-		return Platform.MAC;
-	case "linux":
-		return Platform.linux;
-	default:
-		console.error("Cannot resolve current platform!");
-		return undefined;
+		case "win32":
+			return Platform.WINDOWS;
+		case "darwin":
+			return Platform.MAC;
+		case "linux":
+			return Platform.linux;
+		default:
+			console.error("Cannot resolve current platform!");
+			return undefined;
 	}
 }
 
@@ -34,8 +34,11 @@ builder.build({
 			{
 				target: "portable",
 				arch: ["x64", "ia32", "arm64"],
-			}
-			]
+			},
+			{
+				target: "msi",
+				arch: ["x64", "ia32", "arm64"]
+			}]
 		},
 		nsis: {
 			oneClick: false,
@@ -45,6 +48,12 @@ builder.build({
 			license: "./build-assets/license.txt",
 			displayLanguageSelector: true,
 
+		},
+		msi: {
+			artifactName: "Threema-For-Desktop-setup-${version}.${ext}",
+			createDesktopShortcut: true,
+			createStartMenuShortcut: true,
+			shortcutName: "Threema For Desktop"
 		},
 		portable: {
 			artifactName: "Threema-For-Desktop-portable-${arch}-${version}.${ext}",
