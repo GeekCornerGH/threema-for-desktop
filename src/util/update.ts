@@ -1,5 +1,6 @@
 import fetch from "node-fetch";
 import {dialog, shell} from "electron";
+const pkg = require("../../package.json");
 export async function update (app, mainWindow) {
 
     let update;
@@ -7,7 +8,9 @@ export async function update (app, mainWindow) {
 
         mainWindow.webContents.executeJavaScript("document.getElementById(\"state\").innerHTML = \"Checking for updates...\";");
         update = await fetch("https://ping.ytgeek.gq/versions.json").then(async (res) => await res.json());
-        if (process.env.npm_package_version !== update.threema) {
+        if (pkg.version !== update.threema) {
+            console.log(pkg.version);
+            console.log(update.threema)
 
             dialog.showMessageBox(
                 mainWindow,

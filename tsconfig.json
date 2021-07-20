@@ -1,6 +1,6 @@
 {
 	"compilerOptions": {
-		"outDir": "build-ts",
+		"outDir": "build-js",
 		"module": "CommonJS",
 		"target": "ES2020",
 		"removeComments": true,

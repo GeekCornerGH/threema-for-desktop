@@ -2,10 +2,10 @@
     "name": "threema-desktop",
     "version": "1.6.0",
     "description": "Threema for Desktop",
-    "main": "src/index.ts",
+    "main": "build-js/index.js",
     "scripts": {
-        "tsc": "tsc && copyfiles -u 1 src/assets/*.* src/offline/*.* src/loader/*.* build-ts/",
-        "start": "electron build-ts/index.js",
+        "tsc": "tsc && copyfiles -u 1 src/assets/*.* src/loader/*.* build-js/",
+        "start": "electron .",
         "build": "cross-env ELECTRON_BUILDER_ALLOW_UNRESOLVED_DEPENDENCIES=true node build.js",
         "build:windows": "yarn build -- WINDOWS",
         "build:mac": "yarn build -- MAC",

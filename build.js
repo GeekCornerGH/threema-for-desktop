@@ -42,7 +42,7 @@ builder.build({
 			perMachine: false,
 			allowElevation: true,
 			allowToChangeInstallationDirectory: true,
-			license: "./build/license.txt",
+			license: "./build-assets/license.txt",
 			displayLanguageSelector: true,
 
 		},
@@ -75,7 +75,7 @@ builder.build({
 		},
 		compression: "maximum",
 		files: [
-			"!{dist,.gitignore,.vscode,.travis.yml,.nvmrc,build.js,.github,.all-contributorsrc,portable.json,.eslintrc.json}"
+			"!{.github,build-binaries,src,CONTRIBUTORS.MD,.all-contributorsrc,.eslintignore,.eslintrc.json,.gitignore,.nvmrc,.travis.yml,build.js,tsconfig.json,yarn.lock}"
 		],
 		asar: true
 	}

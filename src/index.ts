@@ -27,9 +27,10 @@ async function createWindow () {
 
     // Create the browser window.
     mainWindow = new BrowserWindow({
+        "title": "Threema For Desktop",
         "width": 800,
         "height": 600,
-        "icon": "./assets/logo.ico",
+        "icon": join(__dirname,"./assets/logo.ico"),
         "webPreferences": {
             "preload": join(
                 __dirname,
@@ -101,8 +102,7 @@ async function createWindow () {
     );
 
     // And load the index.html of the app.
-    await mainWindow.webc
-    await mainWindow.loadFile("./loader/loader.html");
+    await mainWindow.loadFile(join(__dirname,"/loader/loader.html"));
     mainWindow.webContents.executeJavaScript("document.getElementById(\"state\").innerHTML = \"Checking internet connection...\";");
     connection(
         app,
