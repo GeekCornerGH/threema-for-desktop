@@ -10,6 +10,7 @@
         "build:windows": "yarn build -- WINDOWS",
         "build:mac": "yarn build -- MAC",
         "build:linux": "yarn build -- LINUX",
+        "ci": "electron-builder",
         "lint": "eslint .",
         "lint:fix": "eslint . --fix"
     },
