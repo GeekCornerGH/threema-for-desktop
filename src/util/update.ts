@@ -36,7 +36,7 @@ export async function update (app, mainWindow) {
                                 "title": "What version do you want to download?",
                                 "buttons": [
                                     "Installable",
-                                    "Installable (MSI)"
+                                    "Installable (MSI)",
                                     "Portable"
                                 ],
                                 "noLink": true,
