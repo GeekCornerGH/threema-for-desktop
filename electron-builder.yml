@@ -32,14 +32,16 @@ portable:
   artifactName: 'Threema-For-Desktop-portable-${arch}-${version}.${ext}'
 
 mac:
-  - target: 'dmg'
-    arch: 
-      - 'x64'
-      - 'arm64'
+  category: 'public.app-category.social-networking'
+  target:
+    - target: 'dmg'
+      arch: 
+        - 'x64'
+        - 'arm64'
+  
 
 dmg:
   artifactName: 'Threema-For-Desktop-mac-${arch}-${version}.${ext}'
-  category: 'public.app-category.social-networking'
 
 
 linux:
