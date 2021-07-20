@@ -1,0 +1,26 @@
+name: Threema For Desktop CI
+
+on: 
+- push
+- pull_request
+
+jobs: 
+  CI:
+    name: CI
+    runs-on: ${{ matrix.os }}
+    continue-on-error: false
+    strategy:
+      matrix:
+        os: [windows-2019, ubuntu-20.04, macos-11]
+    steps:
+      - name: Cloning and checking the repository with Git
+        uses: actions/checkout@v2
+      - name: Install and setup Node.JS
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
+          check-latest: true
+      - name: Install dependances to see if there is any issue
+        run: yarn --frozen-lockfile
+      - name: Run tsc, to check if there is error with code
+        run: yarn tsc

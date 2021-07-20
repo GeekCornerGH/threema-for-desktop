@@ -1,0 +1,32 @@
+name: Threema For Desktop CD
+
+on: 
+  workflow_run:
+    workflows: ["Threema For Desktop CI"]
+    types:
+    - completed
+jobs: 
+  CD:
+    name: CD
+    runs-on: ${{ matrix.os }}
+    continue-on-error: false
+    strategy:
+      matrix:
+        os: [windows-2019, ubuntu-20.04, macos-11]
+    steps:
+      - name: Cloning and checking the repository with Git
+        uses: actions/checkout@v2
+      - name: Install and setup Node.JS
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
+          check-latest: true
+      - name: Install dependances to see if there is any issue
+        run: yarn --frozen-lockfile
+      - name: Run tsc, to check if there is error with code
+        run: yarn tsc
+      - name: Running build of app
+        uses: samuelmeuli/action-electron-builder@v1
+        with: 
+          github_token: ${{ secrets.github_token }}
+          release: ${{ startsWith(github.ref, 'refs/tags/v') }}
