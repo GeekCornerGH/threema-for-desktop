@@ -39,9 +39,6 @@ jobs:
       - name: Building WIX Toolsuite
         if: matrix.os == 'windows-latest'
         run: MSBuild.exe .\wix3-toolsuite
-      - name: Go on parent folder
-        if: matrix.os == 'windows-latest'
-        run: cd ..
       - name: Cloning and checking the repository with Git
         uses: actions/checkout@v2
       - name: Changing directory to this repository
