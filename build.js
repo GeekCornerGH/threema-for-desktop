@@ -84,7 +84,7 @@ builder.build({
 		},
 		compression: "maximum",
 		files: [
-			"!{.github,build-binaries,src,CONTRIBUTORS.MD,.all-contributorsrc,.eslintignore,.eslintrc.json,.gitignore,.nvmrc,.travis.yml,build.js,tsconfig.json,yarn.lock}"
+			"!{.github,wix3-toolsuite,build-binaries,src,CONTRIBUTORS.MD,.all-contributorsrc,.eslintignore,.eslintrc.json,.gitignore,.nvmrc,.travis.yml,build.js,tsconfig.json,yarn.lock}"
 		],
 		asar: true
 	}
