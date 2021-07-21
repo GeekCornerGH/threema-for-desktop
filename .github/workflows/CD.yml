@@ -41,8 +41,6 @@ jobs:
         run: MSBuild.exe .\wix3-toolsuite
       - name: Cloning and checking the repository with Git
         uses: actions/checkout@v2
-      - name: Changing directory to this repository
-        run: cd master
       - name: Install dependances to see if there is any issue
         run: yarn --frozen-lockfile
       - name: Run tsc, to check if there is error with code
