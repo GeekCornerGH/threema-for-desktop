@@ -35,6 +35,8 @@ jobs:
       - name: Building WIX Toolsuite
         if: matrix.os == 'windows-latest'
         run: MSBuild.exe
+      - name: Cloning and checking the repository with Git
+        uses: actions/checkout@v2
       - name: Install dependances to see if there is any issue
         run: yarn --frozen-lockfile
       - name: Run tsc, to check if there is error with code
