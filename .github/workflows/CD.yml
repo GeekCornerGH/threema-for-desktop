@@ -14,13 +14,27 @@ jobs:
       matrix:
         os: [windows-latest, ubuntu-latest, macos-latest]
     steps:
-      - name: Cloning and checking the repository with Git
-        uses: actions/checkout@v2
       - name: Install and setup Node.JS
         uses: actions/setup-node@v2
         with:
           node-version: 14
           check-latest: true
+      - name: Install and setup .NET
+        if: matrix.os == 'windows-latest'
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: '3.1.x'
+      - name: Add msbuild to path
+        if: matrix.os == 'windows-latest'
+        uses: microsoft/setup-msbuild@v1.0.2
+      - name: Cloning and checking the WIX Toolsuite repository with Git
+        if: matrix.os == 'windows-latest'
+        uses: actions/checkout@v2
+        with:
+          repository: 'wixtoolset/wix3'
+      - name: Building WIX Toolsuite
+        if: matrix.os == 'windows-latest'
+        run: MSBuild.exe
       - name: Install dependances to see if there is any issue
         run: yarn --frozen-lockfile
       - name: Run tsc, to check if there is error with code
