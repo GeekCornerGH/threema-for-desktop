@@ -39,8 +39,12 @@ jobs:
       - name: Building WIX Toolsuite
         if: matrix.os == 'windows-latest'
         run: MSBuild.exe .\wix3-toolsuite
+      - name: Put new wix in path
+        if: matrix.os == 'windows-latest'
+        run: echo "D:\a\threema-for-desktop\threema-for-desktop\wix3-toolsuite\build\debug\x86\" >> $GITHUB_PATH
+        shell: bash
       - name: Cloning and checking the repository with Git
-        uses: actions/checkout@v2
+        uses: actions/checkout@v2 
       - name: Install dependances to see if there is any issue
         run: yarn --frozen-lockfile
       - name: Run tsc, to check if there is error with code
