@@ -33,16 +33,24 @@ jobs:
         with:
           repository: 'wixtoolset/wix3'
           path: wix3-toolsuite
+      - name: Changing directory to WIX Toolsuite
+        if: matrix.os == 'windows-latest'
+        run: cd wix3-toolsuite
       - name: Strong-name verification skipping setup
         if: matrix.os == 'windows-latest'
         run: MSBuild.exe .\tools\OneTimeWixBuildInitialization.proj
       - name: Building WIX Toolsuite
         if: matrix.os == 'windows-latest'
         run: MSBuild.exe
+      - name: Go on parent folder
+        if: matrix.os == 'windows-latest'
+        run: cd ..
       - name: Cloning and checking the repository with Git
         uses: actions/checkout@v2
         with:
           path: master
+      - name: Changing directory to WIX Toolsuite
+        run: cd master
       - name: Install dependances to see if there is any issue
         run: yarn --frozen-lockfile
       - name: Run tsc, to check if there is error with code
