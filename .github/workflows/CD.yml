@@ -1,11 +1,19 @@
 name: Threema For Desktop CD
 
 on: 
-  workflow_run:
-    workflows: ["Threema For Desktop CI"]
-    types:
-    - completed
+  push:
+    tags:
+      - 'v*'
 jobs: 
+  draftrelease:
+    name: Make draft for the release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create the draft
+        uses: release-drafter/release-drafter@v5
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    
   CD:
     name: CD
     runs-on: ${{ matrix.os }}
@@ -19,29 +27,6 @@ jobs:
         with:
           node-version: 14
           check-latest: true
-      - name: Install and setup .NET
-        if: matrix.os == 'windows-latest'
-        uses: actions/setup-dotnet@v1
-        with:
-          dotnet-version: '3.1.x'
-      - name: Add msbuild to path
-        if: matrix.os == 'windows-latest'
-        uses: microsoft/setup-msbuild@v1.0.2
-      - name: Cloning and checking the WIX Toolsuite repository with Git
-        if: matrix.os == 'windows-latest'
-        uses: actions/checkout@v2
-        with:
-          repository: 'wixtoolset/wix3'
-          path: wix3-toolsuite
-      - name: Strong-name verification skipping setup
-        if: matrix.os == 'windows-latest'
-        run: MSBuild.exe .\wix3-toolsuite\tools\OneTimeWixBuildInitialization.proj
-      - name: Building WIX Toolsuite
-        if: matrix.os == 'windows-latest'
-        run: MSBuild.exe .\wix3-toolsuite
-      - name: Put new wix in path
-        if: matrix.os == 'windows-latest'
-        run: echo "D:\a\threema-for-desktop\threema-for-desktop\wix3-toolsuite\build\debug\x86\" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
       - name: Cloning and checking the repository with Git
         uses: actions/checkout@v2 
       - name: Install dependances to see if there is any issue
