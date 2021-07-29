@@ -2,7 +2,7 @@ name: Threema For Desktop CI
 
 on: 
   push:
-    tags:
+    branches-ignore:
       - 'dependabot/**'
 
 
