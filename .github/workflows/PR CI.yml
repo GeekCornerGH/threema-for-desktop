@@ -1,14 +1,12 @@
 name: Threema For Desktop CI
 
 on: 
-  push:
-    tags:
-      - 'dependabot/**'
+  - pull_request
 
 
 jobs: 
-  CI:
-    name: CI
+  CIPR:
+    name: CI for Pull Requests
     runs-on: ${{ matrix.os }}
     continue-on-error: false
     strategy:
@@ -17,6 +15,9 @@ jobs:
     steps:
       - name: Cloning and checking the repository with Git
         uses: actions/checkout@v2
+        with:
+          ref: ${{github.event.pull_request.head.ref}}
+          repository: ${{github.event.pull_request.head.repo.full_name}}
       - name: Install and setup Node.JS
         uses: actions/setup-node@v2
         with:
@@ -26,3 +27,5 @@ jobs:
         run: yarn --frozen-lockfile
       - name: Run tsc, to check if there is error with code
         run: yarn tsc
+      - name: Running test build of app
+        uses: samuelmeuli/action-electron-builder@v1
