@@ -18,7 +18,7 @@ export async function rpc (details, date) {
                         "url": "https://github.com/GeekCornerGH/Threema-For-Desktop/"
                     }
                 ],
-                details,
+                "details": details,
                 "state": `Powered by Electron v${process.versions.electron}, NodeJS v${process.versions.node}, Chromium v${process.versions.chrome} & v8 v${process.versions.v8}.`,
                 "startTimestamp": date,
                 "largeImageKey": "threema",
@@ -49,7 +49,7 @@ export async function createRPC (details, date) {
                 "url": "https://github.com/GeekCornerGH/Threema-For-Desktop/"
             }
         ],
-        details,
+        "details": details,
         "state": `Powered by Electron v${process.versions.electron}, NodeJS v${process.versions.node}, Chromium v${process.versions.chrome} & v8 v${process.versions.v8}.`,
         "startTimestamp": date,
         "largeImageKey": "threema",

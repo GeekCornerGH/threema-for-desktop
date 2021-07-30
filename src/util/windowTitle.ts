@@ -6,9 +6,8 @@ export async function windowTitle (app, mainWindow, date) {
         async () => {
 
             let details,
-		 title;
-            const regex = /\((\d+?)\) Threema For Desktop/,
-		 regex2 = /Threema For Desktop/;
+		    title;
+            const regex = /\((\d+?)\) Threema For Desktop/;
             title = await mainWindow.webContents.executeJavaScript(`
             document.getElementsByTagName("title")[0].innerText`);
             let match;
@@ -49,10 +48,14 @@ export async function windowTitle (app, mainWindow, date) {
                     date
                 );
 
-            } else if (title.match(regex2)) {
+            } else if (title == "Threema For Desktop") {
 
                 details = "There is no unread message";
                 app.setBadgeCount(0);
+                rpc.createRPC(
+                    details,
+                    date
+                );
 
             } else {
 
