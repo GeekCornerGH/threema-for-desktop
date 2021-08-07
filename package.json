@@ -10,7 +10,7 @@
         "dist:windows": "yarn build -- WINDOWS",
         "dist:mac": "yarn build -- MAC",
         "dist:linux": "yarn build -- LINUX",
-        "build": "electron-builder",
+        "build": "electron-builder --publish=always",
         "lint": "eslint .",
         "lint:fix": "eslint . --fix"
     },

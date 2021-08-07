@@ -34,6 +34,6 @@ jobs:
       - name: Run tsc, to check if there is error with code
         run: yarn tsc
       - name: Running build of app
-        uses: samuelmeuli/action-electron-builder@v1
+        uses: yarn build
         with:
-          github_token: ${{ secrets.github_token }}
+          GH_TOKEN: ${{ secrets.github_token }}
