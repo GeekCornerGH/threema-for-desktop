@@ -34,6 +34,6 @@ jobs:
       - name: Run tsc, to check if there is error with code
         run: yarn tsc
       - name: Running build of app
-        uses: yarn build
+        run: yarn build
         with:
           GH_TOKEN: ${{ secrets.github_token }}
