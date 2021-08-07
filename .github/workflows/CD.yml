@@ -35,5 +35,5 @@ jobs:
         run: yarn tsc
       - name: Running build of app
         run: yarn build
-        with:
+        env:
           GH_TOKEN: ${{ secrets.github_token }}
