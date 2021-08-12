@@ -7,10 +7,10 @@ export async function update (app, mainWindow) {
     (async () => {
 
         mainWindow.webContents.executeJavaScript("document.getElementById(\"state\").innerHTML = \"Checking for updates...\";");
-        update = await fetch("https://ping.ytgeek.gq/versions.json").then(async (res) => await res.json());
-        if (pkg.version !== update.threema) {
+        update = await fetch("https://api.github.com/repos/GeekCornerGH/threema-for-desktop/releases").then(async (res) => await res.json());
+        if (pkg.version !== update[0].tag_name.replace("v", "")) {
             console.log(pkg.version);
-            console.log(update.threema)
+            console.log(update[0].tag_name.replace("v", ""))
 
             dialog.showMessageBox(
                 mainWindow,
@@ -45,11 +45,11 @@ export async function update (app, mainWindow) {
 
                             if (res2.response == 0) {
 
-                                shell.openExternal(`https://github.com/GeekCornerGH/Threema-For-Desktop/releases/download/v${update.threema}/Threema-For-Desktop-setup-${update.threema}.exe`);
+                                shell.openExternal(`https://github.com/GeekCornerGH/Threema-For-Desktop/releases/download/v${update[0].tag_name.replace("v", "")}/Threema-For-Desktop-setup-${update[0].tag_name.replace("v", "")}.exe`);
 
                             } else if (res2.response == 1) {
 
-                                shell.openExternal(`https://github.com/GeekCornerGH/Threema-For-Desktop/releases/download/v${update.threema}/Threema-For-Desktop-portable-${update.threema}.exe`);
+                                shell.openExternal(`https://github.com/GeekCornerGH/Threema-For-Desktop/releases/download/v${update[0].tag_name.replace("v", "")}/Threema-For-Desktop-portable-${update[0].tag_name.replace("v", "")}.exe`);
 
                             }
                             app.isQuiting = true;
@@ -62,11 +62,11 @@ export async function update (app, mainWindow) {
 
                         if (process.arch == "arm64") {
 
-                            shell.openExternal(`https://github.com/GeekCornerGH/Threema-For-Desktop/releases/download/v${update.threema}/Threema-For-Desktop-mac-arm64-${update.threema}.dmg`);
+                            shell.openExternal(`https://github.com/GeekCornerGH/Threema-For-Desktop/releases/download/v${update[0].tag_name.replace("v", "")}/Threema-For-Desktop-mac-arm64-${update[0].tag_name.replace("v", "")}.dmg`);
 
                         } else {
 
-                            shell.openExternal(`https://github.com/GeekCornerGH/Threema-For-Desktop/releases/download/v${update.threema}/Threema-For-Desktop-mac-x64-${update.threema}.dmg`);
+                            shell.openExternal(`https://github.com/GeekCornerGH/Threema-For-Desktop/releases/download/v${update[0].tag_name.replace("v", "")}/Threema-For-Desktop-mac-x64-${update[0].tag_name.replace("v", "")}.dmg`);
 
                         }
                         app.isQuiting = true;
@@ -75,7 +75,7 @@ export async function update (app, mainWindow) {
                     }
                     if (process.platform == "linux") {
 
-                        shell.openExternal(`https://github.com/GeekCornerGH/Threema-For-Desktop/releases/download/v${update.threema}/Threema-For-Desktop-linux-${update.threema}.AppImage`);
+                        shell.openExternal(`https://github.com/GeekCornerGH/Threema-For-Desktop/releases/download/v${update[0].tag_name.replace("v", "")}/Threema-For-Desktop-linux-${update[0].tag_name.replace("v", "")}.AppImage`);
                         app.isQuiting = true;
                         app.quit();
 
@@ -88,7 +88,7 @@ export async function update (app, mainWindow) {
 
                 } else {
 
-                    shell.openExternal(`https://github.com/GeekCornerGH/threema-for-desktop/releases/tag/v${update.threema}`);
+                    shell.openExternal(`https://github.com/GeekCornerGH/threema-for-desktop/releases/tag/v${update[0].tag_name.replace("v", "")}`);
                     app.isQuiting = true;
                     app.quit();
 
