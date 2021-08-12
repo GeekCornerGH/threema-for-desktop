@@ -1,11 +1,13 @@
 /// <reference path="index.d.ts" />
 // Modules to control application life and create native browser window
-import {BrowserWindow, app, ipcMain, shell} from "electron";
-
-import {register} from "electron-localshortcut";
+import { BrowserWindow, app, ipcMain, shell } from "electron";
+import * as fs from "fs-extra";
+import { register } from "electron-localshortcut";
+import { join } from "path";
+const appDir = process.env.CONFIG_DIRECT_PATH || app.getPath('userData');
 
 app.setAppUserModelId("threema-for-desktop");
-import {join} from "path";
+
 let mainWindow;
 
 
@@ -13,24 +15,24 @@ const date = Date.now(),
     details = "There is no unread messages";
 
 // Modules from external files
-import {createRPC, rpc} from "./util/rpc";
-import {tray} from "./util/tray";
-import {menu} from "./util/menu";
-import {windowTitle} from "./util/windowTitle";
-import {connection} from "./util/connection";
-import {update} from "./util/update";
+import { createRPC, rpc } from "./util/rpc";
+import { tray } from "./util/tray";
+import { menu } from "./util/menu";
+import { windowTitle } from "./util/windowTitle";
+import { connection } from "./util/connection";
+import { update } from "./util/update";
 
 
 app.isQuiting = false;
 
-async function createWindow () {
+async function createWindow() {
 
     // Create the browser window.
     mainWindow = new BrowserWindow({
         "title": "Threema For Desktop",
         "width": 800,
         "height": 600,
-        "icon": join(__dirname,"./assets/logo.ico"),
+        "icon": join(__dirname, "./assets/logo.ico"),
         "webPreferences": {
             "preload": join(
                 __dirname,
@@ -102,7 +104,7 @@ async function createWindow () {
     );
 
     // And load the index.html of the app.
-    await mainWindow.loadFile(join(__dirname,"/loader/loader.html"));
+    await mainWindow.loadFile(join(__dirname, "/loader/loader.html"));
     mainWindow.webContents.executeJavaScript("document.getElementById(\"state\").innerHTML = \"Checking internet connection...\";");
     connection(
         app,
@@ -147,6 +149,11 @@ async function createWindow () {
         "new-window",
         handleRedirect
     );
+
+
+    mainWindow.webContents.on("did-finish-load", async () => mainWindow.webContents.insertCSS(fs.readFileSync(join(__dirname, "assets/darkmode.css"), {
+        encoding: "utf-8"
+    })))
 }
 
 

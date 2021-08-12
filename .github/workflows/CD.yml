@@ -4,16 +4,7 @@ on:
   push:
     tags:
       - 'v*'
-jobs: 
-  draftrelease:
-    name: Make draft for the release
-    runs-on: ubuntu-latest
-    steps:
-      - name: Create the draft
-        uses: release-drafter/release-drafter@v5
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    
+jobs:     
   CD:
     name: CD
     runs-on: ${{ matrix.os }}
@@ -31,7 +22,7 @@ jobs:
         uses: actions/checkout@v2 
       - name: Install dependances to see if there is any issue
         run: yarn --frozen-lockfile
-      - name: Run tsc, to check if there is error with code
+      - name: Building TypeScript to JavaScript
         run: yarn tsc
       - name: Running build of app
         run: yarn build
