@@ -1,13 +1,13 @@
 import { App, BrowserWindow } from "electron";
 import * as rpc from "./rpc";
-export async function windowTitle (app: App, mainWindow: BrowserWindow, date: number) {
+export async function windowTitle(app: App, mainWindow: BrowserWindow, date: number): Promise<void> {
 
     mainWindow.webContents.on(
         "page-title-updated",
         async () => {
 
             let details,
-		    title;
+                title;
             const regex = /\((\d+?)\) Threema For Desktop/;
             title = await mainWindow.webContents.executeJavaScript(`
             document.getElementsByTagName("title")[0].innerText`);

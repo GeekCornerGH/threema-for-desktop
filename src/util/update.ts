@@ -2,7 +2,7 @@ import fetch from "node-fetch";
 import { App, BrowserWindow, dialog, shell } from "electron";
 import * as fs from "fs-extra";
 export async function update(app: App, mainWindow: BrowserWindow): Promise<void> {
-    let pkg = await JSON.parse((await fs.readFile("package.json", 'utf-8')).toString());
+    const pkg = await JSON.parse((await fs.readFile("package.json", 'utf-8')).toString());
     mainWindow.webContents.executeJavaScript("document.getElementById(\"state\").innerHTML = \"Checking for updates...\";");
     const update = await fetch("https://api.github.com/repos/GeekCornerGH/threema-for-desktop/releases").then(async (res) => await res.json());
     if (pkg.version !== update[0].tag_name.replace("v", "")) {
