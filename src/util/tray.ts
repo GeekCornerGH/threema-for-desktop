@@ -1,8 +1,8 @@
 
-import {Menu, Tray, shell} from "electron";
+import {Menu, Tray, shell, App, BrowserWindow} from "electron";
 import {join} from "path";
 let systray;
-export async function tray (app, mainWindow) {
+export async function tray (app: App, mainWindow: BrowserWindow): Promise<void> {
 
     systray = new Tray(join(
         __dirname,

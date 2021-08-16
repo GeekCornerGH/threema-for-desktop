@@ -1,10 +1,8 @@
-/// <reference path="index.d.ts" />
 // Modules to control application life and create native browser window
 import { BrowserWindow, app, ipcMain, shell } from "electron";
 import * as fs from "fs-extra";
 import { register } from "electron-localshortcut";
 import { join } from "path";
-const appDir = process.env.CONFIG_DIRECT_PATH || app.getPath('userData');
 
 app.setAppUserModelId("threema-for-desktop");
 
@@ -24,6 +22,21 @@ import { update } from "./util/update";
 
 
 app.isQuiting = false;
+const gotTheLock = app.requestSingleInstanceLock()
+
+if (!gotTheLock) {
+    app.isQuiting = true;
+    app.quit()
+} else {
+    app.on('second-instance', () => {
+        // Someone tried to run a second instance, we should focus our window.
+        if (mainWindow) {
+            if (mainWindow.isMinimized()) mainWindow.restore()
+            if (!mainWindow.isVisible()) mainWindow.show()
+            mainWindow.focus()
+        }
+    })
+}
 
 async function createWindow() {
 

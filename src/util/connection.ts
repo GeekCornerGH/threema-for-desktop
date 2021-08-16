@@ -1,6 +1,6 @@
 import fetch from "node-fetch";
-import { dialog, Notification } from "electron";
-export async function connection(app, mainWindow) {
+import { App, BrowserWindow, dialog, Notification } from "electron";
+export async function connection(app: App, mainWindow: BrowserWindow): Promise<void> {
 
     (async () => {
 
@@ -65,5 +65,5 @@ export async function connection(app, mainWindow) {
         });
 
     }
-
+    return;
 }

@@ -1,5 +1,5 @@
-import {BrowserWindow, Menu, shell} from "electron";
-export async function menu (app) {
+import {App, BrowserWindow, Menu, shell} from "electron";
+export async function menu (app: App):Promise<void> {
 
     const template = [];
     template.push({

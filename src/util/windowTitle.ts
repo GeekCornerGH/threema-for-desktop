@@ -1,5 +1,6 @@
+import { App, BrowserWindow } from "electron";
 import * as rpc from "./rpc";
-export async function windowTitle (app, mainWindow, date) {
+export async function windowTitle (app: App, mainWindow: BrowserWindow, date: number) {
 
     mainWindow.webContents.on(
         "page-title-updated",

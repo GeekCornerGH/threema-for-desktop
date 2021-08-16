@@ -4,6 +4,7 @@
 		"module": "CommonJS",
 		"target": "ES2020",
 		"removeComments": true,
+		"resolveJsonModule": true
 	},
 	"exclude": [
 		"node_modules",

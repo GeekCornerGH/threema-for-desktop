@@ -1,5 +1,2 @@
-build-ts/
+**/*.js
 node-modules/
-build.js
-src/index.ts
-src/preload.ts

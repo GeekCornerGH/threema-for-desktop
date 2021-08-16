@@ -1,6 +1,6 @@
 import * as drpc from "discord-rpc";
-const client = new drpc.Client({"transport": "ipc"});
-export async function rpc (details, date) {
+const client = new drpc.Client({ "transport": "ipc" });
+export async function rpc(details: string, date: number): Promise<void> {
 
     drpc.register("829374669000933432");
     client.on(
@@ -28,7 +28,7 @@ export async function rpc (details, date) {
         }
     );
 
-    client.login({"clientId": "829374669000933432"}).catch((e) => {
+    client.login({ "clientId": "829374669000933432" }).catch((e) => {
 
         console.log(e);
 
@@ -36,7 +36,7 @@ export async function rpc (details, date) {
 
 }
 
-export async function createRPC (details, date) {
+export async function createRPC(details: string, date: number): Promise<void> {
 
     await client.setActivity({
         "buttons": [

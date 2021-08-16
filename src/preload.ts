@@ -58,9 +58,6 @@ function setNotificationCallback(createCallback, clickCallback) {
 
 }
 function notifyNotificationCreate(title, opt) {
-
-    console.log(title);
-    console.log(opt);
     ipcRenderer.send(
         "notification",
         title,

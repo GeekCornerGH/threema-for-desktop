@@ -246,4 +246,7 @@
 	md-icon>img[alt="QR"] {
 		filter: invert(1) saturate(1%) brightness(1000%) !important;
 	}
+	.loading md-progress-circular svg path {
+		stroke: whitesmoke;
+	}
 }

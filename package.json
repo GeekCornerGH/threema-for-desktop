@@ -26,7 +26,7 @@
     },
     "devDependencies": {
         "@types/discord-rpc": "^4.0.0",
-        "@types/node": "^16.6.1",
+        "@types/fs-extra": "^9.0.12",
         "@types/node-fetch": "^2.5.12",
         "@typescript-eslint/eslint-plugin": "^4.29.1",
         "@typescript-eslint/parser": "^4.29.1",
