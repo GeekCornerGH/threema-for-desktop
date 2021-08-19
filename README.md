@@ -1,8 +1,7 @@
 # Threema For Desktop  
 ## Unofficial desktop app for Threema
-
-
-
+<img src="https://raw.githubusercontent.com/GeekCornerGH/Threema-For-Desktop/master/Landing_screen.png"></img>  
+*What is the best theme for you? Just change the theme settings on your computer!*  
 ### FAQ
 **What is Threema?**
 Threema is a swiss-made 🇨🇭 communication app like WhatsApp, with end-to-end encryption 🔐. Source code of Threema is also avaliable <a href="https://github.com/threema-ch" target="_BLANK">here</a>.
