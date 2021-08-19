@@ -1,0 +1,72 @@
+name: Report a bug
+description: Report a bug
+title: "[Bug]: "
+labels: 
+  - "bug"
+  - "need triage"
+body:
+- type: checkboxes
+  attributes:
+    label: Preflight Checklist
+    description: Please ensure you've completed all of the following.
+    options:
+      - label: I have read the [Contributing Guidelines](https://github.com/GeekCornerGH/Threema-For-Desktop/blob/master/CONTRIBUTING.md) for this project.
+        required: true
+      - label: I have searched the [issue tracker](https://www.github.com/GeekCornerGH/Threema-For-Desktop/issues) for an issue that matches the one I want to file, without success.
+        required: true
+- type: input
+  attributes:
+    label: Threema For Desktop version
+    description: What version of Threema For Desktop are you using?
+    placeholder: 2.1.0
+  validations:
+    required: true
+- type: dropdown
+  attributes:
+    label: What operating system are you using?
+    options:
+      - Windows
+      - macOS
+      - Ubuntu/Debian (and Debian-based)
+      - RedHat/Fedora (and Fedora-based)
+      - Arch Linux (and Arch Linux-based)
+      - Other
+  validations:
+    required: true
+- type: input
+  attributes:
+    label: Operating System Version
+    description: What operating system version are you using? On Windows, click Start button > Settings > System > About. On macOS, click the Apple Menu > About This Mac. On Linux, use lsb_release or uname -a.
+    placeholder: "e.g. Windows 10 version 1909, macOS Catalina 10.15.7, or Ubuntu 20.04"
+  validations:
+    required: true
+- type: dropdown
+  attributes:
+    label: What arch are you using?
+    options:
+      - x64
+      - ia32
+      - arm64 (including Apple Silicon)
+  validations:
+    required: true
+- type: input
+  attributes:
+    label: Last Known Working Threema For Desktop version
+    description: What is the last version of Threema For Desktop this worked in, if applicable?
+    placeholder: 2.1.0
+- type: textarea
+  attributes:
+    label: Expected Behavior
+    description: A clear and concise description of what you expected to happen.
+  validations:
+    required: true
+- type: textarea
+  attributes:
+    label: Actual Behavior
+    description: A clear description of what actually happens.
+  validations:
+    required: true
+- type: textarea
+  attributes:
+    label: Additional Information
+    description: If your problem needs further explanation, please add more information here.
