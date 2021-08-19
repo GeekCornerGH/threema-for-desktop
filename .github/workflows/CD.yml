@@ -25,6 +25,6 @@ jobs:
       - name: Building TypeScript to JavaScript
         run: yarn tsc
       - name: Running build of app
-        run: yarn build
+        run: yarn ciBuild
         env:
           GH_TOKEN: ${{ secrets.github_token }}
