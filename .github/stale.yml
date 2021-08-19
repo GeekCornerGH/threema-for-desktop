@@ -36,7 +36,7 @@ markComment: >
   for your contributions.
 
 # Comment to post when removing the stale label.
- unmarkComment: >
+unmarkComment: >
    This issue has been reopened.
 
 # Comment to post when closing a stale Issue or Pull Request.
