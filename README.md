@@ -1,6 +1,6 @@
 # Threema For Desktop  
 ## Unofficial desktop app for Threema
-<img src="https://raw.githubusercontent.com/GeekCornerGH/Threema-For-Desktop/master/Landing_screen.png"></img>  
+<img src="https://github.com/GeekCornerGH/threema-for-desktop/blob/master/docs/imgs/Landing_screen.png?raw=true"></img>  
 *What is the best theme for you? Just change the theme settings on your computer!*  
 ### FAQ
 **What is Threema?**
