@@ -1,3 +1,7 @@
+
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
 ## Contributors ✨
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
@@ -7,8 +11,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- markdownlint-disable -->
 <table>
   <tr>
-    <td align="center"><a href="https://ytgeek.gq"><img src="https://avatars.githubusercontent.com/u/45696571?v=4?s=100" width="100px;" alt=""/><br /><sub><b>GeekCornerGH</b></sub></a><br /><a href="https://github.com/GeekCornerGH/Threema-For-Desktop/commits?author=GeekCornerGH" title="Code">💻</a> <a href="https://github.com/GeekCornerGH/Threema-For-Desktop/commits?author=GeekCornerGH" title="Documentation">📖</a></td>
-    <td align="center"><a href="https://dependabot.com"><img src="https://avatars2.githubusercontent.com/u/36207117?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Dependabot</b></sub></a><br /><a href="#" title="Tools">🔧</a> <a href="#" title="Security">🛡️</a></td>
+    <td align="center"><a href="https://quixotech.uk/"><img src="https://avatars.githubusercontent.com/u/160899?v=4?s=150" width="150px;" alt=""/><br /><sub><b>bluekeys</b></sub></a><br /><a href="#ideas-bluekeys" title="Ideas, Planning, & Feedback">🤔</a> <a href="#talk-bluekeys" title="Talks">📢</a></td>
   </tr>
 </table>
 
@@ -17,5 +20,4 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
-This project follows the [all-contributors](https://allcontributors.org) specification.
-Contributions of any kind are welcome!
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
