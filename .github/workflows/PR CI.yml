@@ -28,6 +28,13 @@ jobs:
       - name: Run tsc, to check if there is error with code
         run: yarn tsc
       - name: Running test build of app
-        run: yarn ciBuild
+        run: yarn build
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Upload artefacts to Actions log
+        uses: actions/upload-artifact@v2
+        with:
+          name: ${{ matrix.os }}-artefacts
+          path: |
+            Threema-For-Desktop-*
+            latest-*.yml
