@@ -28,3 +28,10 @@ jobs:
         run: yarn ciBuild
         env:
           GH_TOKEN: ${{ secrets.github_token }}
+      - name: Upload artefacts to Actions log
+        uses: actions/upload-artifact@v2
+        with:
+          name: ${{ matrix.os }}-artefacts
+          path: |
+            Threema-For-Desktop-*
+            latest-*.yml
