@@ -1,4 +1,4 @@
-name: Threema For Desktop CI
+name: Threema For Desktop CI for Pull Requests
 
 on: 
   - pull_request
