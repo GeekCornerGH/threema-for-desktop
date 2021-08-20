@@ -1,6 +1,6 @@
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=for-the-badge)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 ## Contributors ✨
 
@@ -11,9 +11,8 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- markdownlint-disable -->
 <table>
   <tr>
-    <td align="center"><a href="https://quixotech.uk/"><img src="https://avatars.githubusercontent.com/u/160899?v=4?s=150" width="150px;" alt=""/><br /><sub><b>bluekeys</b></sub></a><br /><a href="#ideas-bluekeys" title="Ideas, Planning, & Feedback">🤔</a> <a href="#talk-bluekeys" title="Talks">📢</a></td>
+    <td align="center"><a href="https://bkjoin.fr/"><img src="https://avatars.githubusercontent.com/u/78284710?v=4?s=150" width="150px;" alt=""/><br /><sub><b>BlueKeys</b></sub>     </a><br /><a href="#ideas-blue-keys" title="Ideas, Planning, & Feedback">🤔</a> <a href="#talk-blue-keys" title="Talks">📢</a></td>
     <td align="center"><a href="https://github.com/features/security"><img src="https://avatars.githubusercontent.com/u/27347476?v=4?s=150" width="150px;" alt=""/><br /><sub><b>Dependabot</b></sub></a><br /><a href="https://github.com/GeekCornerGH/Threema-For-Desktop/commits?author=dependabot" title="Code">💻</a> <a href="#plugin-dependabot" title="Plugin/utility libraries">🔌</a></td>
-    <td align="center"><a href="https://bkjoin.fr/"><img src="https://avatars.githubusercontent.com/u/78284710?v=4?s=150" width="150px;" alt=""/><br /><sub><b>BlueKeys</b></sub></a><br /><a href="#ideas-blue-keys" title="Ideas, Planning, & Feedback">🤔</a> <a href="#talk-blue-keys" title="Talks">📢</a></td>
   </tr>
 </table>
 
