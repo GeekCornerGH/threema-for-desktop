@@ -4,8 +4,8 @@
 *What is the best theme for you? Just change the theme settings on your computer!*  
 ### FAQ
 **What is Threema?**
-Threema is a swiss-made 🇨🇭 communication app like WhatsApp, with end-to-end encryption 🔐. Source code of Threema is also avaliable <a href="https://github.com/threema-ch" target="_BLANK">here</a>.
-**Why this software?**
+Threema is a swiss-made 🇨🇭 communication app like WhatsApp, with end-to-end encryption 🔐. Source code of Threema is also avaliable <a href="https://github.com/threema-ch" target="_BLANK">here</a>.  
+**Why this software?**  
 I created this application because I wanted a real desktop app for Threema, just like WhatsApp, Telegram or Signal.
 Also, I added some features to suit my needs. You can request features by opening an issue.
 Some features:
