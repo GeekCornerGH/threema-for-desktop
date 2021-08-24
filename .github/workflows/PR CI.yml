@@ -29,6 +29,8 @@ jobs:
         run: yarn tsc
       - name: Running test build of app
         run: yarn build
+        env:
+          GH_token: ${{ secrets.github_token }}
       - name: Upload arteficts to Actions log
         uses: actions/upload-artifact@v2 
         with: 
