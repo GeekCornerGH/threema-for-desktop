@@ -29,12 +29,8 @@ jobs:
         run: yarn tsc
       - name: Running test build of app
         run: yarn build
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Upload artefacts to Actions log
-        uses: actions/upload-artifact@v2
-        with:
-          name: ${{ matrix.os }}-artefacts
-          path: |
-            Threema-For-Desktop-*
-            latest-*.yml
+      - name: Upload arteficts to Actions log
+        uses: actions/upload-artifact@v2 
+        with: 
+          name: ${{ matrix.os }}-artifacts
+          path: | build-binaries/**
