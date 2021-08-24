@@ -35,4 +35,5 @@ jobs:
         uses: actions/upload-artifact@v2 
         with: 
           name: ${{ matrix.os }}-artifacts
-          path: | build-binaries/**
+          path: | 
+            build-binaries/**
