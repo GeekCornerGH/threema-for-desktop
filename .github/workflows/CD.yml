@@ -31,7 +31,7 @@ jobs:
       - name: Upload artefacts to Actions log
         uses: actions/upload-artifact@v2
         with:
-          name: ${{ matrix.os }}-artefacts
+          name: ${{ matrix.os }}-artifacts
           path: |
-            Threema-For-Desktop-*
-            latest-*.yml
+            build-binaries/Threema-For-Desktop-*
+            build-binaries/latest-*.yml
