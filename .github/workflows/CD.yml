@@ -33,5 +33,4 @@ jobs:
         with:
           name: ${{ matrix.os }}-artifacts
           path: |
-            build-binaries/Threema-For-Desktop-*
-            build-binaries/latest-*.yml
+            build-binaries/**
