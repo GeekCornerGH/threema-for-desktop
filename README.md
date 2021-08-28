@@ -44,7 +44,7 @@ Now, choose your OS:
 </ul>
 <details>
 <summary>Some badges, if you want</summary>
-<a href="https://github.com/GeekCornerGH/threema-for-desktop/actions/workflows/CD.yml"><img src="https://img.shields.io/github/workflow/status/geekcornergh/threema-for-desktop/Threema%20For%20Desktop%20CD?style=for-the-badge"></img></a>
+<a href="https://github.com/GeekCornerGH/threema-for-desktop/actions/workflows/CI.yml"><img src="https://img.shields.io/github/workflow/status/geekcornergh/threema-for-desktop/Threema%20For%20Desktop%20CI?style=for-the-badge"></img></a>
 <a href="https://david-dm.org/geekcornergh/threema-for-desktop"><img src="https://img.shields.io/david/geekcornergh/threema-for-desktop?style=for-the-badge"></img></a>
 <a href="https://github.com/geekcornergh/threema-for-desktop"><img src="https://img.shields.io/github/languages/code-size/geekcornergh/threema-for-desktop?style=for-the-badge"></img></a>
 <a href="https://github.com/geekcornergh/threema-for-desktop"><img src="https://img.shields.io/github/repo-size/geekcornergh/threema-for-desktop?style=for-the-badge"></img></a>
