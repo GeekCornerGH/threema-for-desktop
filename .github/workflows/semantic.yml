@@ -1,0 +1,16 @@
+name: 'Threema For Desktop Semantic PR Checker'
+
+on:
+  pull_request:
+    types:
+      - opened
+      - edited
+      - synchronize
+
+jobs:
+  semantic:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: kunalnagarco/action-semantic-pr@v1.2.50
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
