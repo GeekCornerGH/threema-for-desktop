@@ -6,7 +6,7 @@ import { join } from "path";
 
 app.setAppUserModelId("threema-for-desktop");
 
-let mainWindow;
+let mainWindow : BrowserWindow;
 
 
 const date = Date.now(),
@@ -129,7 +129,8 @@ async function createWindow() {
     );
     rpc(
         details,
-        date
+        date,
+        app
     );
 
 
@@ -189,7 +190,8 @@ app.whenReady().then(() => {
     );
     createRPC(
         details,
-        date
+        date,
+        app
     );
     menu(app);
 

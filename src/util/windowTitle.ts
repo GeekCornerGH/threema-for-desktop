@@ -6,12 +6,12 @@ export async function windowTitle(app: App, mainWindow: BrowserWindow, date: num
         "page-title-updated",
         async () => {
 
-            let details,
-                title;
+            let details : string,
+                title: string;
             const regex = /\((\d+?)\) Threema For Desktop/;
             title = await mainWindow.webContents.executeJavaScript(`
             document.getElementsByTagName("title")[0].innerText`);
-            let match;
+            let match : string;
             if (title.match(regex)) {
 
                 if (title.match(regex) && title.match(regex)[1]) {
@@ -27,7 +27,7 @@ export async function windowTitle(app: App, mainWindow: BrowserWindow, date: num
 
                     if (match) {
 
-                        details = `${match} unread message${match > 1
+                        details = `${match} unread message${parseInt(match) > 1
                             ? "s"
                             : ""}`;
                         if (parseInt(match) < 10) {
@@ -46,7 +46,8 @@ export async function windowTitle(app: App, mainWindow: BrowserWindow, date: num
 
                 rpc.createRPC(
                     details,
-                    date
+                    date,
+                    app
                 );
 
             } else if (title == "Threema For Desktop") {
@@ -55,7 +56,8 @@ export async function windowTitle(app: App, mainWindow: BrowserWindow, date: num
                 app.setBadgeCount(0);
                 rpc.createRPC(
                     details,
-                    date
+                    date,
+                    app
                 );
 
             } else {

@@ -1,7 +1,7 @@
 
 import {Menu, Tray, shell, App, BrowserWindow} from "electron";
 import {join} from "path";
-let systray;
+let systray : Tray;
 export async function tray (app: App, mainWindow: BrowserWindow): Promise<void> {
 
     systray = new Tray(join(
