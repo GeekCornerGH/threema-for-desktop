@@ -52,7 +52,6 @@ async function createWindow() {
                 "preload"
             ),
             "nodeIntegration": false,
-            "enableRemoteModule": false,
             "contextIsolation": false,
             "webviewTag": true
 
