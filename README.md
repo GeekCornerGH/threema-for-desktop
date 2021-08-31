@@ -17,7 +17,7 @@ Some features:
 <li>Dark theme (Using your computer settings)</li>
 </ul>
 
-**Installation**
+**Installation**  
 <a href="https://github.com/geekcornergh/threema-for-desktop/releases/latest"><img src="https://img.shields.io/github/v/release/geekcornergh/threema-for-desktop?style=for-the-badge"></img></a>  
 
 Head over <a href="https://github.com/GeekCornerGH/threema-for-desktop/releases/latest">latest releases page</a>, then refer to the table below:  
