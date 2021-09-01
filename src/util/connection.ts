@@ -10,7 +10,7 @@ export async function connection(app: App, mainWindow: BrowserWindow): Promise<v
             await fetch("https://ping.ytgeek.gq/ping.json").then(async (res) => {
 
                 const status = await res.json();
-                ok == status.status;
+                status.status == ok;
 
             });
 
