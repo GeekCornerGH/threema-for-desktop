@@ -24,7 +24,7 @@
     "devDependencies": {
         "@types/discord-rpc": "^4.0.0",
         "@types/fs-extra": "^9.0.12",
-        "@types/node-fetch": "^2.5.12",
+        "@types/node-fetch": "^3.0.3",
         "@typescript-eslint/eslint-plugin": "^4.30.0",
         "@typescript-eslint/parser": "^4.30.0",
         "copyfiles": "^2.4.1",
