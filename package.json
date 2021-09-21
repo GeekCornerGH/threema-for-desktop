@@ -18,7 +18,7 @@
         "electron-localshortcut": "^3.2.1",
         "electron-online": "^1.0.0",
         "fs-extra": "^10.0.0",
-        "node-fetch": "^2.6.2",
+        "node-fetch": "^2.6.3",
         "path": "^0.12.7"
     },
     "devDependencies": {
