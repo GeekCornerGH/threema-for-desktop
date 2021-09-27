@@ -2,7 +2,7 @@ module.exports = {
 	appId: "threema-for-desktop",
 	productName: "Threema For Desktop",
 	artifactName: "Threema-For-Desktop-setup-${version}.${ext}",
-	copyright: `Copyright © 2018-${new Date().getFullYear()} GeekCorner`,
+	copyright: `Copyright © 2021-${new Date().getFullYear()} GeekCorner`,
 	directories: {
 		buildResources: "build-assets",
 		output: "build-binaries"
@@ -43,7 +43,7 @@ module.exports = {
 	mac: {
 		target: [{
 			target: "dmg",
-			arch: ["x64", "arm64"],
+			arch: ["universal"],
 		}],
 		category: "public.app-category.social-networking"
 	},
