@@ -242,11 +242,53 @@
 	}
 	md-dialog-content#dialogContent_my-threema-id-dialog>div.md-dialog-content.center {
 		background-color: var(--color-white) !important;
+		color: var(--color-white) !important;
 	}
 	md-icon>img[alt="QR"] {
 		filter: invert(1) saturate(1%) brightness(1000%) !important;
 	}
 	.loading md-progress-circular svg path {
 		stroke: whitesmoke;
+	}
+	.md-input::-webkit-input-placeholder {
+		color: var(--color-white) !important;
+	}
+	.md-input:-moz-placeholder {
+		color: var(--color-white) !important;
+	}
+	.md-input::-moz-placeholder {
+		color: var(--color-white) !important;
+	}
+	.md-input:-ms-input-placeholder {
+		color: var(--color-white) !important;
+	}
+	.md-input::-webkit-input-placeholder {
+		color: var(--color-white) !important;
+	}
+	.md-input::-webkit-input-placeholder {
+		color: var(--color-white) !important;
+	}
+	.md-input:-moz-placeholder {
+		color: var(--color-white) !important;
+	}
+	.md-input:-ms-input-placeholder {
+		color: var(--color-white) !important;
+	}
+	.md-input::-webkit-input-placeholder {
+		color: var(--color-white) !important;
+	}
+	.mat-form-field-empty.mat-form-field-label {
+		color: var(--color-white) !important;
+	}
+	input {
+		color: var(--color-white) !important;
+	}
+	md-input-container .md-input md-input {
+		color: var(--color-white) !important;
+		background-color: var(--color-white) !important;
+	}
+
+	.mat-form-field-ripple .mat-focused .mat-form-field-label {
+		background-color:var(--color-white) !important;
 	}
 }

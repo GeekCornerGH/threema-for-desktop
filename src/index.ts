@@ -6,7 +6,7 @@ import { join } from "path";
 
 app.setAppUserModelId("threema-for-desktop");
 
-let mainWindow : BrowserWindow;
+let mainWindow: BrowserWindow;
 
 
 const date = Date.now(),
@@ -57,6 +57,11 @@ async function createWindow() {
 
         }
     });
+
+    const oldUserAgent = mainWindow.webContents.getUserAgent();
+    const currVersion = app.getVersion();
+    const newUserAgent = `${process.platform}ThreemaDesktop/${currVersion}-${oldUserAgent}`;
+    mainWindow.webContents.userAgent = newUserAgent;
     mainWindow.on(
         "close",
         (e) => {

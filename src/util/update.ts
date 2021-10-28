@@ -51,22 +51,12 @@ export async function update(app: App, mainWindow: BrowserWindow): Promise<void>
 
                 }
                 if (process.platform == "darwin") {
-
-                    if (process.arch == "arm64") {
-
-                        shell.openExternal(`https://github.com/GeekCornerGH/Threema-For-Desktop/releases/download/v${update[0].tag_name.replace("v", "")}/Threema-For-Desktop-mac-arm64-${update[0].tag_name.replace("v", "")}.dmg`);
-
-                    } else {
-
-                        shell.openExternal(`https://github.com/GeekCornerGH/Threema-For-Desktop/releases/download/v${update[0].tag_name.replace("v", "")}/Threema-For-Desktop-mac-x64-${update[0].tag_name.replace("v", "")}.dmg`);
-
-                    }
+                    shell.openExternal(`https://github.com/GeekCornerGH/Threema-For-Desktop/releases/download/v${update[0].tag_name.replace("v", "")}/Threema-For-Desktop-mac-universal-${update[0].tag_name.replace("v", "")}.dmg`);
                     app.isQuiting = true;
                     app.quit();
 
                 }
                 if (process.platform == "linux") {
-
                     shell.openExternal(`https://github.com/GeekCornerGH/Threema-For-Desktop/releases/download/v${update[0].tag_name.replace("v", "")}/Threema-For-Desktop-linux-${update[0].tag_name.replace("v", "")}.AppImage`);
                     app.isQuiting = true;
                     app.quit();
@@ -74,16 +64,12 @@ export async function update(app: App, mainWindow: BrowserWindow): Promise<void>
                 }
 
             } else if (res.response == 1) {
-
                 app.isQuiting = true;
                 app.quit();
-
             } else {
-
                 shell.openExternal(`https://github.com/GeekCornerGH/threema-for-desktop/releases/tag/v${update[0].tag_name.replace("v", "")}`);
                 app.isQuiting = true;
                 app.quit();
-
             }
 
         });
