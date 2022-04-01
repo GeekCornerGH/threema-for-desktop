@@ -58,9 +58,7 @@ export async function update(app: App, mainWindow: BrowserWindow): Promise<void>
 
       
 
-               
-
-                    }
+      
                     app.isQuiting = true;
                     app.quit();
 
