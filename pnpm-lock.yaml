@@ -66,8 +66,8 @@ packages:
       - supports-color
     dev: true
 
-  /@electron/universal/1.0.5:
-    resolution: {integrity: sha512-zX9O6+jr2NMyAdSkwEUlyltiI4/EBLu2Ls/VD3pUQdi3cAYeYfdQnT2AJJ38HE4QxLccbU13LSpccw1IWlkyag==}
+  /@electron/universal/1.2.1:
+    resolution: {integrity: sha512-7323HyMh7KBAl/nPDppdLsC87G6RwRU02dy5FPeGB1eS7rUePh55+WNWiDPLhFQqqVPHzh77M69uhmoT8XnwMQ==}
     engines: {node: '>=8.6'}
     dependencies:
       '@malept/cross-spawn-promise': 1.1.1
@@ -443,7 +443,7 @@ packages:
     engines: {node: '>=14.0.0'}
     dependencies:
       '@develar/schema-utils': 2.6.5
-      '@electron/universal': 1.0.5
+      '@electron/universal': 1.2.1
       '@malept/flatpak-bundler': 0.4.0
       7zip-bin: 5.1.1
       async-exit-hook: 2.0.1
