@@ -1,10 +1,10 @@
 name: Threema For Desktop CD
 
-on: 
+on:
   push:
     tags:
-      - 'v*'
-jobs:     
+      - "v*"
+jobs:
   CD:
     name: CD
     runs-on: ${{ matrix.os }}
@@ -18,16 +18,20 @@ jobs:
         with:
           node-version: 16
           check-latest: true
+      - name: Setup PNPM
+        uses: pnpm/action-setup@v2.1.0
+        with:
+          version: latest
       - name: Cloning and checking the repository with Git
-        uses: actions/checkout@v2 
+        uses: actions/checkout@v2
       - name: Install dependances to see if there is any issue
-        run: yarn --frozen-lockfile
+        run: pnpm --frozen-lockfile
       - name: Liniting files
-        run: yarn lint:fix
+        run: pnpm lint:fix
       - name: Building TypeScript to JavaScript
-        run: yarn tsc
+        run: pnpm tsc
       - name: Running build of app
-        run: yarn ciBuild
+        run: pnpm ciBuild
         env:
           GH_TOKEN: ${{ secrets.github_token }}
       - name: Upload arteficts to Actions log

@@ -23,12 +23,16 @@ jobs:
         with:
           node-version: 16
           check-latest: true
+      - name: Setup PNPM
+        uses: pnpm/action-setup@v2.1.0
+        with:
+          version: latest
       - name: Install dependances to see if there is any issue
-        run: yarn --frozen-lockfile
+        run: pnpm --frozen-lockfile
       - name: Run tsc, to check if there is error with code
-        run: yarn tsc
+        run: pnpm tsc
       - name: Running test build of app
-        run: yarn build
+        run: pnpm build
         env:
           GH_TOKEN: ${{ secrets.github_token }}
       - name: Upload arteficts to Actions log
