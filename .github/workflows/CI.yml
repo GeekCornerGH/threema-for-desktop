@@ -16,7 +16,7 @@ jobs:
         os: [windows-latest, ubuntu-latest, macos-latest]
     steps:
       - name: Cloning and checking the repository with Git
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Install and setup Node.JS
         uses: actions/setup-node@v2
         with:
