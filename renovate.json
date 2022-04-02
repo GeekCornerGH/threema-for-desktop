@@ -1,5 +1,13 @@
 {
   "extends": [
-    "config:base"
-  ]
+    "config:base",
+    ":semanticCommits"
+  ],
+  "assignees": [
+    "GeekCornerGH"
+  ],
+  "constraints": {
+    "node": ">=16.0.0",
+    "pnpm": "latest"
+  }
 }
