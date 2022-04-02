@@ -1,4 +1,9 @@
-import fetch from "node-fetch";
+const _importDynamic = new Function('modulePath', 'return import(modulePath)')
+
+async function fetch(...args) {
+  const {default: fetch} = await _importDynamic('node-fetch')
+  return fetch(...args)
+}
 import { App, BrowserWindow, dialog, Notification } from "electron";
 export async function connection(app: App, mainWindow: BrowserWindow): Promise<void> {
 
@@ -9,7 +14,7 @@ export async function connection(app: App, mainWindow: BrowserWindow): Promise<v
             const ok = "ok";
             await fetch("https://ping.ytgeek.gq/ping.json").then(async (res) => {
 
-                const status = await res.json();
+                const status = await res.json() as any;
                 status.status == ok;
 
             });

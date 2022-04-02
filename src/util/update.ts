@@ -1,4 +1,9 @@
-import fetch from "node-fetch";
+const _importDynamic = new Function('modulePath', 'return import(modulePath)')
+
+async function fetch(...args) {
+  const {default: fetch} = await _importDynamic('node-fetch')
+  return fetch(...args)
+}
 import { App, BrowserWindow, dialog, shell } from "electron";
 export async function update(app: App, mainWindow: BrowserWindow): Promise<void> {
     mainWindow.webContents.executeJavaScript("document.getElementById(\"state\").innerHTML = \"Checking for updates...\";");
