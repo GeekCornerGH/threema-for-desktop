@@ -1,4 +1,4 @@
-import * as drpc from "discord-rpc";
+import * as drpc from "discord-rpc-patch";
 import { App } from "electron";
 import { customApp } from "../types";
 const client = new drpc.Client({ "transport": "ipc" });

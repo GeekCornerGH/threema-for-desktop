@@ -1,6 +1,6 @@
 {
     "name": "threema-desktop",
-    "version": "2.2.0",
+    "version": "2.3.0",
     "description": "Threema for Desktop",
     "main": "build-js/index.js",
     "scripts": {
@@ -14,7 +14,7 @@
     "author": "GeekCorner",
     "license": "MIT",
     "dependencies": {
-        "discord-rpc": "^4.0.1",
+        "discord-rpc-patch": "^4.0.1",
         "electron-localshortcut": "^3.2.1",
         "fs-extra": "^10.0.1",
         "node-fetch": "^3.2.3",
