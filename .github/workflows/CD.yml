@@ -25,7 +25,7 @@ jobs:
       - name: Cloning and checking the repository with Git
         uses: actions/checkout@v2
       - name: Install dependances to see if there is any issue
-        run: pnpm --frozen-lockfile
+        run: pnpm install --frozen-lockfile
       - name: Liniting files
         run: pnpm lint:fix
       - name: Building TypeScript to JavaScript

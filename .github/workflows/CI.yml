@@ -27,7 +27,7 @@ jobs:
         with:
           version: latest
       - name: Install dependances to see if there is any issue
-        run: pnpm --frozen-lockfile
+        run: pnpm install --frozen-lockfile
       - name: Run tsc, to check if there is error with code
         run: pnpm tsc
       - name: Running test build of app

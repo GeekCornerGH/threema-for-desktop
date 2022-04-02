@@ -10,5 +10,5 @@
 * When making your pull request, make sure you completed the template with your needs.
 * Please make a semantic Pull Request title
 * Please try your changes before you submit them to me
-* Please also lint (yarn lint) the files to make code better
+* Please also lint (pnpm lint) the files to make code better
 That's all :)
