@@ -33,6 +33,6 @@ jobs:
       - name: Upload artifacts to Actions log
         uses: actions/upload-artifact@v2
         with: 
-          name: ${{ matrix.os }}-artifacts
+          name: ${{ runner.os }}-artifacts
           path: |
            build-binaries/**
