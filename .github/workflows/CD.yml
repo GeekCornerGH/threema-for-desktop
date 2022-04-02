@@ -16,7 +16,7 @@ jobs:
       - name: Install and setup Node.JS
         uses: actions/setup-node@v2
         with:
-          node-version: 14
+          node-version: 16
           check-latest: true
       - name: Cloning and checking the repository with Git
         uses: actions/checkout@v2 

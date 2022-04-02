@@ -20,7 +20,7 @@ jobs:
       - name: Install and setup Node.JS
         uses: actions/setup-node@v2
         with:
-          node-version: 14
+          node-version: 16
           check-latest: true
       - name: Install dependances to see if there is any issue
         run: yarn --frozen-lockfile
