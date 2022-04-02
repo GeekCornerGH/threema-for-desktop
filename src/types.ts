@@ -1,5 +1,5 @@
-declare namespace Electron {
-    interface App extends NodeJS.EventEmitter {
-        isQuiting?: boolean;
-    }
+import {App} from 'electron';
+export interface customApp extends App {
+    isQuiting: boolean,
+    haveRPC: boolean,
 }

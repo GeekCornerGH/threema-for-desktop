@@ -4,8 +4,9 @@ async function fetch(...args) {
   const {default: fetch} = await _importDynamic('node-fetch')
   return fetch(...args)
 }
-import { App, BrowserWindow, dialog, shell } from "electron";
-export async function update(app: App, mainWindow: BrowserWindow): Promise<void> {
+import { BrowserWindow, dialog, shell } from "electron";
+import { customApp } from "../types";
+export async function update(app: customApp, mainWindow: BrowserWindow): Promise<void> {
     mainWindow.webContents.executeJavaScript("document.getElementById(\"state\").innerHTML = \"Checking for updates...\";");
     const update = await fetch("https://api.github.com/repos/GeekCornerGH/threema-for-desktop/releases").then(async (res) => await res.json());
     if (app.getVersion() !== update[0].tag_name.replace("v", "")) {

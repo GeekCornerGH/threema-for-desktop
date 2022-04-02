@@ -1,8 +1,9 @@
 
-import {Menu, Tray, shell, App, BrowserWindow} from "electron";
+import {Menu, Tray, shell, BrowserWindow} from "electron";
 import {join} from "path";
+import { customApp } from "../types";
 let systray : Tray;
-export async function tray (app: App, mainWindow: BrowserWindow): Promise<void> {
+export async function tray (app: customApp, mainWindow: BrowserWindow): Promise<void> {
 
     systray = new Tray(join(
         __dirname,

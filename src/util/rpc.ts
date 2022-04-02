@@ -1,13 +1,12 @@
 import * as drpc from "discord-rpc";
 import { App } from "electron";
+import { customApp } from "../types";
 const client = new drpc.Client({ "transport": "ipc" });
 export async function rpc(details: string, date: number, app: App): Promise<void> {
-
-    drpc.register("829374669000933432");
+  let haveRPC = true;
     client.on(
         "ready",
         async () => {
-
             await client.setActivity({
                 "buttons": [
                     {
@@ -30,15 +29,14 @@ export async function rpc(details: string, date: number, app: App): Promise<void
     );
 
     client.login({ "clientId": "829374669000933432" }).catch((e) => {
-
         console.log(e);
-
+        haveRPC = false;
     });
 
 }
 
-export async function createRPC(details: string, date: number, app: App): Promise<void> {
-
+export async function createRPC(details: string, date: number, app: customApp): Promise<void> {
+    if (!app.haveRPC) return
     await client.setActivity({
         "buttons": [
             {

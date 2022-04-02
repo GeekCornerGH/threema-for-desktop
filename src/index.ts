@@ -1,9 +1,10 @@
 // Modules to control application life and create native browser window
-import { BrowserWindow, app, ipcMain, shell } from "electron";
+import { BrowserWindow, ipcMain, shell } from "electron";
 import * as fs from "fs-extra";
 import { register } from "electron-localshortcut";
 import { join } from "path";
-
+import * as electron from "electron";
+const app = electron.app as customApp;
 app.setAppUserModelId("threema-for-desktop");
 
 let mainWindow: BrowserWindow;
@@ -19,6 +20,7 @@ import { menu } from "./util/menu";
 import { windowTitle } from "./util/windowTitle";
 import { connection } from "./util/connection";
 import { update } from "./util/update";
+import { customApp } from "./types";
 
 
 app.isQuiting = false;
