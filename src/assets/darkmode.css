@@ -37,258 +37,362 @@
 }
 
 @media (prefers-color-scheme: dark) {
+
 	/* login: */
 	#main {
 		background-color: var(--color-main-background) !important;
 	}
+
 	body.md-default-theme, body, html.md-default-theme, html {
 		color: var(--color-white) !important;
 	}
+
 	md-input-container.md-threema-theme .md-input, md-input-container.md-threema-theme .md-input::placeholder {
 		color: var(--color-white) !important;
 	}
+
 	md-dialog.md-threema-theme {
 		color: var(--color-white) !important;
 		background-color: var(--color-main-background) !important;
 	}
+
 	/* chat selection list: */
 	#navigation-header {
 		background-color: var(--color-bright-background) !important;
 	}
+
 	#navigation-conversations {
 		background-color: var(--color-main-background) !important;
 	}
+
 	#navigation-conversations .conversation-wrapper .conversation, #navigation-contacts .contact {
 		border-left: 8px solid var(--color-main-background) !important;
+		border-bottom: 1px solid var(--color-main-background) !important;
 	}
+
 	#navigation-conversations .conversation-wrapper .conversation.active, #navigation-conversations .conversation-wrapper .conversation:hover, #navigation-contacts .contact:hover {
 		border-color: var(--color-bright-background) !important;
 		background-color: var(--color-bright-background) !important;
 	}
+
 	#navigation-conversations .conversation-wrapper .conversation .conversation-box .receiver-box {
 		color: var(--color-white) !important;
 	}
+
 	#navigation-conversations .conversation-wrapper .conversation .conversation-box .message-box .latest-message {
 		color: var(--color-latest-message) !important;
 	}
+
 	#navigation-conversations .conversation-wrapper .conversation.starred {
-		border-image: linear-gradient( to right, var(--color-starred), var(--color-starred) 50%, var(--color-main-background) 50%, var(--color-main-background) 100%) 1 100% !important;
+		border-image: linear-gradient(to right, var(--color-starred), var(--color-starred) 50%, var(--color-main-background) 50%, var(--color-main-background) 100%) 1 100% !important;
 	}
+
 	#navigation-conversations .conversation-wrapper .conversation.unread {
-		border-image: linear-gradient( to right, var(--color-unread), var(--color-unread) 50%, var(--color-main-background) 50%, var(--color-main-background) 100%) 1 100% !important;
+		border-image: linear-gradient(to right, var(--color-unread), var(--color-unread) 50%, var(--color-main-background) 50%, var(--color-main-background) 100%) 1 100% !important;
 	}
+
 	#navigation-conversations .conversation-wrapper {
 		border-bottom: 1px solid var(--color-main-background) !important;
 	}
+
 	.material-icons.md-dark {
 		color: var(--color-white) !important;
 	}
+
 	.material-icons.md-medium-dark {
 		color: var(--color-white) !important;
 	}
+
 	.message-icon img {
 		filter: invert(0.8) !important;
 	}
+
 	#navigation-header .search input[type="search"] {
 		background-color: var(--color-bright-background) !important;
 		border: 1px solid var(--color-more-bright-background) !important;
 		color: var(--color-white) !important;
 	}
+
 	.verification-dots div {
 		background-color: var(--color-verification-background) !important;
 	}
+
 	.verification-dots.level3 div {
 		background-color: var(--color-verification-level-3) !important;
 	}
+
 	.verification-dots.level2 div:nth-of-type(1), .verification-dots.level2 div:nth-of-type(2) {
 		background-color: var(--color-verification-level-2) !important;
 	}
+
 	.verification-dots.level1 div:nth-of-type(1) {
 		background-color: var(--color-verification-level-1) !important;
 	}
+
 	#messenger.show-detail #navigation {
 		border-right: 1px solid var(--color-more-bright-background) !important;
 	}
+
 	/* chat history: */
 	#messenger #detail>div.ng-scope .detail-header {
 		background-color: var(--color-bright-background) !important;
 	}
+
 	compose-area>div:first-child>div:nth-of-type(2) {
 		background-color: var(--color-bright-background) !important;
 		border: 1px solid var(--color-more-bright-background) !important;
 	}
-	.md-button.md-icon-button.header-back-button md-icon {
+
+	.md-button.md-icon-button.header-back-button md-icon .md-cancel-button {
 		color: var(--color-white) !important;
 	}
+
 	md-icon img {
 		filter: invert(0.8) !important;
 	}
+
 	#conversation #conversation-footer {
 		background-color: var(--color-main-background) !important;
 	}
+
 	#conversation-chat .chat .message-in .message-body {
 		background-color: var(--color-incoming-message-background) !important;
 	}
+
 	#conversation-chat .chat .message-in .bubble-triangle::before, #conversation-chat .chat .message-in .bubble-triangle::after {
 		background-color: var(--color-incoming-message-background) !important;
 	}
+
 	#conversation-chat .chat .message-out .message-body {
 		background-color: var(--color-outgoing-message-background) !important;
 	}
+
 	#conversation-chat .chat .message-out .bubble-triangle::before, #conversation-chat .chat .message-out .bubble-triangle::after {
 		background-color: var(--color-outgoing-message-background) !important;
 	}
+
 	#conversation-chat .chat .message-status .message-body {
 		background-color: var(--color-status-message-background) !important;
 	}
+
 	#conversation-chat .chat .message-status .message-body .message-text span {
 		color: var(--color-status-message-text) !important;
 	}
+
 	.message-body .message-quote .message-quote-content {
 		border-color: var(--color-accent) !important;
 	}
+
 	.message-body .message-quote .message-name {
 		color: var(--color-quote-author) !important;
 	}
+
 	#conversation {
 		background-image: none !important;
 		background-color: var(--color-main-background) !important;
 	}
+
 	.twemoji-picker {
 		background-color: var(--color-bright-background) !important;
 	}
+
 	.twemoji-picker .tab label {
 		border: 1px solid var(--color-bright-background) !important;
 		background: var(--color-bright-background) !important;
 	}
+
 	.twemoji-picker .tab [type="radio"]:checked~label {
 		background: var(--color-main-background) !important;
 	}
+
 	.twemoji-picker .tab .content {
 		border: 1px solid var(--color-main-background) !important;
 		background: var(--color-main-background) !important;
 	}
+
 	#conversation #conversation-quote {
 		background-color: var(--color-compose-quote-background) !important;
 	}
+
 	#conversation-chat .chat .message-body .message-info {
 		color: var(--color-message-meta) !important;
 	}
+
 	.material-icons.md-dark.user-ack, .material-icons.md-medium-dark.user-ack {
 		color: var(--color-acknowledge) !important;
 	}
+
 	.material-icons.md-dark.user-dec, .material-icons.md-medium-dark.user-dec {
 		color: var(--color-decline) !important;
 	}
+
 	compose-area>div:first-child>div:nth-of-type(2) div.compose:empty::before {
 		color: var(--color-message-input-text) !important;
 	}
+
 	/* menu: */
 	md-menu-content.md-threema-theme {
 		background-color: var(--color-menu-background) !important;
 	}
+
 	md-menu-content.md-threema-theme md-menu-item {
 		color: var(--color-white) !important;
 	}
+
 	md-menu-content.md-threema-theme md-menu-item md-icon {
 		color: var(--color-message-meta) !important;
 	}
+
 	.md-subheader.md-threema-theme {
 		background-color: var(--color-bright-background) !important;
 	}
+
 	.md-button.md-threema-theme.md-primary {
 		color: var(--color-button-text) !important;
 	}
+
 	md-dialog.md-default-theme, md-dialog {
 		color: var(--colore5) !important;
 		background-color: var(--color35) !important;
 	}
+
 	/* profiles: */
 	md-card.md-threema-theme {
 		color: var(--color-white) !important;
 		background-color: var(--color-main-background) !important;
 	}
+
 	#messenger #detail>div.ng-scope {
 		background-color: var(--color-bright-background) !important;
 	}
+
 	.md-button.md-threema-theme.md-raised {
 		background-color: var(--color-bright-background) !important;
 		color: var(--color-white) !important;
 	}
+
 	.md-button.md-threema-theme.md-warn.md-fab, .md-button.md-threema-theme.md-warn.md-raised {
 		background-color: var(--color-warning-button) !important;
 	}
+
 	#detail md-icon.md-threema-theme {
 		color: var(--color-white) !important;
 	}
+
 	md-autocomplete.md-threema-theme {
 		background: var(--color-bright-background) !important;
 	}
+
 	md-autocomplete.md-threema-theme input {
 		color: var(--color-white) !important;
 	}
+
 	.md-button.md-threema-theme.md-primary.md-fab, .md-button.md-threema-theme.md-primary.md-raised {
 		color: var(--color-black) !important;
 		background-color: var(--color-white) !important;
 	}
+
 	.avatar-area.overview>.avatar-image {
 		background-color: var(--color-more-bright-background) !important;
 	}
+
 	.md-autocomplete-suggestions-container.md-threema-theme li {
 		color: var(--color-white) !important;
 	}
+
 	.md-autocomplete-suggestions-container.md-threema-theme {
 		background: var(--color-bright-background) !important;
 	}
+
 	md-dialog-content#dialogContent_my-threema-id-dialog>div.md-dialog-content.center {
 		background-color: var(--color-white) !important;
 		color: var(--color-white) !important;
 	}
+
 	md-icon>img[alt="QR"] {
 		filter: invert(1) saturate(1%) brightness(1000%) !important;
 	}
+
 	.loading md-progress-circular svg path {
 		stroke: whitesmoke;
 	}
+
 	.md-input::-webkit-input-placeholder {
 		color: var(--color-white) !important;
 	}
+
 	.md-input:-moz-placeholder {
 		color: var(--color-white) !important;
 	}
+
 	.md-input::-moz-placeholder {
 		color: var(--color-white) !important;
 	}
+
 	.md-input:-ms-input-placeholder {
 		color: var(--color-white) !important;
 	}
+
 	.md-input::-webkit-input-placeholder {
 		color: var(--color-white) !important;
 	}
+
 	.md-input::-webkit-input-placeholder {
 		color: var(--color-white) !important;
 	}
+
 	.md-input:-moz-placeholder {
 		color: var(--color-white) !important;
 	}
+
 	.md-input:-ms-input-placeholder {
 		color: var(--color-white) !important;
 	}
+
 	.md-input::-webkit-input-placeholder {
 		color: var(--color-white) !important;
 	}
+
 	.mat-form-field-empty.mat-form-field-label {
 		color: var(--color-white) !important;
 	}
+
 	input {
 		color: var(--color-white) !important;
 	}
+
 	md-input-container .md-input md-input {
 		color: var(--color-white) !important;
 		background-color: var(--color-white) !important;
 	}
 
 	.mat-form-field-ripple .mat-focused .mat-form-field-label {
-		background-color:var(--color-white) !important;
+		background-color: var(--color-white) !important;
+	}
+
+	md-checkbox[aria-checked="false"] .md-icon {
+		border-color: var(--color-white) !important;
+	}
+
+	md-radio-button .md-on {
+		background-color: var(--color-white) !important;
+	}
+
+	md-radio-button .md-off {
+		border-color: var(--color-white) !important;
+	}
+
+	md-input-container:not(.md-input-invalid).md-input-focused .md-input {
+		transition: 0.2s linear;
+		border-color: var(--color-white) !important;
+		color: var(--color-white) !important;
+	}
+
+	.md-primary.md-cancel-button.md-button.md-ink-ripple span {
+		color: var(--color-white) !important;
+	}
+
+	#title {
+		display: none;
 	}
 }
