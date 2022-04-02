@@ -15,11 +15,7 @@ module.exports = {
 		{
 			target: "portable",
 			arch: ["x64", "ia32", "arm64"],
-		},
-			/*{
-				target: "msi",
-				arch: ["x64", "ia32", "arm64"]
-			}*/]
+		}]
 	},
 	nsis: {
 		oneClick: false,
@@ -48,7 +44,7 @@ module.exports = {
 		category: "public.app-category.social-networking"
 	},
 	dmg: {
-		artifactName: "Threema-For-Desktop-mac-${arch}-${version}.${ext}",
+		artifactName: "Threema-For-Desktop-mac-universal-${version}.${ext}",
 
 	},
 
