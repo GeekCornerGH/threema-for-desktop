@@ -154,10 +154,10 @@
   dependencies:
     "@types/ms" "*"
 
-"@types/discord-rpc@^4.0.0":
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/@types/discord-rpc/-/discord-rpc-4.0.0.tgz#29080812b9092996046af1a21138fb488d180f87"
-  integrity sha512-a5HiKOcBkB43g/lN6fBYw8FyGc6Ue9CYucxxHxXlELXpb1CxCa2NA2pGK2Ub88pi4uY5+HQeSFbYtH6DJtV3Qw==
+"@types/discord-rpc@4.0.1":
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/@types/discord-rpc/-/discord-rpc-4.0.1.tgz#2d6ed3dcb6878bfeec308b92ef12391a5c4b7882"
+  integrity sha512-pXi5ZJiF6MggUxiHI2WRM7917QUrm2h4oATT6njwSXVnYpD0Lm+6ynl8Hcw0qlAwkDTOxfkl2SelIijAneC6eg==
 
 "@types/fs-extra@^9.0.11", "@types/fs-extra@^9.0.13":
   version "9.0.13"
