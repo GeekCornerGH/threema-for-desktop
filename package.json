@@ -21,7 +21,6 @@
         "path": "^0.12.7"
     },
     "devDependencies": {
-        "@types/discord-rpc": "^4.0.1",
         "@types/electron-localshortcut": "^3.1.0",
         "@types/fs-extra": "^9.0.13",
         "@typescript-eslint/eslint-plugin": "^5.17.0",

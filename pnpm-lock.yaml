@@ -1,7 +1,6 @@
 lockfileVersion: 5.3
 
 specifiers:
-  '@types/discord-rpc': ^4.0.1
   '@types/electron-localshortcut': ^3.1.0
   '@types/fs-extra': ^9.0.13
   '@typescript-eslint/eslint-plugin': ^5.17.0
@@ -25,7 +24,6 @@ dependencies:
   path: 0.12.7
 
 devDependencies:
-  '@types/discord-rpc': 4.0.1
   '@types/electron-localshortcut': 3.1.0
   '@types/fs-extra': 9.0.13
   '@typescript-eslint/eslint-plugin': 5.17.0_689ff565753ecf7c3328c07fad067df5
@@ -174,10 +172,6 @@ packages:
     resolution: {integrity: sha512-9AonUzyTjXXhEOa0DnqpzZi6VHlqKMswga9EXjpXnnqxwLtdvPPtlO8evrI5D9S6asFRCQ6v+wpiUKbw+vKqyg==}
     dependencies:
       '@types/ms': 0.7.31
-    dev: true
-
-  /@types/discord-rpc/4.0.1:
-    resolution: {integrity: sha512-pXi5ZJiF6MggUxiHI2WRM7917QUrm2h4oATT6njwSXVnYpD0Lm+6ynl8Hcw0qlAwkDTOxfkl2SelIijAneC6eg==}
     dev: true
 
   /@types/electron-localshortcut/3.1.0:
