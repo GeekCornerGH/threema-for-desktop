@@ -6,7 +6,7 @@
     "scripts": {
         "tsc": "tsc && copyfiles -u 1 src/assets/*.* src/loader/*.* build-js/",
         "start": "electron .",
-        "ciBuild": "yarn build --publish=always",
+        "ciBuild": "pnpm build --publish=always",
         "build": "electron-builder --config=build.js",
         "lint": "eslint .",
         "lint:fix": "eslint . --fix"
