@@ -12,7 +12,7 @@ export async function tray (app: App, mainWindow: BrowserWindow): Promise<void> 
     const trayMenu = [];
     trayMenu.push(
         {
-            "label": "Threema For Desktop",
+            "label": "Threema For Desktop v" + app.getVersion(),
             "icon": join(
                 __dirname,
                 "../assets/tray.png"

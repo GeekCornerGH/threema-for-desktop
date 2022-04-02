@@ -1,16 +1,20 @@
-import {App, BrowserWindow, Menu, shell} from "electron";
-export async function menu (app: App):Promise<void> {
+import { App, BrowserWindow, Menu, shell } from "electron";
+export async function menu(app: App, mainWindow: BrowserWindow): Promise<void> {
 
     const template = [];
     template.push({
         "label": "Threema For Desktop",
         "submenu": [
             {
+                "label": "Threema For Desktop v" + app.getVersion(),
+                "enabled": false
+            },
+            {
                 "type": "separator"
             },
             {
                 "label": "Show source code",
-                "click" () {
+                "click"() {
 
                     shell.openExternal("https://github.com/GeekCornerGH/Threema-For-Desktop");
 
@@ -18,7 +22,7 @@ export async function menu (app: App):Promise<void> {
             },
             {
                 "label": "Report an issue",
-                "click" () {
+                "click"() {
 
                     shell.openExternal("https://github.com/GeekCornerGH/Threema-For-Desktop/issues");
 
@@ -129,6 +133,21 @@ export async function menu (app: App):Promise<void> {
 
                 }
 
+            },
+            {
+                "type": "separator"
+            },
+            {
+                "label": "Use Stable Threema Web",
+                "type": "radio",
+                "click":async () => await mainWindow.webContents.getURL().startsWith("https://web-beta.threema.ch/") ? await mainWindow.webContents.loadURL("https://web.threema.ch/"):console.log("Nothing to do"),
+                "checked": true
+            },
+            {
+                "label": "Use Beta Threema Web",
+                "type": "radio",
+                "click": async () => await mainWindow.webContents.getURL().startsWith("https://web.threema.ch/") ? await mainWindow.webContents.loadURL("https://web-beta.threema.ch/"):console.log("Nothing to do"),
+                "checked": false
             }
         ]
     });

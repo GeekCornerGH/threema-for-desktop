@@ -53,7 +53,6 @@ async function createWindow() {
             ),
             "nodeIntegration": false,
             "contextIsolation": false,
-            "webviewTag": true
 
         }
     });
@@ -131,11 +130,6 @@ async function createWindow() {
         app,
         mainWindow
     );
-    rpc(
-        details,
-        date,
-        app
-    );
 
 
     if (mainWindow.maximizable) {
@@ -151,7 +145,7 @@ async function createWindow() {
 
     const handleRedirect = (e, url) => {
 
-        if (!url.startsWith("https://web.threema.ch")) {
+        if (!url.startsWith("https://web.threema.ch") && !url.startsWith("https://web-beta.threema.ch")) {
 
             e.preventDefault();
             shell.openExternal(url);
@@ -181,6 +175,7 @@ async function createWindow() {
  * Some APIs can only be used after this event occurs.
  */
 app.whenReady().then(() => {
+    
 
     createWindow();
     windowTitle(
@@ -192,12 +187,17 @@ app.whenReady().then(() => {
         app,
         mainWindow
     );
+    rpc(
+        details,
+        date,
+        app
+    );
     createRPC(
         details,
         date,
         app
     );
-    menu(app);
+    menu(app, mainWindow);
 
     register(
         mainWindow,
