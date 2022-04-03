@@ -1,6 +1,6 @@
 // Modules to control application life and create native browser window
 import { BrowserWindow, ipcMain, shell } from "electron";
-import * as fs from "fs-extra";
+import * as fs from "node:fs";
 import { register } from "electron-localshortcut";
 import { join } from "path";
 import * as electron from "electron";
