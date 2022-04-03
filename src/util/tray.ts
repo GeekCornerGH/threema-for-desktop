@@ -7,7 +7,7 @@ export async function tray (app: customApp, mainWindow: BrowserWindow): Promise<
 
     systray = new Tray(join(
         __dirname,
-        `../assets/logo${process.platform == "darwin"?"Template": ""}.png`
+        `../assets/tray.png`
     ));
     systray.setToolTip("Threema For Desktop");
     const trayMenu = [];
