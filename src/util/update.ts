@@ -1,9 +1,4 @@
-const _importDynamic = new Function('modulePath', 'return import(modulePath)')
-
-async function fetch(...args) {
-  const {default: fetch} = await _importDynamic('node-fetch')
-  return fetch(...args)
-}
+import fetch from "node-fetch";
 import { BrowserWindow, dialog, shell } from "electron";
 import { customApp } from "../types";
 export async function update(app: customApp, mainWindow: BrowserWindow): Promise<void> {
