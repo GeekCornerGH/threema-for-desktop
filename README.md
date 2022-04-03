@@ -22,9 +22,9 @@ Some features:
 
 Head over <a href="https://github.com/GeekCornerGH/threema-for-desktop/releases/latest">latest releases page</a>, then refer to the table below:  
 
-| Windows installer (x86 + x64 + arm64) | Windows portable (x86 + x64 + arm64) | macOS (Intel) | macOS (arm) | Linux (any) |
+| Windows installer (x86 + x64 + arm64) | Windows portable (x86 + x64 + arm64) | macOS (Intel+Arm)  | Linux (any) |
 | --------------- | --------------- | --------------- | --------------- | --------------- |
-| Threema-For-Desktop-setup-VERSION.exe | Threema-For-Desktop-portable-version | Threema-For-Desktop-mac-VERSION.dmg | Threema-For-Desktop-mac-arm64-VERSION.dmg | Threema-For-Desktop-linux-VERSION.AppImage |
+| Threema-For-Desktop-setup-VERSION.exe | Threema-For-Desktop-portable-version | Threema-For-Desktop-mac-universal-VERSION.dmg | Threema-For-Desktop-linux-VERSION.AppImage |
 
 Now, choose your OS:
 <ul>
@@ -34,11 +34,11 @@ Now, choose your OS:
   </details>
   <details>    
   <summary>macOS</summary>
-  Download the right dmg file, acording to the table above, then open file. Drop the <code>Threema For Desktop.app</code> file into Applications folder. Allow that file to be runned (code-signing is so expansive...) in Settings > Security > General > Run then you are done.
+  Download the dmg file, then it. Drop the <code>Threema For Desktop.app</code> file into Applications folder. Run the .APP file  by following theses steps: Finder > Applications > Right click on <code>Threema For Desktop.app</code> > Open > Open. After that, you will be able to launch Threema For Desktop from Launchpad or Spotlight, but you'll need to do this again everytime you update the app (That's because Apple's code signing is verry expansive...).
   </details>
   <details>
   <summary>Linux</summary>
-  Install AppImage Launcher from <a href="https://github.com/TheAssassin/AppImageLauncher/releases/latest">here</a>. This will allow you to install Threema For Desktop like another software. Then download AppImage file from releases page. Finally, double tap the file. It's done.
+  Install AppImage Launcher from <a href="https://github.com/TheAssassin/AppImageLauncher/releases/latest">here</a>. This will allow you to install Threema For Desktop like another software. Then download AppImage file from releases page. Finally, double click the file. It's done.
  </details>
  </details>
 </ul>
