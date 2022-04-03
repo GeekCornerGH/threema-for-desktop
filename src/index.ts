@@ -4,6 +4,7 @@ import * as fs from "fs-extra";
 import { register } from "electron-localshortcut";
 import { join } from "path";
 import * as electron from "electron";
+import {parse} from 'node:url';
 const app = electron.app as customApp;
 app.setAppUserModelId("threema-for-desktop");
 
@@ -146,9 +147,8 @@ async function createWindow() {
      */
 
     const handleRedirect = (e, url) => {
-
-        if (!url.startsWith("https://web.threema.ch") && !url.startsWith("https://web-beta.threema.ch")) {
-
+        const allowedUrls = ["web.threema.ch", "web-beta.threema.ch"]
+        if (!allowedUrls.includes(parse(url).host)) {
             e.preventDefault();
             shell.openExternal(url);
 
