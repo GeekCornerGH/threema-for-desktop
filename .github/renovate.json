@@ -9,5 +9,9 @@
   "constraints": {
     "node": ">=16.0.0",
     "pnpm": "latest"
-  }
+  },
+  "packageRules": [{
+    "packageNames": ["node-fetch"],
+    "allowedVersions": "<3"
+  }]
 }
