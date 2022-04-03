@@ -4,20 +4,20 @@ overrides:
   '@electron/universal': ^1.2.1
 
 specifiers:
-  '@types/electron-localshortcut': ^3.1.0
-  '@types/fs-extra': ^9.0.13
-  '@typescript-eslint/eslint-plugin': ^5.17.0
-  '@typescript-eslint/parser': ^5.17.0
-  copyfiles: ^2.4.1
+  '@types/electron-localshortcut': 3.1.0
+  '@types/fs-extra': 9.0.13
+  '@typescript-eslint/eslint-plugin': 5.17.0
+  '@typescript-eslint/parser': 5.17.0
+  copyfiles: 2.4.1
   discord-rpc-patch: ^4.0.1
-  electron: ^18.0.1
-  electron-builder: ^22.14.13
+  electron: 18.0.1
+  electron-builder: 22.14.13
   electron-localshortcut: ^3.2.1
-  eslint: ^8.12.0
+  eslint: 8.12.0
   fs-extra: ^10.0.1
   node-fetch: ^3.2.3
   path: ^0.12.7
-  typescript: ^4.6.3
+  typescript: 4.6.3
 
 dependencies:
   discord-rpc-patch: 4.0.1
