@@ -6,8 +6,8 @@
     "scripts": {
         "tsc": "tsc && copyfiles -u 1 src/assets/*.* src/loader/*.* build-js/",
         "start": "electron .",
-        "ciBuild": "electron-builder --publish always --config=build.js",
-        "build": "electron-builder --publish never --config=build.js",
+        "ciBuild": "electron-builder build -p always --config=build.js",
+        "build": "electron-builder build -p never --config=build.js",
         "lint": "eslint .",
         "lint:fix": "eslint . --fix"
     },
