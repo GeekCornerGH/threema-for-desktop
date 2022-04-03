@@ -24,6 +24,9 @@ jobs:
           version: latest
       - name: Cloning and checking the repository with Git
         uses: actions/checkout@v3
+      - name: Inject metadata in npmrc
+        run: |
+          echo "node-linker=hoisted" >> .npmrc
       - name: Install dependances to see if there is any issue
         run: pnpm install --frozen-lockfile
       - name: Liniting files

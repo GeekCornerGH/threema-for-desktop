@@ -18,6 +18,9 @@ jobs:
         with:
           ref: ${{github.event.pull_request.head.ref}}
           repository: ${{github.event.pull_request.head.repo.full_name}}
+      - name: Inject metadata in npmrc
+        run: |
+          echo "node-linker=hoisted" >> .npmrc
       - name: Install and setup Node.JS
         uses: actions/setup-node@v3
         with:
