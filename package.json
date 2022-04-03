@@ -16,7 +16,7 @@
     "dependencies": {
         "discord-rpc-patch": "^4.0.1",
         "electron-localshortcut": "^3.2.1",
-        "node-fetch": "^2.6.7",
+        "node-fetch": "^3.0.0",
         "path": "^0.12.7"
     },
     "devDependencies": {
