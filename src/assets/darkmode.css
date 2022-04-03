@@ -391,8 +391,7 @@
 	.md-primary.md-cancel-button.md-button.md-ink-ripple span {
 		color: var(--color-white) !important;
 	}
-
-	#title {
-		display: none;
-	}
+}
+#title {
+	display: none;
 }
