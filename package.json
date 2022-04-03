@@ -34,5 +34,11 @@
     "repository": {
         "type": "git",
         "url": "https://github.com/geekcornergh/threema-for-desktop"
+    },
+    "engines": {
+            "node": ">=16.0.0"
+    },
+    "resolutions": {
+            "@electron/universal": "^1.2.1"
     }
 }

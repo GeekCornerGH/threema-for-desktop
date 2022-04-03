@@ -1,5 +1,8 @@
 lockfileVersion: 5.3
 
+overrides:
+  '@electron/universal': ^1.2.1
+
 specifiers:
   '@types/electron-localshortcut': ^3.1.0
   '@types/fs-extra': ^9.0.13
@@ -75,6 +78,8 @@ packages:
       debug: 4.3.3
       dir-compare: 2.4.0
       fs-extra: 9.1.0
+      minimatch: 3.0.4
+      plist: 3.0.4
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -1935,6 +1940,7 @@ packages:
 
   /node-addon-api/1.7.2:
     resolution: {integrity: sha512-ibPK3iA+vaY1eEjESkQkM0BbCqFOaZMiXRTtdB0u7b4djtY6JnsjvPdUHVMg6xQt3B8fpTTWHI9A+ADjM9frzg==}
+    requiresBuild: true
     dev: true
     optional: true
 
