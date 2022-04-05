@@ -1,5 +1,6 @@
 :root {
 	--color-black: #000;
+	--color-gray: #a6a6a6;
 	--color-main-background: #121212;
 	--color-bright-background: #272727;
 	--color-compose-quote-background: #1f1f1f;
@@ -49,6 +50,7 @@
 
 	md-input-container.md-threema-theme .md-input, md-input-container.md-threema-theme .md-input::placeholder {
 		color: var(--color-white) !important;
+		border-color: var(--color-grey) !important;
 	}
 
 	md-dialog.md-threema-theme {
@@ -319,22 +321,27 @@
 
 	.md-input::-webkit-input-placeholder {
 		color: var(--color-white) !important;
+		border-color: var(--color-gray) !important;
 	}
 
 	.md-input:-moz-placeholder {
 		color: var(--color-white) !important;
+		border-color: var(--color-gray) !important;
 	}
 
 	.md-input::-moz-placeholder {
 		color: var(--color-white) !important;
+		border-color: var(--color-gray) !important;
 	}
 
 	.md-input:-ms-input-placeholder {
 		color: var(--color-white) !important;
+v		border-color: var(--color-gray) !important;
 	}
 
 	.md-input::-webkit-input-placeholder {
 		color: var(--color-white) !important;
+		border-color: var(--color-gray) !important;
 	}
 
 	.md-input::-webkit-input-placeholder {
@@ -347,22 +354,27 @@
 
 	.md-input:-ms-input-placeholder {
 		color: var(--color-white) !important;
+		border-color: var(--color-gray) !important;
 	}
 
 	.md-input::-webkit-input-placeholder {
 		color: var(--color-white) !important;
+		border-color: var(--color-gray) !important;
 	}
 
 	.mat-form-field-empty.mat-form-field-label {
 		color: var(--color-white) !important;
+		border-color: var(--color-gray) !important;
 	}
 
 	input {
 		color: var(--color-white) !important;
+		border-color: var(--color-gray) !important;
 	}
 
 	md-input-container .md-input md-input {
 		color: var(--color-white) !important;
+		border-color: var(--color-gray) !important;
 		background-color: var(--color-white) !important;
 	}
 
@@ -383,7 +395,6 @@
 	}
 
 	md-input-container:not(.md-input-invalid).md-input-focused .md-input {
-		transition: 0.2s linear;
 		border-color: var(--color-white) !important;
 		color: var(--color-white) !important;
 	}
@@ -391,7 +402,85 @@
 	.md-primary.md-cancel-button.md-button.md-ink-ripple span {
 		color: var(--color-white) !important;
 	}
+	
+	.md-primary.md-confirm-button.md-button.md-ink-ripple.md-default-theme {
+		color: var(--color-white) !important;
+	}
+	
+	.md-primary.md-cancel-button.md-button.ng-scope.md-default-theme.md-ink-ripple {
+		color: var(--color-white) !important;
+	}
+
+	#aria-label-close {
+		color: var(--color-white) !important;
+	}
+
+	#aria-label-copy-log-clipboard {
+		color: var(--color-white) !important;
+	}
+
+	.md-button.md-threema-theme.md-accent[disabled]{
+		color: var(--color-gray) !important;
+	}
+
+	label {
+		color: var(--color-white) !important;
+	}
+
+	.mat-form-field-underline {
+		color: var(--color-gray) !important;
+		border-color: var(--color-gray) !important;
+	}
+
+	.md-input-container::-webkit-input-placeholder {
+		color: var(--color-white) !important;
+		border-color: var(--color-gray) !important;
+	}
+
+	.md-input-container:-moz-placeholder {
+		color: var(--color-white) !important;
+		border-color: var(--color-gray) !important;
+	}
+
+	.md-input-container::-moz-placeholder {
+		color: var(--color-white) !important;
+		border-color: var(--color-gray) !important;
+	}
+
+	.md-input-container:-ms-input-placeholder {
+		color: var(--color-white) !important;
+		border-color: var(--color-gray) !important;
+	}
+
+	.md-input-container::-webkit-input-placeholder {
+		color: var(--color-white) !important;
+		border-color: var(--color-gray) !important;
+	}
+
+	.md-input-container::-webkit-input-placeholder {
+		color: var(--color-white) !important;
+		border-color: var(--color-gray) !important;
+	}
+
+	.md-input-container:-moz-placeholder {
+		color: var(--color-white) !important;
+		border-color: var(--color-gray) !important;
+	}
+
+	.md-input-container:-ms-input-placeholder {
+		color: var(--color-white) !important;
+		border-color: var(--color-gray) !important;
+	}
+
+	.md-input-container::-webkit-input-placeholder {
+		color: var(--color-white) !important;
+		border-color: var(--color-gray) !important;
+	}
+
+	
+	
 }
+
 #title {
 	display: none;
 }
