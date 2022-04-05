@@ -45,6 +45,22 @@ module.exports = {
 	},
 	dmg: {
 		artifactName: "Threema-For-Desktop-mac-universal-${version}.${ext}",
+		contents: [
+			{
+				x: 370,
+				y: 450
+			},
+			{
+				x: 666,
+				y: 450,
+				type: "link",
+				path: "/Applications"
+			}
+		],
+		window: {
+			height: 785,
+			width:1080
+		}
 
 	},
 
