@@ -75,3 +75,15 @@ setNotificationCallback(
     notifyNotificationCreate,
     notifyNotificationClick
 );
+
+if (document.location.href.includes("threema.ch")) {
+    window.addEventListener("popstate", function () {
+        if (this.document.location.href.includes("#!/messenger")) {
+            document.getElementsByTagName("md-menu-item")[4].addEventListener("click", () => {
+                this.setTimeout(function (){
+                    if(!document.getElementsByClassName("md-dialog-content")[0].innerHTML.includes("Desktop")) document.getElementsByClassName("md-dialog-content")[0].innerHTML = document.getElementsByClassName("md-dialog-content")[0].innerHTML.replace('</ul>', '<li><a href="https://github.com/GeekCornerGH/Threema-For-Desktop" target="_BLANK">Threema For Desktop</a> is not affiliated with <a href="https://threema.ch" target="_BLANK">Threema</a> and is licenced under <a href="https://github.com/GeekCornerGH/threema-for-desktop/blob/master/LICENSE">MIT License</a>.</li></ul>')
+                }, 100)
+            });
+        };
+    })
+}
