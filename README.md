@@ -23,7 +23,7 @@ Some features:
 Head over <a href="https://github.com/GeekCornerGH/threema-for-desktop/releases/latest">latest releases page</a>, then refer to the table below:  
 
 | Windows installer (x86 + x64 + arm64) | Windows portable (x86 + x64 + arm64) | macOS (Intel+Arm)  | Linux (any) |
-| --------------- | --------------- | --------------- | --------------- | --------------- |
+| --------------- | --------------- | --------------- | --------------- |
 | Threema-For-Desktop-setup-VERSION.exe | Threema-For-Desktop-portable-version | Threema-For-Desktop-mac-universal-VERSION.dmg | Threema-For-Desktop-linux-VERSION.AppImage |
 
 Now, choose your OS:
