@@ -1,6 +1,6 @@
 {
     "name": "threema-desktop",
-    "version": "2.3.0",
+    "version": "2.4.0",
     "description": "Threema for Desktop",
     "main": "build-js/index.js",
     "scripts": {
