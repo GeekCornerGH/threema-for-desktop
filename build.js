@@ -77,7 +77,7 @@ module.exports = {
 	},
 	compression: "maximum",
 	files: [
-		"!{docs,.github,build-binaries,src,CONTRIBUTORS.MD,.all-contributorsrc,.eslintignore,.eslintrc.json,.gitignore,.nvmrc,.travis.yml,build.js,tsconfig.json,yarn.lock}"
+		"!{docs,.github,build-binaries,src,CONTRIBUTORS.MD,.all-contributorsrc,.eslintignore,.eslintrc.json,.gitignore,.nvmrc,.travis.yml,build.js,tsconfig.json,yarn.lock,package-log.json,pnpm-lock.yaml}"
 	],
 	asar: true
 }
