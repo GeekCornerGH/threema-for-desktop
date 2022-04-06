@@ -1,22 +1,12 @@
-import fetch from "node-fetch";
 import { BrowserWindow, dialog, Notification } from "electron";
 import { customApp } from "../types";
+import { resolve } from "dns";
 export async function connection(app: customApp, mainWindow: BrowserWindow): Promise<void> {
 
-    (async () => {
 
-        try {
 
-            const ok = "ok";
-            await fetch("https://ping.ytgeek.gq/ping.json").then(async (res) => {
-
-                const status = await res.json();
-                status.status == ok;
-
-            });
-
-        } catch {
-
+    resolve("threema.ch", err => {
+        if (err) {
             showNotification();
             if (!mainWindow.isFocused()) {
 
@@ -30,18 +20,14 @@ export async function connection(app: customApp, mainWindow: BrowserWindow): Pro
 
                 }
                 if (process.platform == "darwin") {
-
                     app.dock.bounce("critical");
-
                 }
 
             }
-            app.isQuiting = true;
-            return app.quit();
-
         }
+    })
 
-    })();
+
 
     function showNotification() {
 
