@@ -1,4 +1,4 @@
-lockfileVersion: 5.4
+lockfileVersion: 5.3
 
 overrides:
   '@electron/universal': ^1.2.1
@@ -14,7 +14,6 @@ specifiers:
   electron: 18.2.0
   electron-builder: 23.0.3
   electron-localshortcut: ^3.2.1
-  electron-windows-caption-color: ^2.0.0
   eslint: 8.15.0
   node-fetch: ^2.6.7
   path: ^0.12.7
@@ -23,7 +22,6 @@ specifiers:
 dependencies:
   discord-rpc-patch: 4.0.1
   electron-localshortcut: 3.2.1
-  electron-windows-caption-color: 2.0.0
   node-fetch: 2.6.7
   path: 0.12.7
 
@@ -31,8 +29,8 @@ devDependencies:
   '@babel/cli': 7.17.6_@babel+core@7.17.8
   '@babel/core': 7.17.8
   '@types/electron-localshortcut': 3.1.0
-  '@typescript-eslint/eslint-plugin': 5.23.0_c63nfttrfhylg3zmgcxfslaw44
-  '@typescript-eslint/parser': 5.23.0_hcfsmds2fshutdssjqluwm76uu
+  '@typescript-eslint/eslint-plugin': 5.23.0_17b6d2ce7129f0b36f2c30ae592c16e7
+  '@typescript-eslint/parser': 5.23.0_eslint@8.15.0+typescript@4.6.4
   copyfiles: 2.4.1
   electron: 18.2.0
   electron-builder: 23.0.3
@@ -507,7 +505,7 @@ packages:
       '@types/yargs-parser': 20.2.1
     dev: true
 
-  /@typescript-eslint/eslint-plugin/5.23.0_c63nfttrfhylg3zmgcxfslaw44:
+  /@typescript-eslint/eslint-plugin/5.23.0_17b6d2ce7129f0b36f2c30ae592c16e7:
     resolution: {integrity: sha512-hEcSmG4XodSLiAp1uxv/OQSGsDY6QN3TcRU32gANp+19wGE1QQZLRS8/GV58VRUoXhnkuJ3ZxNQ3T6Z6zM59DA==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     peerDependencies:
@@ -518,10 +516,10 @@ packages:
       typescript:
         optional: true
     dependencies:
-      '@typescript-eslint/parser': 5.23.0_hcfsmds2fshutdssjqluwm76uu
+      '@typescript-eslint/parser': 5.23.0_eslint@8.15.0+typescript@4.6.4
       '@typescript-eslint/scope-manager': 5.23.0
-      '@typescript-eslint/type-utils': 5.23.0_hcfsmds2fshutdssjqluwm76uu
-      '@typescript-eslint/utils': 5.23.0_hcfsmds2fshutdssjqluwm76uu
+      '@typescript-eslint/type-utils': 5.23.0_eslint@8.15.0+typescript@4.6.4
+      '@typescript-eslint/utils': 5.23.0_eslint@8.15.0+typescript@4.6.4
       debug: 4.3.3
       eslint: 8.15.0
       functional-red-black-tree: 1.0.1
@@ -534,7 +532,7 @@ packages:
       - supports-color
     dev: true
 
-  /@typescript-eslint/parser/5.23.0_hcfsmds2fshutdssjqluwm76uu:
+  /@typescript-eslint/parser/5.23.0_eslint@8.15.0+typescript@4.6.4:
     resolution: {integrity: sha512-V06cYUkqcGqpFjb8ttVgzNF53tgbB/KoQT/iB++DOIExKmzI9vBJKjZKt/6FuV9c+zrDsvJKbJ2DOCYwX91cbw==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     peerDependencies:
@@ -562,7 +560,7 @@ packages:
       '@typescript-eslint/visitor-keys': 5.23.0
     dev: true
 
-  /@typescript-eslint/type-utils/5.23.0_hcfsmds2fshutdssjqluwm76uu:
+  /@typescript-eslint/type-utils/5.23.0_eslint@8.15.0+typescript@4.6.4:
     resolution: {integrity: sha512-iuI05JsJl/SUnOTXA9f4oI+/4qS/Zcgk+s2ir+lRmXI+80D8GaGwoUqs4p+X+4AxDolPpEpVUdlEH4ADxFy4gw==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     peerDependencies:
@@ -572,7 +570,7 @@ packages:
       typescript:
         optional: true
     dependencies:
-      '@typescript-eslint/utils': 5.23.0_hcfsmds2fshutdssjqluwm76uu
+      '@typescript-eslint/utils': 5.23.0_eslint@8.15.0+typescript@4.6.4
       debug: 4.3.3
       eslint: 8.15.0
       tsutils: 3.21.0_typescript@4.6.4
@@ -607,7 +605,7 @@ packages:
       - supports-color
     dev: true
 
-  /@typescript-eslint/utils/5.23.0_hcfsmds2fshutdssjqluwm76uu:
+  /@typescript-eslint/utils/5.23.0_eslint@8.15.0+typescript@4.6.4:
     resolution: {integrity: sha512-dbgaKN21drqpkbbedGMNPCtRPZo1IOUr5EI9Jrrh99r5UW5Q0dz46RKXeSBoPV+56R6dFKpbrdhgUNSJsDDRZA==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     peerDependencies:
@@ -1183,11 +1181,6 @@ packages:
 
   /debug/2.6.9:
     resolution: {integrity: sha512-bC7ElrdJaJnPbAP+1EotYvqZsb3ecl5wi6Bfi6BJTUcNowp6cvspg0jXznRTKDjm/E7AdgFBVeAPVMNcKGsHMA==}
-    peerDependencies:
-      supports-color: '*'
-    peerDependenciesMeta:
-      supports-color:
-        optional: true
     dependencies:
       ms: 2.0.0
     dev: true
@@ -1385,8 +1378,6 @@ packages:
       isbinaryfile: 3.0.3
       minimist: 1.2.5
       plist: 3.0.4
-    transitivePeerDependencies:
-      - supports-color
     dev: true
 
   /electron-publish/23.0.2:
@@ -1407,12 +1398,6 @@ packages:
     resolution: {integrity: sha512-2kjoAyiG7uMyGRM9mx25s3HAzmQG2ayuYXxsFmYugHSDcwxREgLtscZvbL1JcW9S/OemeQ3f/SG6JhDwpnCclQ==}
     dev: true
 
-  /electron-windows-caption-color/2.0.0:
-    resolution: {integrity: sha512-rRTXseDoOZBZQWTFuYBGRjdTlFdGZ1bG7C8CfxAW94uWg14rLw2sICKlpGvt5JcLhbi71I8UecaQyKPkfbxSCQ==}
-    requiresBuild: true
-    dependencies:
-      nan: 2.15.0
-    dev: false
   /electron/18.2.0:
     resolution: {integrity: sha512-AN+CKalzA57beuvuI90PVgW/yj6zjw7rpb1h8FvIwBJ3toDC3x0Plfzbzh4Ondecbjci7pSg/NA5ngOk804WIQ==}
     engines: {node: '>= 8.6'}
@@ -1598,8 +1583,6 @@ packages:
       debug: 2.6.9
       mkdirp: 0.5.5
       yauzl: 2.10.0
-    transitivePeerDependencies:
-      - supports-color
     dev: true
 
   /extsprintf/1.4.1:
@@ -2309,10 +2292,6 @@ packages:
 
   /ms/2.1.2:
     resolution: {integrity: sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w==}
-
-  /nan/2.15.0:
-    resolution: {integrity: sha512-8ZtvEnA2c5aYCZYd1cvgdnU6cqwixRoYg70xPLWUws5ORTa/lnw+u4amixRS/Ac5U5mQVgp9pnlSUnbNWFaWZQ==}
-    dev: false
 
   /natural-compare/1.4.0:
     resolution: {integrity: sha1-Sr6/7tdUHywnrPspvbvRXI1bpPc=}
