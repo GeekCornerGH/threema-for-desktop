@@ -26,8 +26,7 @@ export async function connection(app: customApp, mainWindow: BrowserWindow): Pro
             }
         }
     })
-
-
+ 
 
     function showNotification() {
 

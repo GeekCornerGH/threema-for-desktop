@@ -1,6 +1,6 @@
 // Modules to control application life and create native browser window
 import { BrowserWindow, ipcMain, shell } from "electron";
-import * as fs from "node:fs";
+import * as fs from "fs";
 import { register } from "electron-localshortcut";
 import { join } from "path";
 import * as electron from "electron";
@@ -52,14 +52,15 @@ async function createWindow() {
         "webPreferences": {
             "preload": join(
                 __dirname,
-                "preload"
+                "preload",
             ),
             "nodeIntegration": false,
             "contextIsolation": false,
 
         }
     });
-
+	const electronCustomCaption = require('electron-windows-caption-color');
+electronCustomCaption.SetCaptionColor(mainWindow, 255, 0, 0); // Red
     const oldUserAgent = mainWindow.webContents.getUserAgent();
     const currVersion = app.getVersion();
     const newUserAgent = `${process.platform}ThreemaDesktop/${currVersion}-${oldUserAgent}`;
