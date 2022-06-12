@@ -27,7 +27,7 @@ jobs:
           node-version: 16
           check-latest: true
       - name: Setup PNPM
-        uses: pnpm/action-setup@v2.2.1
+        uses: pnpm/action-setup@v2.2.2
         with:
           version: latest
       - name: Install dependances to see if there is any issue
