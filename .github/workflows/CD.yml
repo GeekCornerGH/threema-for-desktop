@@ -44,3 +44,9 @@ jobs:
           name: ${{ runner.os }}-artifacts
           path: |
             build-binaries/**
+      - name: Trigger Work flavour CD
+        uses: peter-evans/repository-dispatch@v2
+        with:
+          token: ${{ secrets.GH_PAT }}
+          repository: GeekCornerGH/threema-work-for-desktop
+          event-type: patch
