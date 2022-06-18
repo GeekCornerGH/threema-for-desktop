@@ -59,8 +59,6 @@ async function createWindow() {
 
         }
     });
-	const electronCustomCaption = require('electron-windows-caption-color');
-electronCustomCaption.SetCaptionColor(mainWindow, 255, 0, 0); // Red
     const oldUserAgent = mainWindow.webContents.getUserAgent();
     const currVersion = app.getVersion();
     const newUserAgent = `${process.platform}ThreemaDesktop/${currVersion}-${oldUserAgent}`;
