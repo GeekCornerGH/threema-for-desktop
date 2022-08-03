@@ -9,7 +9,7 @@ specifiers:
   '@typescript-eslint/parser': 5.28.0
   copyfiles: 2.4.1
   discord-rpc-patch: ^4.0.1
-  electron: 20.0.0
+  electron: 20.0.1
   electron-builder: 23.3.3
   electron-localshortcut: ^3.2.1
   eslint: 8.19.0
@@ -28,7 +28,7 @@ devDependencies:
   '@typescript-eslint/eslint-plugin': 5.28.0_p4umo4cnigbmbgqvevwtwkdwka
   '@typescript-eslint/parser': 5.28.0_4x5o4skxv6sl53vpwefgt23khm
   copyfiles: 2.4.1
-  electron: 20.0.0
+  electron: 20.0.1
   electron-builder: 23.3.3
   eslint: 8.19.0
   typescript: 4.7.4
@@ -178,7 +178,7 @@ packages:
   /@types/electron-localshortcut/3.1.0:
     resolution: {integrity: sha512-upKSXMxBPRdz5kmcXfdfn+hWH9PCAvwhyVozDXTIwwHQ1lUJcdSgGUfxOC1QBlnAPKPqcW/r4icWfMosKz8ibg==}
     dependencies:
-      electron: 20.0.0
+      electron: 20.0.1
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -1083,8 +1083,8 @@ packages:
       - supports-color
     dev: true
 
-  /electron/20.0.0:
-    resolution: {integrity: sha512-rPHTdjBKGSoLgGuJVsqDgmK9woDQxzlU18H+3cO4i+fNh29BMbFRwKKyit13lniO1hzRsEJDG5UKvFXs4vEpnA==}
+  /electron/20.0.1:
+    resolution: {integrity: sha512-5c7zr8oy1JsCV86BaoIPVLo4yevDfvPEsMQcGlgfJ5PS7ouAVvR1aHt0tjF65bL1vYdoQ1olvpextg2T8FyICA==}
     engines: {node: '>= 10.17.0'}
     hasBin: true
     requiresBuild: true
