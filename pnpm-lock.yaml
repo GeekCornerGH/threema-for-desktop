@@ -9,7 +9,7 @@ specifiers:
   '@typescript-eslint/parser': 5.28.0
   copyfiles: 2.4.1
   discord-rpc-patch: ^4.0.1
-  electron: 20.0.1
+  electron: 20.0.2
   electron-builder: 23.3.3
   electron-localshortcut: ^3.2.1
   eslint: 8.19.0
@@ -28,7 +28,7 @@ devDependencies:
   '@typescript-eslint/eslint-plugin': 5.28.0_p4umo4cnigbmbgqvevwtwkdwka
   '@typescript-eslint/parser': 5.28.0_4x5o4skxv6sl53vpwefgt23khm
   copyfiles: 2.4.1
-  electron: 20.0.1
+  electron: 20.0.2
   electron-builder: 23.3.3
   eslint: 8.19.0
   typescript: 4.7.4
@@ -178,7 +178,7 @@ packages:
   /@types/electron-localshortcut/3.1.0:
     resolution: {integrity: sha512-upKSXMxBPRdz5kmcXfdfn+hWH9PCAvwhyVozDXTIwwHQ1lUJcdSgGUfxOC1QBlnAPKPqcW/r4icWfMosKz8ibg==}
     dependencies:
-      electron: 20.0.1
+      electron: 20.0.2
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -456,10 +456,10 @@ packages:
     resolution: {integrity: sha512-m0+M53+HYMzqKxwNQZT143K7WwXEGUy9LY31l8dJphXx2P/FQod615mVbxHyqbDCG4J5bHdWm21qZ0e2DVY6CQ==}
     engines: {node: '>=14.0.0'}
     dependencies:
+      7zip-bin: 5.1.1
       '@develar/schema-utils': 2.6.5
       '@electron/universal': 1.2.1
       '@malept/flatpak-bundler': 0.4.0
-      7zip-bin: 5.1.1
       async-exit-hook: 2.0.1
       bluebird-lst: 1.0.9
       builder-util: 23.3.3
@@ -642,9 +642,9 @@ packages:
   /builder-util/23.3.3:
     resolution: {integrity: sha512-MJZlUiq2PY5hjYv9+XNaoYdsITqvLgRDoHSFg/4nzpInbNxNjLQOolL04Zsyp+hgfcbFvMC4h0KkR1CMPHLWbA==}
     dependencies:
+      7zip-bin: 5.1.1
       '@types/debug': 4.1.7
       '@types/fs-extra': 9.0.13
-      7zip-bin: 5.1.1
       app-builder-bin: 4.0.0
       bluebird-lst: 1.0.9
       builder-util-runtime: 9.0.3
@@ -1083,8 +1083,8 @@ packages:
       - supports-color
     dev: true
 
-  /electron/20.0.1:
-    resolution: {integrity: sha512-5c7zr8oy1JsCV86BaoIPVLo4yevDfvPEsMQcGlgfJ5PS7ouAVvR1aHt0tjF65bL1vYdoQ1olvpextg2T8FyICA==}
+  /electron/20.0.2:
+    resolution: {integrity: sha512-Op4nxSyXH0tXjhvWC+WDn9EI0gep5etPccainxu1A4wes+ZFQBMCBXxibotanJfG+WNW4RaOv88NArwHIsSmPw==}
     engines: {node: '>= 10.17.0'}
     hasBin: true
     requiresBuild: true
