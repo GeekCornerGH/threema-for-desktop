@@ -20,7 +20,7 @@ jobs:
           node-version: 16
           check-latest: true
       - name: Setup PNPM
-        uses: pnpm/action-setup@v2.2.2
+        uses: pnpm/action-setup@v2.2.4
         with:
           version: latest
       - name: Cloning and checking the repository with Git
