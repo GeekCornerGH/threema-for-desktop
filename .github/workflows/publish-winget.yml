@@ -15,4 +15,5 @@ jobs:
           iwr https://github.com/microsoft/winget-create/releases/download/v1.1.2.0/wingetcreate.exe -OutFile wingetcreate.exe
           $github = Get-Content '${{ github.event_path }}' | ConvertFrom-Json
           $installerUrl = $github.release.assets | Where-Object -Property name -match 'Threema-For-Desktop-setup-.*\.exe' | Select -ExpandProperty browser_download_url -First 1
-          .\wingetcreate.exe update GeekCorner.threema -s -v $github.release.tag_name -u $installerUrl -t ${{ secrets.WINGET_PAT }}
+          .\wingetcreate.exe update --urls $installerUrl --version $github.release.tag_name GeekCorner.threema
+          .\wingetcreate.exe update --out manifests --token ${{ secrets.WINGET_PAT }} --version $github.release.tag_name GeekCorner.threema
