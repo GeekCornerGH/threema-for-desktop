@@ -23,8 +23,8 @@ dependencies:
 
 devDependencies:
   '@types/electron-localshortcut':
-    specifier: 3.1.0
-    version: 3.1.0
+    specifier: 3.1.1
+    version: 3.1.1
   '@typescript-eslint/eslint-plugin':
     specifier: 6.2.0
     version: 6.2.0(@typescript-eslint/parser@6.2.0)(eslint@8.36.0)(typescript@4.8.4)
@@ -229,8 +229,8 @@ packages:
       '@types/ms': 0.7.31
     dev: true
 
-  /@types/electron-localshortcut@3.1.0:
-    resolution: {integrity: sha512-upKSXMxBPRdz5kmcXfdfn+hWH9PCAvwhyVozDXTIwwHQ1lUJcdSgGUfxOC1QBlnAPKPqcW/r4icWfMosKz8ibg==}
+  /@types/electron-localshortcut@3.1.1:
+    resolution: {integrity: sha512-wKmSZF2j+20/1SVbhcnqi0k+cLEMFjz4PPgNmUFjRdr+KiDRhX7f9hZd1wY56UhPtp9TJm4KAUQncrXcGfpGqw==}
     dependencies:
       electron: 21.4.4
     transitivePeerDependencies:
