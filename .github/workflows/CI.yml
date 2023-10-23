@@ -19,7 +19,7 @@ jobs:
       - name: Cloning and checking the repository with Git
         uses: actions/checkout@v3
       - name: Install and setup Node.JS
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: 16
           check-latest: true
