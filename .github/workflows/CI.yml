@@ -39,7 +39,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.github_token }}
       - name: Upload artifacts to Actions log
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with: 
           name: ${{ runner.os }}-artifacts
           path: |
