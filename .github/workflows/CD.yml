@@ -45,7 +45,7 @@ jobs:
           path: |
             build-binaries/**
       - name: Trigger Work flavour CD
-        uses: peter-evans/repository-dispatch@v2
+        uses: peter-evans/repository-dispatch@v3
         with:
           token: ${{ secrets.GH_PAT }}
           repository: GeekCornerGH/threema-work-for-desktop
