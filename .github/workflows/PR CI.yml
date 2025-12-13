@@ -24,7 +24,7 @@ jobs:
       - name: Install and setup Node.JS
         uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 24
           check-latest: true
       - name: Setup PNPM
         uses: pnpm/action-setup@v3.0.0
