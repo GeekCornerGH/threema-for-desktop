@@ -1,3 +1,5 @@
+
+
 # Threema For Desktop  
 ## Unofficial desktop app for Threema
 <img src="https://github.com/GeekCornerGH/threema-for-desktop/blob/master/docs/imgs/Landing_screen.png?raw=true"></img>  
@@ -27,7 +29,7 @@ Head over <a href="https://github.com/GeekCornerGH/threema-for-desktop/releases/
 
 | Windows installer (x86 + x64 + arm64) | Windows portable (x86 + x64 + arm64) | macOS (Intel+Arm)  | Linux (any) |
 | --------------- | --------------- | --------------- | --------------- |
-| Threema-For-Desktop-setup-VERSION.exe | Threema-For-Desktop-portable-version | Threema-For-Desktop-mac-universal-VERSION.dmg | Threema-For-Desktop-linux-VERSION.AppImage |
+| Threema-For-Desktop-setup-VERSION.exe | Threema-For-Desktop-portable-ARCH-VERSION.exe | Threema-For-Desktop-mac-universal-VERSION.dmg | Threema-For-Desktop-linux-VERSION.AppImage |
 
 Now, choose your OS:
 <ul>
